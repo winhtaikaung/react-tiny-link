@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Axios from "axios";
 import cheerio from "cheerio";
+import { Card } from "./Card";
 
 let initialState = {
   data: {
@@ -62,11 +63,13 @@ const ReactTinyLink = props => {
   }, []);
   return (
     <Fragment>
-      {linkMeta.data.title}
-      <br />
-      {linkMeta.data.description}
-      <br />
-      {linkMeta.data.url}
+      <Card>
+        <header>{linkMeta.data.title}</header>
+
+        <div>{linkMeta.data.description}</div>
+
+        <div>{linkMeta.data.url}</div>
+      </Card>
     </Fragment>
   );
 };
