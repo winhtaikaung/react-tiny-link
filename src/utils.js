@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 const REGEX_STRIP_WWW = /^www\./;
 export const media = {
@@ -11,12 +11,12 @@ export const media = {
     @media (max-width: 48em) {
       ${css(...args)};
     }
-  `
+  `,
 };
 
 export const getHostname = href => {
   const { hostname } = new URL(href);
-  return hostname.replace(REGEX_STRIP_WWW, "");
+  return hostname.replace(REGEX_STRIP_WWW, '');
 };
 
-export const isLarge = cardSize => cardSize === "large";
+export const isLarge = cardSize => cardSize === 'large';

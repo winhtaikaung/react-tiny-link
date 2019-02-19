@@ -14,7 +14,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier":"prettier --single-quote --tab-width=2 --print-width=80 --semi --trailing-comma all",
+    "prettify": "yarn prettier --write 'src/**/*.{js,jsx,json,css}'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -24,5 +26,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4"
+  }
 }

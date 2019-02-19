@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect, useState } from "react";
-import Axios from "axios";
-import cheerio from "cheerio";
+import React, { Fragment, useEffect, useState } from 'react';
+import Axios from 'axios';
+import cheerio from 'cheerio';
 import {
   Card,
   Media,
@@ -8,20 +8,20 @@ import {
   Header,
   Content,
   Footer,
-  Description
-} from "./Card";
-import { getHostname } from "./utils";
+  Description,
+} from './Card';
+import { getHostname } from './utils';
 
 const initialState = {
   data: {
-    title: "loading",
-    content: "",
-    url: "",
-    description: "",
-    image: "",
-    type: "" // MIME Type
+    title: 'loading',
+    content: 'loading',
+    url: 'loading',
+    description: 'loading',
+    image: 'loading',
+    type: 'loading', // MIME Type
   },
-  loading: false
+  loading: true,
 };
 function useEffectAsync(effect, inputs) {
   useEffect(() => {
@@ -35,8 +35,8 @@ async function fetch(url, setState) {
   const client = Axios.create({
     url: fetchUrl,
     headers: {
-      "x-requested-with": ""
-    }
+      'x-requested-with': '',
+    },
   });
   let temp = Object.assign({}, initialState);
   temp.loading = true;
@@ -47,14 +47,14 @@ async function fetch(url, setState) {
 
     temp = {
       data: {
-        title: $("title").text(),
-        content: $("meta[name='description']").attr("content"),
-        url: $("meta[property='og:url']").attr("content"),
-        description: $("meta[name='description']").attr("content"),
-        image: $("meta[property='og:image']").attr("content"),
-        type: $("meta[property='og:type']").attr("content") // MIME Type
+        title: $('title').text(),
+        content: $("meta[name='description']").attr('content'),
+        url: $("meta[property='og:url']").attr('content'),
+        description: $("meta[name='description']").attr('content'),
+        image: $("meta[property='og:image']").attr('content'),
+        type: $("meta[property='og:type']").attr('content'), // MIME Type
       },
-      loading: false
+      loading: false,
     };
 
     // temp.data["title"] = $("meta[property='og:title']").attr("content");
@@ -66,8 +66,17 @@ async function fetch(url, setState) {
 
     setState(temp);
   } catch (error) {
-    let temp = Object.assign({}, initialState);
-    temp.data["url"] = url;
+    temp = {
+      data: {
+        title: undefined,
+        content: undefined,
+        url: undefined,
+        description: undefined,
+        image: undefined,
+        type: undefined, // MIME Type
+      },
+    };
+
     temp.loading = false;
     setState(temp);
     console.error(temp);
@@ -85,12 +94,18 @@ const ReactTinyLink = props => {
   }, []);
   return (
     <Fragment>
-      <Card className="react_tinylink_card" cardSize={props.cardSize} href={props.url}>
-        <Media
-          className="react_tinylink_card_media"
-          cardSize={props.cardSize}
-          src={linkMeta.data.image && linkMeta.data.image}
-        />
+      <Card
+        className="react_tinylink_card"
+        cardSize={props.cardSize}
+        href={props.url}
+      >
+        {props.showGraphic && (
+          <Media
+            className="react_tinylink_card_media"
+            cardSize={props.cardSize}
+            src={linkMeta.data.image && linkMeta.data.image}
+          />
+        )}
         <ContentWrapper
           className="react_tinylink_card_content_wrapper"
           cardSize={props.cardSize}
@@ -101,11 +116,13 @@ const ReactTinyLink = props => {
             className="react_tinylink_card_content_header"
           >
             <Description
+              loading={linkMeta.loading}
+              loadingWidth={2}
               maxLine={props.maxLine}
               minLine={props.minLine}
               className="react_tinylink_card_content_header_description"
             >
-              {linkMeta.data.title}
+              {linkMeta.data.title ? linkMeta.data.title : props.url}
             </Description>
           </Header>
           <Content
@@ -114,12 +131,22 @@ const ReactTinyLink = props => {
             className="react_tinylink_card_content"
             cardSize={props.cardSize}
           >
-            <Description className="react_tinylink_card_content_description">
-              {linkMeta.data.description}
+            <Description
+              loading={linkMeta.loading}
+              loadingWidth={1}
+              className="react_tinylink_card_content_description"
+            >
+              {linkMeta.data.description
+                ? linkMeta.data.description
+                : props.url}
             </Description>
           </Content>
           <Footer className="react_tinylink_footer">
-            <Description className="react_tinylink_card_footer_description">
+            <Description
+              loading={linkMeta.loading}
+              loadingWidth={1}
+              className="react_tinylink_card_footer_description"
+            >
               {getHostname(props.url)}
             </Description>
           </Footer>
@@ -135,3 +162,4 @@ export default ReactTinyLink;
 // maxLine = 2
 // minLine= 1
 // proxyURL=https://cors-anywhere.herokuapp.com
+// showGraphic=true
