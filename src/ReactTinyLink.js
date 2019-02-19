@@ -31,7 +31,7 @@ function useEffectAsync(effect, inputs) {
 
 async function fetch(url, setState) {
   const fetchUrl = `https://cors-anywhere.herokuapp.com/${url}`;
-  console.log(fetchUrl);
+  
   const client = Axios.create({
     url: fetchUrl,
     headers: {
@@ -40,7 +40,7 @@ async function fetch(url, setState) {
   });
   let temp = Object.assign({}, initialState);
   temp.loading = true;
-  console.log(temp);
+  
   try {
     const response = await client.get(fetchUrl);
     const $ = cheerio.load(response.data);
@@ -62,7 +62,7 @@ async function fetch(url, setState) {
     // temp.data["description"] = $("meta[property='og:description']").attr(
     //   "content"
     // );
-    console.log(temp);
+    
 
     setState(temp);
   } catch (error) {
@@ -83,7 +83,7 @@ async function fetch(url, setState) {
   } finally {
     temp.loading = false;
     setState(temp);
-    console.log(temp);
+    
   }
 }
 
