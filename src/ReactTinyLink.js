@@ -14,12 +14,12 @@ import { getHostname } from './utils';
 
 const initialState = {
   data: {
-    title: 'loading',
-    content: 'loading',
-    url: 'loading',
-    description: 'loading',
-    image: 'loading',
-    type: 'loading', // MIME Type
+    title: null,
+    content: null,
+    url: null,
+    description: null,
+    image: null,
+    type: null, // MIME Type
   },
   loading: true,
 };
@@ -31,7 +31,7 @@ function useEffectAsync(effect, inputs) {
 
 async function fetch(url, setState) {
   const fetchUrl = `https://cors-anywhere.herokuapp.com/${url}`;
-  
+
   const client = Axios.create({
     url: fetchUrl,
     headers: {
@@ -39,8 +39,8 @@ async function fetch(url, setState) {
     },
   });
   let temp = Object.assign({}, initialState);
-  temp.loading = true;
   
+
   try {
     const response = await client.get(fetchUrl);
     const $ = cheerio.load(response.data);
@@ -62,7 +62,6 @@ async function fetch(url, setState) {
     // temp.data["description"] = $("meta[property='og:description']").attr(
     //   "content"
     // );
-    
 
     setState(temp);
   } catch (error) {
@@ -83,7 +82,6 @@ async function fetch(url, setState) {
   } finally {
     temp.loading = false;
     setState(temp);
-    
   }
 }
 
@@ -158,8 +156,9 @@ const ReactTinyLink = props => {
 
 export default ReactTinyLink;
 
-// Default props
-// maxLine = 2
-// minLine= 1
-// proxyURL=https://cors-anywhere.herokuapp.com
-// showGraphic=true
+ReactTinyLink.defaultProps = {
+  maxLine: 2,
+  minLine: 1,
+  proxyURL: 'https://cors-anywhere.herokuapp.com',
+  showGraphic: true,
+};

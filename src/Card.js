@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { isLarge, media } from './utils';
 // Key Frames
@@ -71,19 +70,22 @@ const largeDescriptionStyle = css`
     }
   `};
 `;
-// Styled Components
+// Styled Components for cards
 export const Media = styled('div')`
     display: block;
     height: auto;
     position: relative;
-    background: ${({ src }) =>
+    background: ${({ src,placeholderBg }) =>
       src
         ? `url(${src}) center center / cover no-repeat rgb(225, 232, 237)`
-        : `rgb(225, 232, 237)`};
+        : placeholderBg};
     flex: ${({ cardSize }) => (isLarge(cardSize) ? '1 1 0%;' : '0 0 125px;')}
     overflow: hidden;
     transition: flex-basis 0.25s ease-in-out 0s;
 `;
+Media.defaultProps={
+  placeholderBg:`rgb(225, 232, 235)`
+}
 
 export const ContentWrapper = styled('div')`
   display: flex;
@@ -136,7 +138,7 @@ export const Footer = styled('footer')`
 `;
 
 export const Card = styled('a')`
-  max-width: 500px;
+  max-width: 100vw;
   background-color: rgb(255, 255, 255);
   color: rgb(24, 25, 25);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
