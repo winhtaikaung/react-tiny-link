@@ -1,40 +1,31 @@
-import { chain } from 'lodash';
-import {extension, isVideoUrl} from '../utils';
+import { TYPE_VIDEO } from '../index';
+function createThumbNail(url) {
+  let video = document.createElement('video');
+  let canvas = document.createElement('canvas');
+  video.width = 1024;
+  video.height = 768;
+  video.setAttribute('src', url);
+  video.load();
+  video.play();
 
-
-const createWrapper = fn => rule => ({ htmlDom, url }) => {
-    const value = rule(htmlDom)
-    return fn(value, url)
-  }
-
-const wrapVideo = createWrapper((domNodes, url) => {
-    const videoUrl = chain(domNodes)
-      .map('attribs.src')
-      .uniq()
-      .orderBy(videoUrl => extension(videoUrl) === 'mp4', ['desc'])
-      .first()
-      .value()
-    const urlValue = urlFn(videoUrl, { url })
-    return isVideoUrl(urlValue) && urlValue
-  })
-
-export const ScrapVideo = ($)=>{
-    return {
-        image: [$('video').attr('poster')],
-  video: [
-    wrapVideo($ => $('meta[property="og:video:secure_url"]').attr('content')),
-    wrapVideo($ => $('meta[property="og:video"]').attr('content')),
-    wrapVideo($ => {
-      const contentType = $(
-        'meta[property="twitter:player:stream:content_type"]'
-      ).attr('content')
-      const streamUrl = $('meta[property="twitter:player:stream"]').attr(
-        'content'
-      )
-      return contentType ? withContentType(streamUrl, contentType) : streamUrl
-    }),
-    wrapVideo($ => $('video').get()),
-    wrapVideo($ => $('video > source').get())
-  ]
-    }
+  canvas.width = 1024;
+  canvas.height = 768;
+  
+  setTimeout(()=>{
+    canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+  console.log(video.videoHeight);
+  console.log(canvas.toDataURL("image/png"))
+  },1000)
+  // video.play(
+  
 }
+export const ScrapVideo = async url => {
+  createThumbNail(url);
+  return {
+    title: url.substring(url.lastIndexOf('/') + 1),
+    description: url.substring(url.lastIndexOf('/') + 1),
+    image: [],
+    video: [url],
+    type: TYPE_VIDEO,
+  };
+};

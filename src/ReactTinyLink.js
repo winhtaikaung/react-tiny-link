@@ -11,19 +11,19 @@ import {
   Description,
 } from './Card';
 import { getHostname } from './utils';
-import {ScrapAmazon} from './rules/Amazon/ScrapAmazon';
-import {ScrapLogo} from './rules/Logo/ScrapLogo';
-import {ScrapImage} from './rules/Image/ScrapImage';
-import {ScrapYoutube} from './rules/Youtube/ScrapYoutube';
+import { ScrapAmazon } from './rules/Amazon/ScrapAmazon';
+import { ScrapYoutube } from './rules/Youtube/ScrapYoutube';
+import { ScrapVideo } from './rules/Video/ScrapVideo';
+import {ScrapImage} from './rules/Image/ScrapImage'
+import {ScrapAudio} from './rules/Audio/ScrapAudio'
 
 const initialState = {
   data: {
     title: null,
-    content: null,
     url: null,
     description: null,
     image: null,
-    type: null, // MIME Type
+    video:[]
   },
   loading: true,
 };
@@ -43,32 +43,21 @@ async function fetch(url, setState) {
     },
   });
   let temp = Object.assign({}, initialState);
-  
 
   try {
-    const response = await client.get(fetchUrl);
-    const $ = cheerio.load(response.data);
-    console.log(ScrapAmazon($))
-    console.log(ScrapLogo($))
-    console.log(ScrapImage($))
-    console.log(ScrapYoutube($,url))
+    // const response = await client.get(fetchUrl);
+    // const $ = cheerio.load(response.data);
+    // console.log(ScrapAmazon($));
+    // console.log(ScrapImage($,url));
+    // console.log(ScrapYoutube($, url));
+    // console.log(ScrapVideo( url));
+    // console.log(ScrapAudio($,url));
     temp = {
-      data: {
-        title: $('title').text(),
-        content: $("meta[name='description']").attr('content'),
-        url: $("meta[property='og:url']").attr('content'),
-        description: $("meta[name='description']").attr('content'),
-        image: $("meta[property='og:image']").attr('content'),
-        type: $("meta[property='og:type']").attr('content'), // MIME Type
-      },
+      data:ScrapVideo(url) ,
       loading: false,
     };
 
-    // temp.data["title"] = $("meta[property='og:title']").attr("content");
-
-    // temp.data["description"] = $("meta[property='og:description']").attr(
-    //   "content"
-    // );
+    
 
     setState(temp);
   } catch (error) {
@@ -108,8 +97,11 @@ const ReactTinyLink = props => {
           <Media
             className="react_tinylink_card_media"
             cardSize={props.cardSize}
-            src={linkMeta.data.image && linkMeta.data.image}
-          />
+            src={linkMeta.data.image && linkMeta.data.image[0]}
+          >
+          
+          
+          </Media>
         )}
         <ContentWrapper
           className="react_tinylink_card_content_wrapper"
