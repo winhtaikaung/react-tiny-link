@@ -11,6 +11,10 @@ import {
   Description,
 } from './Card';
 import { getHostname } from './utils';
+import {ScrapAmazon} from './rules/Amazon/ScrapAmazon';
+import {ScrapLogo} from './rules/Logo/ScrapLogo';
+import {ScrapImage} from './rules/Image/ScrapImage';
+import {ScrapYoutube} from './rules/Youtube/ScrapYoutube';
 
 const initialState = {
   data: {
@@ -44,7 +48,10 @@ async function fetch(url, setState) {
   try {
     const response = await client.get(fetchUrl);
     const $ = cheerio.load(response.data);
-
+    console.log(ScrapAmazon($))
+    console.log(ScrapLogo($))
+    console.log(ScrapImage($))
+    console.log(ScrapYoutube($,url))
     temp = {
       data: {
         title: $('title').text(),
@@ -78,7 +85,7 @@ async function fetch(url, setState) {
 
     temp.loading = false;
     setState(temp);
-    console.error(temp);
+    console.error(error);
   } finally {
     temp.loading = false;
     setState(temp);

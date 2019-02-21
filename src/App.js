@@ -12,22 +12,9 @@ class App extends Component {
           showGraphic={true}
           maxLine={3}
           minLine={1}
-          url="https://www.metabase.com/"
+          url="https://www.youtube.com/watch?v=plEcjL3XZz8"
         />
-         <ReactTinyLink
-          cardSize="small"
-          showGraphic={false}
-          maxLine={3}
-          minLine={1}
-          url="https://www.w3schools.com/css/tryit.asp?filename=tryresponsive_mobilefirst"
-        />
-        <ReactTinyLink
-          cardSize="large"
-          maxLine={3}
-          minLine={1}
-          showGraphic={true}
-          url="https://www.metabase.com/"
-        />
+         
       </React.Fragment>
     );
   }
