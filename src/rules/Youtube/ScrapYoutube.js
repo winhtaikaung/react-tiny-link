@@ -1,10 +1,9 @@
 import getVideoId from 'get-video-id';
 
-const REGEX_YOUTUBE = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/g;
 
 const titleRegex = /"videoPrimaryInfoRenderer":{"title":{"simpleText":"(.+?)"}}/g;
 
-export const isYoutubeUrl = (url) => REGEX_YOUTUBE.test(url);
+
 export const ScrapYoutube = async ($, url) => {
   const { id } = getVideoId(url);
   try {

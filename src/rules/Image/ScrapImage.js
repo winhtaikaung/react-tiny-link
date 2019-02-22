@@ -1,5 +1,5 @@
 import {TYPE_IMAGE} from '../index'
-export const ScrapImage = ($, url) => ({
+export const ScrapImage = async ($, url) => ({
   title: url.substring(url.lastIndexOf('/') + 1),
   description: url.substring(url.lastIndexOf('/') + 1),
   image: [

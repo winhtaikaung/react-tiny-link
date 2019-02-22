@@ -16,6 +16,8 @@ import { ScrapYoutube } from './rules/Youtube/ScrapYoutube';
 import { ScrapVideo } from './rules/Video/ScrapVideo';
 import {ScrapImage} from './rules/Image/ScrapImage'
 import {ScrapAudio} from './rules/Audio/ScrapAudio'
+import {isVideo} from './rules/utils';
+import {ScraperWraper} from './rules/index';
 
 const initialState = {
   data: {
@@ -34,10 +36,9 @@ function useEffectAsync(effect, inputs) {
 }
 
 async function fetch(url, setState) {
-  const fetchUrl = `https://cors-anywhere.herokuapp.com/${url}`;
-
+  const proxiedUrl = `https://cors-anywhere.herokuapp.com/${url}`;
   const client = Axios.create({
-    url: fetchUrl,
+    url:proxiedUrl,
     headers: {
       'x-requested-with': '',
     },
@@ -45,15 +46,9 @@ async function fetch(url, setState) {
   let temp = Object.assign({}, initialState);
 
   try {
-    // const response = await client.get(fetchUrl);
-    // const $ = cheerio.load(response.data);
-    // console.log(ScrapAmazon($));
-    // console.log(ScrapImage($,url));
-    // console.log(ScrapYoutube($, url));
-    // console.log(ScrapVideo( url));
-    // console.log(ScrapAudio($,url));
+    
     temp = {
-      data:await ScrapVideo(url) ,
+      data:await ScraperWraper({proxiedUrl:proxiedUrl,url:url},client) ,
       loading: false,
     };
 

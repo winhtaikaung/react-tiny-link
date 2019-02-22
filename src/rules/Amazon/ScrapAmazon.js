@@ -1,9 +1,6 @@
-import {TYPE_AMAZON} from '../index'
+import { TYPE_AMAZON } from '../index';
 
-
-const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i;
-const isAmazonUrl = url => REGEX_AMAZON_URL.test(url);
-export const ScrapAmazon = async ($) => ({
+export const ScrapAmazon = async $ => ({
   title: $('title').text(),
   content: $("meta[name='description']").attr('content'),
   url: $("meta[property='og:url']").attr('content'),
