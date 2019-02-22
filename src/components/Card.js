@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import { isLarge, media } from './utils';
+import { isLarge, media } from '../utils';
 // Key Frames
 const shimmerKeyFrame = keyframes`
    0%{
@@ -75,7 +75,7 @@ export const Media = styled('div')`
     display: block;
     height: auto;
     position: relative;
-    background: ${({ src,placeholderBg }) =>
+    background: ${({ src, placeholderBg }) =>
       src
         ? `url(${src}) center center / cover no-repeat rgb(225, 232, 237)`
         : placeholderBg};
@@ -83,9 +83,19 @@ export const Media = styled('div')`
     overflow: hidden;
     transition: flex-basis 0.25s ease-in-out 0s;
 `;
-Media.defaultProps={
-  placeholderBg:`rgb(225, 232, 235)`
-}
+Media.defaultProps = {
+  placeholderBg: `rgb(225, 232, 235)`,
+};
+
+export const Video = styled('video')`
+width:100%;
+display: block;
+height: 100%;
+    position: relative;
+    flex: ${({ cardSize }) => (isLarge(cardSize) ? '1 1 0%;' : '0 0 125px;')}
+    overflow: hidden;
+object-fit:cover
+`;
 
 export const ContentWrapper = styled('div')`
   display: flex;

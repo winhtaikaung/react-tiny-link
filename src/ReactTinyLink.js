@@ -10,7 +10,7 @@ import {
   Content,
   Footer,
   Description,
-} from './Card';
+} from './components/Card';
 import { getHostname } from './utils';
 import { ScrapAmazon } from './rules/Amazon/ScrapAmazon';
 import { ScrapYoutube } from './rules/Youtube/ScrapYoutube';
@@ -18,7 +18,8 @@ import { ScrapVideo } from './rules/Video/ScrapVideo';
 import { ScrapImage } from './rules/Image/ScrapImage';
 import { ScrapAudio } from './rules/Audio/ScrapAudio';
 import { isVideo } from './rules/utils';
-import { ScraperWraper } from './rules/index';
+import { ScraperWraper , TYPE_DEFAULT} from './rules/index';
+import CardMedia from './components/CardMedia';
 
 const initialState = {
   data: {
@@ -59,12 +60,12 @@ async function fetch(url, setState) {
   } catch (error) {
     temp = {
       data: {
-        title: undefined,
-        content: undefined,
-        url: undefined,
-        description: undefined,
-        image: undefined,
-        type: undefined, // MIME Type
+        title: url.substring(url.lastIndexOf('/') + 1),
+        description: url.substring(url.lastIndexOf('/') + 1),
+        url:url,
+        image:[],
+        video: [],
+        type:TYPE_DEFAULT
       },
     };
 
@@ -90,10 +91,11 @@ const ReactTinyLink = props => {
         href={props.url}
       >
         {props.showGraphic && (
-          <Media
-            className="react_tinylink_card_media"
+          <CardMedia
+            
             cardSize={props.cardSize}
-            src={linkMeta.data.image && linkMeta.data.image[0]}
+            linkMeta={linkMeta}
+            
           />
         )}
         <ContentWrapper
