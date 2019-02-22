@@ -92,7 +92,7 @@ const ReactTinyLink = props => {
       >
         {props.showGraphic && (
           <CardMedia
-            
+            autoPlay={props.autoPlay}
             cardSize={props.cardSize}
             linkMeta={linkMeta}
             
@@ -155,4 +155,5 @@ ReactTinyLink.defaultProps = {
   minLine: 1,
   proxyURL: 'https://cors-anywhere.herokuapp.com',
   showGraphic: true,
+  autoPlay:true
 };
