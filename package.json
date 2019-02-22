@@ -5,6 +5,7 @@
   "dependencies": {
     "audio-extensions": "^0.0.0",
     "axios": "^0.18.0",
+    "axios-cache-adapter": "^2.2.1",
     "cheerio": "^1.0.0-rc.2",
     "get-video-id": "^3.1.0",
     "image-extensions": "^1.1.0",

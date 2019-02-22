@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Axios from 'axios';
 import cheerio from 'cheerio';
+import { setupCache } from 'axios-cache-adapter';
 import {
   Card,
   Media,
@@ -14,10 +15,10 @@ import { getHostname } from './utils';
 import { ScrapAmazon } from './rules/Amazon/ScrapAmazon';
 import { ScrapYoutube } from './rules/Youtube/ScrapYoutube';
 import { ScrapVideo } from './rules/Video/ScrapVideo';
-import {ScrapImage} from './rules/Image/ScrapImage'
-import {ScrapAudio} from './rules/Audio/ScrapAudio'
-import {isVideo} from './rules/utils';
-import {ScraperWraper} from './rules/index';
+import { ScrapImage } from './rules/Image/ScrapImage';
+import { ScrapAudio } from './rules/Audio/ScrapAudio';
+import { isVideo } from './rules/utils';
+import { ScraperWraper } from './rules/index';
 
 const initialState = {
   data: {
@@ -25,7 +26,7 @@ const initialState = {
     url: null,
     description: null,
     image: null,
-    video:[]
+    video: [],
   },
   loading: true,
 };
@@ -38,21 +39,21 @@ function useEffectAsync(effect, inputs) {
 async function fetch(url, setState) {
   const proxiedUrl = `https://cors-anywhere.herokuapp.com/${url}`;
   const client = Axios.create({
-    url:proxiedUrl,
+    url: proxiedUrl,
     headers: {
       'x-requested-with': '',
     },
+    adapter: setupCache({
+      maxAge: 15 * 60 * 1000,
+    }).adapter,
   });
   let temp = Object.assign({}, initialState);
 
   try {
-    
     temp = {
-      data:await ScraperWraper({proxiedUrl:proxiedUrl,url:url},client) ,
+      data: await ScraperWraper({ proxiedUrl: proxiedUrl, url: url }, client),
       loading: false,
     };
-
-    
 
     setState(temp);
   } catch (error) {
@@ -93,10 +94,7 @@ const ReactTinyLink = props => {
             className="react_tinylink_card_media"
             cardSize={props.cardSize}
             src={linkMeta.data.image && linkMeta.data.image[0]}
-          >
-          
-          
-          </Media>
+          />
         )}
         <ContentWrapper
           className="react_tinylink_card_content_wrapper"

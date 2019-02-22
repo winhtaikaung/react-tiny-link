@@ -1,7 +1,7 @@
 import {TYPE_AUDIO} from '../index'
 
 
-export const ScrapAudio = async ($,url)=>{
+export const ScrapAudio = async (url)=>{
    
     return {
         title: url.substring(url.lastIndexOf('/') + 1),

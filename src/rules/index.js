@@ -6,6 +6,7 @@ import { ScrapImage } from './Image/ScrapImage';
 import cheerio from 'cheerio';
 import { ScrapYoutube } from './Youtube/ScrapYoutube';
 import { ScrapAmazon } from './Amazon/ScrapAmazon';
+import ScrapDefault from './Default/ScrapDefault';
 
 export const TYPE_AMAZON = 'TYPE_AMAZON';
 export const TYPE_YOUTUBE = 'TYPE_YOUTUBE';
@@ -18,29 +19,24 @@ export const ScraperWraper = async ({ proxiedUrl, url }, httpClient) => {
   if (!isEmpty(url)) {
     if (isVideo(url)) {
       return await ScrapVideo(url);
-    }
-
-    if (isAudio(url)) {
+    } else if (isAudio(url)) {
       return await ScrapAudio(url);
-    }
-
-    if (isImage(url)) {
-      console.log('BEFORE_SCRAP');
+    } else if (isImage(url)) {
       const response = await httpClient.get(proxiedUrl);
       const $ = cheerio.load(response.data);
       return await ScrapImage($, url);
-    }
-
-    if (isYoutubeUrl(url)) {
+    } else if (isYoutubeUrl(url)) {
       const response = await httpClient.get(proxiedUrl);
       const $ = cheerio.load(response.data);
       return await ScrapYoutube($, url);
-    }
-
-    if (isAmazonUrl(url)) {
+    } else if (isAmazonUrl(url)) {
       const response = await httpClient.get(proxiedUrl);
       const $ = cheerio.load(response.data);
       return await ScrapAmazon($, url);
+    } else {
+      const response = await httpClient.get(proxiedUrl);
+      const $ = cheerio.load(response.data);
+      return await ScrapDefault($, url);
     }
   }
 };

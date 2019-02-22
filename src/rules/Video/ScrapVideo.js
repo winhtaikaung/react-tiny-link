@@ -28,7 +28,6 @@ async function createThumbNail(url) {
   });
   
   return canvas
-  // video.play(
 }
 export const ScrapVideo = async url => {
   
