@@ -15,7 +15,7 @@ class App extends Component {
           // url="https://cdn.perxtech.io/perx-wallet-img-gen?total_stamps=10&col_count=5&reward_points=5&margin_y=60&margin_x=40&chop_w=120&chop_h=120&width=1024&height=512&background=bb8c54&stamp_points=1,2&Hello.png"
           // url="https://twitter.com/i/status/1098405500767686656"
           // url="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
-          url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
           // url="https://www.youtube.com/watch?v=plEcjL3XZz8"
         />
       </React.Fragment>

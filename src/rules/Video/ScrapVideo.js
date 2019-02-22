@@ -1,29 +1,41 @@
 import { TYPE_VIDEO } from '../index';
-function createThumbNail(url) {
+async function createThumbNail(url) {
   let video = document.createElement('video');
   let canvas = document.createElement('canvas');
-  video.width = 1024;
-  video.height = 768;
+  // video.width = 1024;
+  // video.height = 768;
+  let videoHeight = 0;
+  let videoWidth = 0;
   video.setAttribute('src', url);
   video.load();
-  video.play();
+  
+  video.muted = true;
+  video.crossOrigin = 'Anonymous';
 
-  canvas.width = 1024;
-  canvas.height = 768;
+  video.addEventListener('loadedmetadata', () => {
+    videoHeight = video.videoHeight ;
+    videoWidth = video.videoWidth ;
+    canvas.width = videoWidth/3;
+    canvas.height = videoHeight/3;
+    video.play();
+  });
+
+  video.addEventListener('playing', () => {
+      setTimeout(() => {
+        canvas.getContext('2d').drawImage(video, (videoWidth/2)/64, -(videoHeight/1.5)/9, videoWidth/2, videoHeight/1.5);
+        video.pause();
+      }, 3000);
+  });
   
-  setTimeout(()=>{
-    canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
-  console.log(video.videoHeight);
-  console.log(canvas.toDataURL("image/png"))
-  },1000)
+  return canvas
   // video.play(
-  
 }
 export const ScrapVideo = async url => {
-  createThumbNail(url);
+  
+  console.log(url.substring(url.lastIndexOf('/') + 1))
   return {
     title: url.substring(url.lastIndexOf('/') + 1),
-    description: url.substring(url.lastIndexOf('/') + 1),
+    description: url,
     image: [],
     video: [url],
     type: TYPE_VIDEO,

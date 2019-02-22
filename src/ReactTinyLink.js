@@ -53,7 +53,7 @@ async function fetch(url, setState) {
     // console.log(ScrapVideo( url));
     // console.log(ScrapAudio($,url));
     temp = {
-      data:ScrapVideo(url) ,
+      data:await ScrapVideo(url) ,
       loading: false,
     };
 
