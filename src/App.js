@@ -9,8 +9,8 @@ class App extends Component {
         <h1>React-Tiny-Link</h1>
         <p>
           React link preview component with cards for web without a specific
-          backend that provide meta information of your links to render rich previews.
-          But it uses proxy to avoid browser CORS issue.
+          backend that provide meta information of your links to render rich
+          previews. But it uses proxy to avoid browser CORS issue.
         </p>
         <p>
           It works with most of the active links as it scrapes the almost all
@@ -33,7 +33,31 @@ class App extends Component {
           </a>{' '}
           ) for some of the popular urls like Amazon and Youtube links.
         </p>
-        <p>If you may want to scrape or add customize scrapping rules, please feel free to send PR. </p>
+        <p>
+          If you may want to scrape or add customize scrapping rules, please
+          feel free to send PR.{' '}
+        </p>
+        <h3>Docs</h3>
+        <p>
+          For more documentation about react-tiny-link please proceed{' '}
+          <a
+            href="https://github.com/winhtaikaung/react-tiny-link/blob/master/README.md"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            here
+          </a>
+        </p>
+        <h2>Examples</h2>
+        <h3>Code Sandbox</h3>
+        <p>
+          <a href="https://codesandbox.io/s/monp6n08n8?fontsize=14">
+            <img
+              alt="Edit React Tiny Link"
+              src="https://codesandbox.io/static/img/play-codesandbox.svg"
+            />
+          </a>
+        </p>
         <h3>Amazon url example</h3>
         <ReactTinyLink
           cardSize="small"
@@ -233,16 +257,25 @@ class App extends Component {
   showGraphic={true}
   maxLine={2}
   minLine={1}
-  url="https://www.iflix.com/" />`
-      }
+  url="https://www.iflix.com/" />`}
           </code>
         </pre>
         <footer>
           Made with <i className="fa fa-heart" style={{ color: `red` }} /> in
           Singapore
-          
-          <p> <a href="http://twitter.com/winhtaikaung">Twitter<i className="fab fa-twitter" style={{ color: `#00b4ff` }}></i> </a></p>
-          <p> <a href="http://github.com/winhtaikaung">Github<i className="fab fa-github" ></i> </a></p>
+          <p>
+            {' '}
+            <a href="http://twitter.com/winhtaikaung">
+              Twitter
+              <i className="fab fa-twitter" style={{ color: `#00b4ff` }} />{' '}
+            </a>
+          </p>
+          <p>
+            {' '}
+            <a href="http://github.com/winhtaikaung">
+              Github<i className="fab fa-github" />{' '}
+            </a>
+          </p>
         </footer>
       </React.Fragment>
     );

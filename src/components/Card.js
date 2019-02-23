@@ -152,7 +152,7 @@ export const Footer = styled('footer')`
 `;
 
 export const Card = styled('a')`
-  max-width: ${({width})=>width?width:`100vw`};
+  max-width: ${({ width }) => (width ? width : `100vw`)};
   background-color: rgb(255, 255, 255);
   color: rgb(24, 25, 25);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

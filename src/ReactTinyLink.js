@@ -141,10 +141,10 @@ const ReactTinyLink = props => {
 export default ReactTinyLink;
 
 ReactTinyLink.defaultProps = {
-  cardSize:"small",
+  cardSize: 'small',
   maxLine: 2,
   minLine: 1,
-  width:"100vw",
+  width: '100vw',
   proxyUrl: 'https://cors-anywhere.herokuapp.com',
   showGraphic: true,
   autoPlay: false,
