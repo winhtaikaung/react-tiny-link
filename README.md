@@ -133,8 +133,8 @@ url="https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_1
 * [SourceCode](https://github.com/winhtaikaung/react-tiny-link/)
 
 ## CodeSandbox 
+[![Edit React Tiny Link](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/monp6n08n8?fontsize=14)
 
-[Code Sandbox Demo](https://codesandbox.io/s/monp6n08n8) 
 
   
 
