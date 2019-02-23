@@ -9,7 +9,8 @@ class App extends Component {
         <h1>React-Tiny-Link</h1>
         <p>
           React link preview component with cards for web without a specific
-          backend that convert your links into rich previews.
+          backend that provide meta information of your links to render rich previews.
+          But it uses proxy to avoid browser CORS issue.
         </p>
         <p>
           It works with most of the active links as it scrapes the almost all
