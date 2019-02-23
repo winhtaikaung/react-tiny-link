@@ -1,5 +1,5 @@
 import {TYPE_AUDIO} from '../index'
-import Music from '../../assets/Music.svg'
+import MusicLogo from '../../assets/music.svg'
 
 export const ScrapAudio = async (url)=>{
    
@@ -7,7 +7,7 @@ export const ScrapAudio = async (url)=>{
         title: url.substring(url.lastIndexOf('/') + 1),
         description: url.substring(url.lastIndexOf('/') + 1),
         url:url,
-        image:[Music],
+        image:[MusicLogo],
         video: [],
         type:TYPE_AUDIO
       }
