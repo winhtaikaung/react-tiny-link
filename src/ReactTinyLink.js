@@ -1,10 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Axios from 'axios';
-import cheerio from 'cheerio';
-import { setupCache } from 'axios-cache-adapter';
 import {
   Card,
-  Media,
   ContentWrapper,
   Header,
   Content,
@@ -12,13 +9,8 @@ import {
   Description,
 } from './components/Card';
 import { getHostname } from './utils';
-import { ScrapAmazon } from './rules/Amazon/ScrapAmazon';
-import { ScrapYoutube } from './rules/Youtube/ScrapYoutube';
-import { ScrapVideo } from './rules/Video/ScrapVideo';
-import { ScrapImage } from './rules/Image/ScrapImage';
-import { ScrapAudio } from './rules/Audio/ScrapAudio';
-import { isVideo } from './rules/utils';
-import { ScraperWraper , TYPE_DEFAULT} from './rules/index';
+
+import { ScraperWraper, TYPE_DEFAULT } from './rules/index';
 import CardMedia from './components/CardMedia';
 
 const initialState = {
@@ -44,9 +36,6 @@ async function fetch(url, setState) {
     headers: {
       'x-requested-with': '',
     },
-    adapter: setupCache({
-      maxAge: 15 * 60 * 1000,
-    }).adapter,
   });
   let temp = Object.assign({}, initialState);
 
@@ -62,10 +51,10 @@ async function fetch(url, setState) {
       data: {
         title: url.substring(url.lastIndexOf('/') + 1),
         description: url.substring(url.lastIndexOf('/') + 1),
-        url:url,
-        image:[],
+        url: url,
+        image: [],
         video: [],
-        type:TYPE_DEFAULT
+        type: TYPE_DEFAULT,
       },
     };
 
@@ -89,13 +78,13 @@ const ReactTinyLink = props => {
         className="react_tinylink_card"
         cardSize={props.cardSize}
         href={props.url}
+        isShownGraphic={props.showGraphic}
       >
         {props.showGraphic && (
           <CardMedia
             autoPlay={props.autoPlay}
             cardSize={props.cardSize}
             linkMeta={linkMeta}
-            
           />
         )}
         <ContentWrapper
@@ -155,5 +144,5 @@ ReactTinyLink.defaultProps = {
   minLine: 1,
   proxyURL: 'https://cors-anywhere.herokuapp.com',
   showGraphic: true,
-  autoPlay:true
+  autoPlay: false,
 };

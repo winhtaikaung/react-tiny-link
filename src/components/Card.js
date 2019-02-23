@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 import { isLarge, media } from '../utils';
+import { TYPE_AUDIO } from '../rules/index';
 // Key Frames
 const shimmerKeyFrame = keyframes`
    0%{
@@ -29,7 +30,7 @@ const smallMediaStyle = css`
   height: 127px;
 `;
 const largeMediaStyle = css`
-  height: 382px;
+  height: ${({isShownGraphic})=>isShownGraphic?'382px;':'auto'}
 `;
 
 // Content Style
@@ -75,10 +76,11 @@ export const Media = styled('div')`
     display: block;
     height: auto;
     position: relative;
-    background: ${({ src, placeholderBg }) =>
+    background: ${({ src, placeholderBg,type }) =>
       src
-        ? `url(${src}) center center / cover no-repeat rgb(225, 232, 237)`
+        ? `url(${src}) center center / ${(type === TYPE_AUDIO)?`contain`:`cover`} no-repeat rgb(225, 232, 237)`
         : placeholderBg};
+    
     flex: ${({ cardSize }) => (isLarge(cardSize) ? '1 1 0%;' : '0 0 125px;')}
     overflow: hidden;
     transition: flex-basis 0.25s ease-in-out 0s;
