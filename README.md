@@ -1,64 +1,109 @@
 
   
 
+  
+
 # React-Tiny-Link
+
+  
 
 > Convert your links into beautiful previews
 
   
 
+  
+
 Yet anotherReact link preview component with cards for web without a specific backend.
+
+  
 
 [![npm version](https://badge.fury.io/js/react-tiny-link.svg)](https://badge.fury.io/js/react-tiny-link) ![npm](https://img.shields.io/npm/v/react-tiny-link.svg) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/winhtaikaung/react-tiny-link.svg) ![NPM](https://img.shields.io/npm/l/react-tiny-link.svg)
 
+  
+
 [![NPM](https://nodei.co/npm/react-tiny-link.png)](https://nodei.co/npm/react-tiny-link/)
+
   
 
 ## CORS enabled?
+
+  
 
 No. You may need a `CORS` proxy to use this component. But if you dont have one, we made the component to use https://cors-anywhere.herokuapp.com as default proxy. Thanks to [Rob](https://github.com/Rob--W). [It](https://cors-anywhere.herokuapp.com) saves my time for accessing urls.
 
   
 
+  
+
 ## Installation
 
-```
-
-npm install --save react-tiny-link
+  
 
 ```
 
   
+
+npm install --save react-tiny-link
+
+  
+
+```
+
+  
+
   
 
 ## Usage & Configuration
 
+  
+
 ````javascript
+
+  
 
 import  ReactTinyLink  from  'react-tiny-link';
 
   
 
+  
+
 <ReactTinyLink
+
+  
 
 cardSize="small"
 
+  
+
 showGraphic={true}
+
+  
 
 maxLine={2}
 
+  
+
 minLine={1}
+
+  
 
 url="https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_18637582011_1_1?srs=18637582011&ie=UTF8&qid=1550721409&sr=8-1"
 
+  
+
 />
+
+  
 
 ````
 
   
+
   
 
 ## Props & methods
+
+  
 
 | PropName | Description|PropType | value | required
 |--|--|--|--|--|
@@ -72,38 +117,61 @@ url="https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_1
 |**autoPlay** | Boolean value to play the media if provided url is video | boolean|default(`false`) |`false`
 
   
+
   
 
 ## Demo App &
 
   
 
+  
+
 * [Demo](https://winhtaikaung.github.io/react-tiny-link/)
+
+  
 
 * [SourceCode](https://github.com/winhtaikaung/react-tiny-link/)
 
-  
+## CodeSandbox 
+
+[Code Sandbox Demo](https://codesandbox.io/s/monp6n08n8) 
+
   
 
 ## Contributing
 
   
 
+  
+
 1. Fork it
+
+  
 
 2. Create your feature branch (`git checkout -b my-new-feature`)
 
+  
+
 3. Commit your changes (`git commit -am 'Added some feature'`)
 
+  
+
 4. Push to the branch (`git push origin my-new-feature`)
+
+  
 
 5. Create new Pull Request
 
   
+
   
 
 ## License
 
+  
+
 [MIT](http://www.opensource.org/licenses/MIT)
+
+  
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/winhtaikaung.svg?style=social)
