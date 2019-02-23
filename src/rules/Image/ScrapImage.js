@@ -1,4 +1,5 @@
-import {TYPE_IMAGE} from '../index'
+import { TYPE_IMAGE } from '../index';
+import isEmpty from 'lodash/isEmpty';
 export const ScrapImage = async ($, url) => ({
   title: url.substring(url.lastIndexOf('/') + 1),
   description: url.substring(url.lastIndexOf('/') + 1),
@@ -11,6 +12,6 @@ export const ScrapImage = async ($, url) => ({
     $('meta[name="twitter:image:src"]').attr('content'),
     $('meta[name="twitter:image"]').attr('content'),
     $('meta[itemprop="image"]').attr('content'),
-  ],
-  type:TYPE_IMAGE
+  ].filter(i => !isEmpty(i)),
+  type: TYPE_IMAGE,
 });

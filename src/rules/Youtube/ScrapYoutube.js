@@ -1,8 +1,7 @@
 import getVideoId from 'get-video-id';
-
+import isEmpty from 'lodash/isEmpty';
 
 const titleRegex = /"videoPrimaryInfoRenderer":{"title":{"simpleText":"(.+?)"}}/g;
-
 
 export const ScrapYoutube = async ($, url) => {
   const { id } = getVideoId(url);
@@ -21,7 +20,7 @@ export const ScrapYoutube = async ($, url) => {
         `https://img.youtube.com/vi/${id}/1.jpg`,
         `https://img.youtube.com/vi/${id}/2.jpg`,
         `https://img.youtube.com/vi/${id}/3.jpg`,
-      ],
+      ].filter(i => !isEmpty(i)),
     };
   } catch (error) {
     return {
@@ -33,7 +32,7 @@ export const ScrapYoutube = async ($, url) => {
         `https://img.youtube.com/vi/${id}/1.jpg`,
         `https://img.youtube.com/vi/${id}/2.jpg`,
         `https://img.youtube.com/vi/${id}/3.jpg`,
-      ],
+      ].filter(i => !isEmpty(i)),
     };
   }
 };

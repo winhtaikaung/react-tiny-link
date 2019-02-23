@@ -29,8 +29,8 @@ function useEffectAsync(effect, inputs) {
   }, inputs);
 }
 
-async function fetch(url, setState) {
-  const proxiedUrl = `https://cors-anywhere.herokuapp.com/${url}`;
+async function fetch(url, proxyUrl, setState) {
+  const proxiedUrl = `${proxyUrl}/${url}`;
   const client = Axios.create({
     url: proxiedUrl,
     headers: {
@@ -70,7 +70,7 @@ async function fetch(url, setState) {
 const ReactTinyLink = props => {
   const [linkMeta, setlinkMeta] = useState(initialState);
   useEffectAsync(() => {
-    fetch(props.url, setlinkMeta);
+    fetch(props.url, props.proxyUrl, setlinkMeta);
   }, []);
   return (
     <Fragment>
@@ -78,6 +78,7 @@ const ReactTinyLink = props => {
         className="react_tinylink_card"
         cardSize={props.cardSize}
         href={props.url}
+        width={props.width}
         isShownGraphic={props.showGraphic}
       >
         {props.showGraphic && (
@@ -140,9 +141,11 @@ const ReactTinyLink = props => {
 export default ReactTinyLink;
 
 ReactTinyLink.defaultProps = {
+  cardSize:"small",
   maxLine: 2,
   minLine: 1,
-  proxyURL: 'https://cors-anywhere.herokuapp.com',
+  width:"100vw",
+  proxyUrl: 'https://cors-anywhere.herokuapp.com',
   showGraphic: true,
   autoPlay: false,
 };

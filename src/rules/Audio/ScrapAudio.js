@@ -1,14 +1,13 @@
-import {TYPE_AUDIO} from '../index'
-import MusicLogo from '../../assets/music.svg'
+import { TYPE_AUDIO } from '../index';
+import MusicLogo from '../../assets/music.svg';
 
-export const ScrapAudio = async (url)=>{
-   
-    return {
-        title: url.substring(url.lastIndexOf('/') + 1),
-        description: url.substring(url.lastIndexOf('/') + 1),
-        url:url,
-        image:[MusicLogo],
-        video: [],
-        type:TYPE_AUDIO
-      }
-}
+export const ScrapAudio = async url => {
+  return {
+    title: url.substring(url.lastIndexOf('/') + 1),
+    description: url.substring(url.lastIndexOf('/') + 1),
+    url: url,
+    image: [MusicLogo],
+    video: [],
+    type: TYPE_AUDIO,
+  };
+};

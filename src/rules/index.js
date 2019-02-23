@@ -36,7 +36,8 @@ export const ScraperWraper = async ({ proxiedUrl, url }, httpClient) => {
     } else {
       const response = await httpClient.get(proxiedUrl);
       const $ = cheerio.load(response.data);
-      return await ScrapDefault($, url);
+      const resp = await ScrapDefault($, url);
+      return resp;
     }
   }
 };

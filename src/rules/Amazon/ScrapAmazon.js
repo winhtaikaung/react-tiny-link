@@ -1,5 +1,5 @@
 import { TYPE_AMAZON } from '../index';
-
+import isEmpty from 'lodash/isEmpty';
 export const ScrapAmazon = async $ => ({
   title: $('title').text(),
   content: $("meta[name='description']").attr('content'),
@@ -7,7 +7,7 @@ export const ScrapAmazon = async $ => ({
   image: [
     $('.a-dynamic-image').attr('data-old-hires'),
     $('.a-dynamic-image').attr('src'),
-  ],
+  ].filter(i => !isEmpty(i)),
   description: $("meta[name='description']").attr('content'),
   video: [],
   type: TYPE_AMAZON, // MIME Type

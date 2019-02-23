@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# React-Tiny-Link
+>   Convert your links into beautiful previews 
 
-In the project directory, you can run:
+Yet anotherReact link preview component with cards for web without a specific backend.
 
-### `npm start`
+## CORS enabled?
+No. You may need a `CORS` proxy to use this component. But if you dont have one, we made the component to use https://cors-anywhere.herokuapp.com as default proxy. Thanks to [Rob](https://github.com/Rob--W). [It](https://cors-anywhere.herokuapp.com)  saves my time for accessing urls.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
+```
+npm install --save react-tiny-link
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+## Usage & Configuration
+````javascript
+import  ReactTinyLink  from  'react-tiny-link';
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<ReactTinyLink
+  cardSize="small"
+  showGraphic={true}
+  maxLine={2}
+  minLine={1}
+  url="https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_18637582011_1_1?srs=18637582011&ie=UTF8&qid=1550721409&sr=8-1"
+/>
+````
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Props & methods
+| PropName | Description|PropType | value | required
+|--|--|--|--|--|
+|**url** | URL to be display as preview  | string	| |`true`
+|**cardSize** | Size of the card  |	string	|default (`small`) `small`,`large`|false
+|**maxLine** | Maximum number of line to ellipsis | number	| |`false`
+|**minLine** | Minimum number of line to ellipsis | number	| |`false`
+|**width** | Width of the link preview card | number| default(`100vw`)|`false`
+|**proxyUrl** | Proxy URL to pass that resolve CORS  | string|default(`https://cors-anywhere.herokuapp.com`) |`false`
+|**showGraphic** | Boolean value to display graphics  | boolean|default(`true`) |`false`
+|**autoPlay** | Boolean value to play the media if provided url is video  | boolean|default(`false`) |`false`
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ 
+## Demo App & 
 
-### `npm run eject`
+* [Demo](https://winhtaikaung.github.io/react-tiny-link/)
+* [SourceCode](https://github.com/winhtaikaung/react-tiny-link/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ 1. Fork it
+ 2. Create your feature branch (`git checkout -b my-new-feature`)
+ 3. Commit your changes (`git commit -am 'Added some feature'`)
+ 4. Push to the branch (`git push origin my-new-feature`)
+ 5. Create new Pull Request

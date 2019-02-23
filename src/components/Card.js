@@ -21,7 +21,7 @@ const loadingStyle = css`
   background-size: 800px 100%;
   color: transparent;
   -webkit-line-clamp: 1;
-  border-radius: 5px;
+  border-radius: 10px;
   width: ${({ loadingWidth }) =>
     loadingWidth ? `${100 / loadingWidth}%` : `100%`};
 `;
@@ -30,7 +30,7 @@ const smallMediaStyle = css`
   height: 127px;
 `;
 const largeMediaStyle = css`
-  height: ${({isShownGraphic})=>isShownGraphic?'382px;':'auto'}
+  height: ${({ isShownGraphic }) => (isShownGraphic ? '382px;' : 'auto')};
 `;
 
 // Content Style
@@ -76,9 +76,11 @@ export const Media = styled('div')`
     display: block;
     height: auto;
     position: relative;
-    background: ${({ src, placeholderBg,type }) =>
+    background: ${({ src, placeholderBg, type }) =>
       src
-        ? `url(${src}) center center / ${(type === TYPE_AUDIO)?`contain`:`cover`} no-repeat rgb(225, 232, 237)`
+        ? `url(${src}) center center / ${
+            type === TYPE_AUDIO ? `contain` : `cover`
+          } no-repeat rgb(225, 232, 237)`
         : placeholderBg};
     
     flex: ${({ cardSize }) => (isLarge(cardSize) ? '1 1 0%;' : '0 0 125px;')}
@@ -123,7 +125,7 @@ export const Header = styled('header')`
 export const Content = styled('div')`
   text-align: left;
   font-size: 14px;
-  flex-grow: 2;
+  flex-grow: 1;
   margin: auto 0;
   line-height: 18px;
 
@@ -150,7 +152,7 @@ export const Footer = styled('footer')`
 `;
 
 export const Card = styled('a')`
-  max-width: 100vw;
+  max-width: ${({width})=>width?width:`100vw`};
   background-color: rgb(255, 255, 255);
   color: rgb(24, 25, 25);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -168,11 +170,10 @@ export const Card = styled('a')`
   border-color: rgb(225, 232, 237);
   overflow: hidden;
   text-decoration: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgb(245, 248, 250);
   cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
   &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     background: rgb(245, 248, 250);
   }
 `;
