@@ -1,19 +1,12 @@
 
-  
-
-  
-
 # React-Tiny-Link
-
-  
 
 > Convert your links into beautiful previews
 
   
+Yet anotherReact link preview component with cards for web without a specific backend.
 
   
-
-Yet anotherReact link preview component with cards for web without a specific backend.
 
   
 
@@ -21,7 +14,11 @@ Yet anotherReact link preview component with cards for web without a specific ba
 
   
 
+  
+
 [![NPM](https://nodei.co/npm/react-tiny-link.png)](https://nodei.co/npm/react-tiny-link/)
+
+  
 
   
 
@@ -29,79 +26,40 @@ Yet anotherReact link preview component with cards for web without a specific ba
 
   
 
+  
+
 No. You may need a `CORS` proxy to use this component. But if you dont have one, we made the component to use https://cors-anywhere.herokuapp.com as default proxy. Thanks to [Rob](https://github.com/Rob--W). [It](https://cors-anywhere.herokuapp.com) saves my time for accessing urls.
 
-  
-
-  
-
+ 
 ## Installation
 
-  
-
 ```
-
-  
 
 npm install --save react-tiny-link
 
-  
-
 ```
-
-  
-
-  
 
 ## Usage & Configuration
 
-  
-
 ````javascript
 
-  
 
 import  ReactTinyLink  from  'react-tiny-link';
 
-  
-
-  
 
 <ReactTinyLink
-
-  
-
 cardSize="small"
-
-  
-
 showGraphic={true}
-
-  
-
 maxLine={2}
-
-  
-
 minLine={1}
-
-  
-
 url="https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_18637582011_1_1?srs=18637582011&ie=UTF8&qid=1550721409&sr=8-1"
-
-  
-
 />
-
-  
 
 ````
 
-  
-
-  
-
 ## Props & methods
+
+  
 
   
 
@@ -120,58 +78,33 @@ url="https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_1
 
   
 
+  
+
 ## Demo App &
-
-  
-
-  
 
 * [Demo](https://winhtaikaung.github.io/react-tiny-link/)
 
-  
-
 * [SourceCode](https://github.com/winhtaikaung/react-tiny-link/)
 
-## CodeSandbox 
+## CodeSandbox
+
 [![Edit React Tiny Link](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/monp6n08n8?fontsize=14)
-
-
-  
 
 ## Contributing
 
-  
-
-  
 
 1. Fork it
 
-  
-
 2. Create your feature branch (`git checkout -b my-new-feature`)
-
-  
 
 3. Commit your changes (`git commit -am 'Added some feature'`)
 
-  
-
 4. Push to the branch (`git push origin my-new-feature`)
-
-  
 
 5. Create new Pull Request
 
-  
-
-  
-
 ## License
 
-  
-
 [MIT](http://www.opensource.org/licenses/MIT)
-
-  
 
 ![Twitter Follow](https://img.shields.io/twitter/follow/winhtaikaung.svg?style=social)
