@@ -66,7 +66,7 @@ url="https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_1
 | PropName | Description|PropType | value | required
 |--|--|--|--|--|
 |**url** | URL to be display as preview | string | |`true`
-|**cardSize** | Size of the card | string |default (`small`) `small`,`large`|false
+|**cardSize** | Size of the card | string |default (`small`) `small`,`large`|`false`
 |**maxLine** | Maximum number of line to ellipsis | number | 2 |`false`
 |**minLine** | Minimum number of line to ellipsis | number | 1 |`false`
 |**width** | Width of the link preview card | number| default(`100vw`)|`false`
