@@ -1,5 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import Axios from 'axios';
+import * as React from "react";
+// import React, { Fragment, useEffect, useState } from "react";
+
+import Axios from "axios";
 import {
   Card,
   ContentWrapper,
@@ -16,15 +18,16 @@ import CardMedia from './components/CardMedia';
 const initialState = {
   data: {
     title: null,
-    url: null,
     description: null,
     image: null,
+    type: null,
     video: [],
+    url: null,
   },
   loading: true,
 };
 function useEffectAsync(effect, inputs) {
-  useEffect(() => {
+  React.useEffect(() => {
     effect();
   }, inputs);
 }
@@ -51,11 +54,12 @@ async function fetch(url, proxyUrl, setState) {
       data: {
         title: url.substring(url.lastIndexOf('/') + 1),
         description: url.substring(url.lastIndexOf('/') + 1),
-        url: url,
         image: [],
+        url: url,
         video: [],
         type: TYPE_DEFAULT,
       },
+      loading: false,
     };
 
     temp.loading = false;
@@ -68,12 +72,12 @@ async function fetch(url, proxyUrl, setState) {
 }
 
 const ReactTinyLink = props => {
-  const [linkMeta, setlinkMeta] = useState(initialState);
+  const [linkMeta, setlinkMeta] = React.useState(initialState);
   useEffectAsync(() => {
     fetch(props.url, props.proxyUrl, setlinkMeta);
   }, []);
   return (
-    <Fragment>
+    <React.Fragment>
       <Card
         className="react_tinylink_card"
         cardSize={props.cardSize}
@@ -134,7 +138,7 @@ const ReactTinyLink = props => {
           </Footer>
         </ContentWrapper>
       </Card>
-    </Fragment>
+    </React.Fragment>
   );
 };
 
@@ -144,6 +148,7 @@ ReactTinyLink.defaultProps = {
   cardSize: 'small',
   maxLine: 2,
   minLine: 1,
+  url: 'http://google.com',
   width: '100vw',
   proxyUrl: 'https://cors-anywhere.herokuapp.com',
   showGraphic: true,

@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from "styled-components";
 
 const REGEX_STRIP_WWW = /^www\./;
 export const media = {

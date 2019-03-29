@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
-import { isLarge, media } from '../utils';
-import { TYPE_AUDIO } from '../rules/index';
+import styled, { css, keyframes } from "styled-components";
+import { isLarge, media } from "../utils";
+import { TYPE_AUDIO } from "../rules/index";
 // Key Frames
 const shimmerKeyFrame = keyframes`
    0%{

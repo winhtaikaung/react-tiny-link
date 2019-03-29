@@ -1,5 +1,6 @@
-import getVideoId from 'get-video-id';
-import isEmpty from 'lodash/isEmpty';
+import getVideoId from "get-video-id";
+import isEmpty from "lodash/isEmpty";
+import { TYPE_YOUTUBE } from "..";
 
 const titleRegex = /"videoPrimaryInfoRenderer":{"title":{"simpleText":"(.+?)"}}/g;
 
@@ -15,6 +16,8 @@ export const ScrapYoutube = async ($, url) => {
       title: simpleText,
       url: url,
       description: url,
+      type: TYPE_YOUTUBE,
+      video: [],
       image: [
         `https://img.youtube.com/vi/${id}/0.jpg`,
         `https://img.youtube.com/vi/${id}/1.jpg`,
@@ -27,6 +30,8 @@ export const ScrapYoutube = async ($, url) => {
       title: $('title').text(),
       url: url,
       description: url,
+      type: TYPE_YOUTUBE,
+      video: [],
       image: [
         `https://img.youtube.com/vi/${id}/0.jpg`,
         `https://img.youtube.com/vi/${id}/1.jpg`,

@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
-import { Media, Video } from './Card';
-import { TYPE_VIDEO } from '../rules';
+import * as React from "react";
+import { Media, Video } from "./Card";
+import { TYPE_VIDEO } from "../rules";
 
 const CardMedia = ({ linkMeta, cardSize, autoPlay }) => {
   return (
-    <Fragment>
+    <React.Fragment>
       {linkMeta.data.type !== TYPE_VIDEO && (
         <Media
           className="react_tinylink_card_media"
@@ -33,7 +33,7 @@ const CardMedia = ({ linkMeta, cardSize, autoPlay }) => {
           />
         </Media>
       )}
-    </Fragment>
+    </React.Fragment>
   );
 };
 

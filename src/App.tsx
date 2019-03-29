@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import ReactTinyLink from './ReactTinyLink';
+import ReactTinyLink from "./ReactTinyLink";
 
 class App extends Component {
   render() {

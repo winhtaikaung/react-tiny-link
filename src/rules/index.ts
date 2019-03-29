@@ -1,12 +1,12 @@
-import { isVideo, isAudio, isImage, isYoutubeUrl, isAmazonUrl } from './utils';
-import isEmpty from 'lodash/isEmpty';
-import { ScrapVideo } from './Video/ScrapVideo';
-import { ScrapAudio } from './Audio/ScrapAudio';
-import { ScrapImage } from './Image/ScrapImage';
-import cheerio from 'cheerio';
-import { ScrapYoutube } from './Youtube/ScrapYoutube';
-import { ScrapAmazon } from './Amazon/ScrapAmazon';
-import ScrapDefault from './Default/ScrapDefault';
+import { isVideo, isAudio, isImage, isYoutubeUrl, isAmazonUrl } from "./utils";
+import isEmpty from "lodash/isEmpty";
+import { ScrapVideo } from "./Video/ScrapVideo";
+import { ScrapAudio } from "./Audio/ScrapAudio";
+import { ScrapImage } from "./Image/ScrapImage";
+import cheerio from "cheerio";
+import { ScrapYoutube } from "./Youtube/ScrapYoutube";
+import { ScrapAmazon } from "./Amazon/ScrapAmazon";
+import ScrapDefault from "./Default/ScrapDefault";
 
 export const TYPE_AMAZON = 'TYPE_AMAZON';
 export const TYPE_YOUTUBE = 'TYPE_YOUTUBE';

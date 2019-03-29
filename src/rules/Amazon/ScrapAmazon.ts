@@ -1,6 +1,7 @@
-import { TYPE_AMAZON } from '../index';
-import isEmpty from 'lodash/isEmpty';
-export const ScrapAmazon = async $ => ({
+import { TYPE_AMAZON } from "../index";
+import isEmpty from "lodash/isEmpty";
+
+export const ScrapAmazon = async ($, url) => ({
   title: $('title').text(),
   content: $("meta[name='description']").attr('content'),
   url: $("meta[property='og:url']").attr('content'),

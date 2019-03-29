@@ -1,8 +1,8 @@
-import imageExtensions from 'image-extensions';
-import audioExtensions from 'audio-extensions';
-import videoExtensions from 'video-extensions';
+const imageExtensions = require("image-extensions");
+const audioExtensions = require("audio-extensions");
+const videoExtensions = require("video-extensions");
 
-import path from 'path';
+import * as path from "path";
 
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i;
 export const isAmazonUrl = url => REGEX_AMAZON_URL.test(url);

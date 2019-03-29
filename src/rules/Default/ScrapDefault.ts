@@ -1,11 +1,13 @@
-import { TYPE_DEFAULT } from '..';
-import isEmpty from 'lodash/isEmpty';
+import { TYPE_DEFAULT } from "..";
+import isEmpty from "lodash/isEmpty";
+
 export default async ($, url) => {
   return {
     title: $('title').text(),
     content: $("meta[name='description']").attr('content'),
     url: $("meta[property='og:url']").attr('content'),
     description: $("meta[name='description']").attr('content'),
+    video: [],
     image: [
       $('meta[property="og:logo"]').attr('content'),
       $('meta[itemprop="logo"]').attr('content'),

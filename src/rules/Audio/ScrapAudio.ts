@@ -1,5 +1,5 @@
-import { TYPE_AUDIO } from '../index';
-import MusicLogo from '../../assets/music.svg';
+import { TYPE_AUDIO } from "../index";
+const MusicLogo = require("../../assets/music.svg");
 
 export const ScrapAudio = async url => {
   return {
