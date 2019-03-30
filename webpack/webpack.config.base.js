@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
-var isLocalBuild = process.env && process.env.NODE_ENV && process.env.NODE_ENV.trim().toString() == 'local';
 
 module.exports = {
     resolve: {
@@ -35,6 +34,11 @@ module.exports = {
         new webpack.SourceMapDevToolPlugin({
             filename: '[file].map', // Remove this line if you prefer inline source maps
             moduleFilenameTemplate: path.relative('../lib', '[resourcePath]') // Point sourcemap entries to the original file locations on disk
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: process.env.NODE_ENV
+            }
         })
     ]
 };
