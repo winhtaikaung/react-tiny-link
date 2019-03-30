@@ -23,6 +23,7 @@ module.exports = merge(
     {
         'bundle': './src/demo/index.tsx'
     },
+    mode: process.env.NODE_ENV,
     output: {
         path: path.join(__dirname, '..', 'docs'),
         publicPath: '/dist',
