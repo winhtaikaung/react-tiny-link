@@ -11,6 +11,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
+    "conventional-github-releaser": "^3.1.2",
     "get-video-id": "^3.1.0",
     "image-extensions": "^1.1.0",
     "node": "^11.12.0",
@@ -50,9 +51,9 @@
     "start": "set NODE_ENV=local && webpack-dev-server --config webpack/webpack.config.dev.js --content-base src/demo/dist --hot --inline --open --history-api-fallback",
     "build:clean": "rimraf lib/",
     "build:lib": "webpack --config ./webpack/webpack.config.js && webpack --config ./webpack/webpack.config.min.js",
-    "build:gh-pages": "rimraf docs/ && set NODE_ENV=production && xcopy src\\demo\\dist\\index.html docs\\* /y /e /i /h && webpack --config ./webpack/webpack.config.gh-pages.js",
+    "build:gh-pages": "rimraf docs/ && . .env && mkdir -p docs && cp -a src/demo/dist/* docs/ && webpack --config ./webpack/webpack.config.gh-pages.js",
     "build": "npm run build:clean && npm run build:lib",
-    "build:prod": "set NODE_ENV=production && npm run build",
+    "build:prod": ". .env && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-deploy": "npm run build && npm run build:gh-pages",
     "version:patch": "npm version patch",
@@ -60,7 +61,7 @@
     "conventional-github-releaser": "conventional-github-releaser -p angular",
     "commit:build": "git add . && git commit -m \"Deploy commit\" --quiet & npm run push:git",
     "create:patch": "npm run version:patch && npm run push:git",
-    "deploy": ".env.bat && npm run build:gh-pages && npm run build:prod && npm run commit:build && npm publish && npm run conventional-github-releaser -p angular && npm run create:patch"
+    "deploy": ". .env && npm run build:gh-pages && npm run build:prod && npm run commit:build && npm publish && npm run conventional-github-releaser -p angular && npm run create:patch"
   },
   "eslintConfig": {
     "extends": "react-app"
