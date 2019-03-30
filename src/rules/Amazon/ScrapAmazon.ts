@@ -1,5 +1,5 @@
 import { TYPE_AMAZON } from "../index";
-import isEmpty from "lodash/isEmpty";
+import { isEmpty } from "lodash";
 
 export const ScrapAmazon = async ($, url) => ({
   title: $('title').text(),

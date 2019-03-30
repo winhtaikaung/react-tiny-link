@@ -1,5 +1,5 @@
 import { TYPE_IMAGE } from "../index";
-import isEmpty from "lodash/isEmpty";
+import { isEmpty } from "lodash";
 
 export const ScrapImage = async ($, url) => ({
   title: url.substring(url.lastIndexOf('/') + 1),

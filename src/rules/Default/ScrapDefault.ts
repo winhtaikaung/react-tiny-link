@@ -1,5 +1,5 @@
 import { TYPE_DEFAULT } from "..";
-import isEmpty from "lodash/isEmpty";
+import { isEmpty } from "lodash";
 
 export default async ($, url) => {
   return {

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "src/ReactTinyLink.tsx",
   "dependencies": {
+    "@types/cheerio": "^0.22.11",
     "@types/node": "^11.12.1",
     "@types/react": "^16.8.10",
     "@types/react-dom": "^16.8.3",

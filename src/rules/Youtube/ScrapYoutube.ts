@@ -1,5 +1,5 @@
 import getVideoId from "get-video-id";
-import isEmpty from "lodash/isEmpty";
+import { isEmpty } from "lodash";
 import { TYPE_YOUTUBE } from "..";
 
 const titleRegex = /"videoPrimaryInfoRenderer":{"title":{"simpleText":"(.+?)"}}/g;
