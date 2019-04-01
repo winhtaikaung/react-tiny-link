@@ -1,4 +1,4 @@
-export declare const ScrapAmazon: ($: any, url: any) => Promise<{
+export declare const ScrapAmazon: (url: any, htmlDoc: any) => Promise<{
     title: any;
     content: any;
     url: any;

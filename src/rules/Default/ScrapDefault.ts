@@ -1,26 +1,26 @@
 import { TYPE_DEFAULT } from "..";
-import { isEmpty } from "lodash";
+import { isEmpty, getTitleOfDoc, getAttrOfDocElement } from "../utils";
 
-export default async ($, url) => {
+export default async (url, htmlDoc) => {
   return {
-    title: $('title').text(),
-    content: $("meta[name='description']").attr('content'),
-    url: $("meta[property='og:url']").attr('content'),
-    description: $("meta[name='description']").attr('content'),
+    title: getTitleOfDoc(htmlDoc),
+    content: getAttrOfDocElement(htmlDoc, "meta[name='description']", 'content'),
+    url: getAttrOfDocElement(htmlDoc, "meta[property='og:url']", 'content'),
+    description: getAttrOfDocElement(htmlDoc, "meta[name='description']", 'content'),
     video: [],
     image: [
-      $('meta[property="og:logo"]').attr('content'),
-      $('meta[itemprop="logo"]').attr('content'),
-      $('img[itemprop="logo"]').attr('src'),
-      $("meta[property='og:image']").attr('content'),
-      $('img[class*="logo" i]').attr('src'),
-      $('img[src*="logo" i]').attr('src'),
-      $('meta[property="og:image:secure_url"]').attr('content'),
-      $('meta[property="og:image:url"]').attr('content'),
-      $('meta[property="og:image"]').attr('content'),
-      $('meta[name="twitter:image:src"]').attr('content'),
-      $('meta[name="twitter:image"]').attr('content'),
-      $('meta[itemprop="image"]').attr('content'),
+      getAttrOfDocElement(htmlDoc, 'meta[property="og:logo"]', 'content'),
+      getAttrOfDocElement(htmlDoc, 'meta[itemprop="logo"]', 'content'),
+      getAttrOfDocElement(htmlDoc, 'img[itemprop="logo"]', 'src'),
+      getAttrOfDocElement(htmlDoc, "meta[property='og:image']", 'content'),
+      getAttrOfDocElement(htmlDoc, 'img[class*="logo" i]', 'src'),
+      getAttrOfDocElement(htmlDoc, 'img[src*="logo" i]', 'src'),
+      getAttrOfDocElement(htmlDoc, 'meta[property="og:image:secure_url"]', 'content'),
+      getAttrOfDocElement(htmlDoc, 'meta[property="og:image:url"]', 'content'),
+      getAttrOfDocElement(htmlDoc, 'meta[property="og:image"]', 'content'),
+      getAttrOfDocElement(htmlDoc, 'meta[name="twitter:image:src"]', 'content'),
+      getAttrOfDocElement(htmlDoc, 'meta[name="twitter:image"]', 'content'),
+      getAttrOfDocElement(htmlDoc, 'meta[itemprop="image"]', 'content'),
     ].filter(i => !isEmpty(i)),
     type: TYPE_DEFAULT, // MIME Type
   };

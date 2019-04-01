@@ -1,7 +1,6 @@
 import * as React from "react";
 // import React, { Fragment, useEffect, useState } from "react";
 
-import Axios from "axios";
 import {
   Card,
   ContentWrapper,
@@ -32,19 +31,16 @@ function useEffectAsync(effect, inputs) {
   }, inputs);
 }
 
-async function fetch(url, proxyUrl, setState) {
-  const proxiedUrl = `${proxyUrl}/${url}`;
-  const client = Axios.create({
-    url: proxiedUrl,
+async function get(url, proxyUrl, setState) {
+  const client = fetch(proxyUrl ? `${proxyUrl}/${url}` : url, {
     headers: {
       'x-requested-with': '',
-    },
-  });
+    }});
   let temp = Object.assign({}, initialState);
 
   try {
     temp = {
-      data: await ScraperWraper({ proxiedUrl: proxiedUrl, url: url }, client),
+      data: await ScraperWraper(url, client),
       loading: false,
     };
 
@@ -74,7 +70,7 @@ async function fetch(url, proxyUrl, setState) {
 const ReactTinyLink = props => {
   const [linkMeta, setlinkMeta] = React.useState(initialState);
   useEffectAsync(() => {
-    fetch(props.url, props.proxyUrl, setlinkMeta);
+    get(props.url, props.proxyUrl, setlinkMeta);
   }, []);
   return (
     <React.Fragment>

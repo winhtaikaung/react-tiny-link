@@ -1,4 +1,4 @@
-export declare const ScrapImage: ($: any, url: any) => Promise<{
+export declare const ScrapImage: (url: any) => Promise<{
     title: any;
     description: any;
     url: any;

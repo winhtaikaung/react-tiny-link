@@ -1,4 +1,4 @@
-declare const _default: ($: any, url: any) => Promise<{
+declare const _default: (url: any, htmlDoc: any) => Promise<{
     title: any;
     content: any;
     url: any;

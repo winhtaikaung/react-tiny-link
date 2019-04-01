@@ -1,4 +1,4 @@
-export declare const ScrapYoutube: ($: any, url: any) => Promise<{
+export declare const ScrapYoutube: (url: any, htmlDoc: any) => Promise<{
     title: any;
     url: any;
     description: any;
