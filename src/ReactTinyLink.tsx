@@ -1,18 +1,11 @@
-import * as React from "react";
+import * as React from 'react'
 // import React, { Fragment, useEffect, useState } from "react";
 
-import {
-  Card,
-  ContentWrapper,
-  Header,
-  Content,
-  Footer,
-  Description,
-} from './components/Card';
-import { getHostname } from './utils';
+import { Card, ContentWrapper, Header, Content, Footer, Description } from './components/Card'
+import { getHostname } from './utils'
 
-import { ScraperWraper, TYPE_DEFAULT } from './rules/index';
-import CardMedia from './components/CardMedia';
+import { ScraperWraper, TYPE_DEFAULT } from './rules/index'
+import CardMedia from './components/CardMedia'
 
 const initialState = {
   data: {
@@ -24,27 +17,27 @@ const initialState = {
     url: null,
   },
   loading: true,
-};
+}
 function useEffectAsync(effect, inputs) {
   React.useEffect(() => {
-    effect();
-  }, inputs);
+    effect()
+  }, inputs)
 }
 
 async function get(url, proxyUrl, setState) {
   const client = fetch(proxyUrl ? `${proxyUrl}/${url}` : url, {
     headers: {
       'x-requested-with': '',
-    }});
-  let temp = Object.assign({}, initialState);
+    },
+  })
+  let temp = Object.assign({}, initialState)
 
   try {
     temp = {
       data: await ScraperWraper(url, client),
       loading: false,
-    };
-
-    setState(temp);
+    }
+    setState(temp)
   } catch (error) {
     temp = {
       data: {
@@ -56,22 +49,22 @@ async function get(url, proxyUrl, setState) {
         type: TYPE_DEFAULT,
       },
       loading: false,
-    };
+    }
 
-    temp.loading = false;
-    setState(temp);
-    console.error(error);
+    temp.loading = false
+    setState(temp)
+    console.error(error)
   } finally {
-    temp.loading = false;
-    setState(temp);
+    temp.loading = false
+    setState(temp)
   }
 }
 
 const ReactTinyLink = props => {
-  const [linkMeta, setlinkMeta] = React.useState(initialState);
+  const [linkMeta, setlinkMeta] = React.useState(initialState)
   useEffectAsync(() => {
-    get(props.url, props.proxyUrl, setlinkMeta);
-  }, []);
+    get(props.url, props.proxyUrl, setlinkMeta)
+  }, [])
   return (
     <React.Fragment>
       <Card
@@ -81,22 +74,9 @@ const ReactTinyLink = props => {
         width={props.width}
         isShownGraphic={props.showGraphic}
       >
-        {props.showGraphic && (
-          <CardMedia
-            autoPlay={props.autoPlay}
-            cardSize={props.cardSize}
-            linkMeta={linkMeta}
-          />
-        )}
-        <ContentWrapper
-          className="react_tinylink_card_content_wrapper"
-          cardSize={props.cardSize}
-        >
-          <Header
-            maxLine={props.maxLine}
-            minLine={props.minLine}
-            className="react_tinylink_card_content_header"
-          >
+        {props.showGraphic && <CardMedia autoPlay={props.autoPlay} cardSize={props.cardSize} linkMeta={linkMeta} />}
+        <ContentWrapper className="react_tinylink_card_content_wrapper" cardSize={props.cardSize}>
+          <Header maxLine={props.maxLine} minLine={props.minLine} className="react_tinylink_card_content_header">
             <Description
               loading={linkMeta.loading}
               loadingWidth={2}
@@ -118,27 +98,21 @@ const ReactTinyLink = props => {
               loadingWidth={1}
               className="react_tinylink_card_content_description"
             >
-              {linkMeta.data.description
-                ? linkMeta.data.description
-                : props.url}
+              {linkMeta.data.description ? linkMeta.data.description : props.url}
             </Description>
           </Content>
           <Footer className="react_tinylink_footer">
-            <Description
-              loading={linkMeta.loading}
-              loadingWidth={1}
-              className="react_tinylink_card_footer_description"
-            >
+            <Description loading={linkMeta.loading} loadingWidth={1} className="react_tinylink_card_footer_description">
               {getHostname(props.url)}
             </Description>
           </Footer>
         </ContentWrapper>
       </Card>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default ReactTinyLink;
+export default ReactTinyLink
 
 ReactTinyLink.defaultProps = {
   cardSize: 'small',
@@ -149,4 +123,4 @@ ReactTinyLink.defaultProps = {
   proxyUrl: 'https://cors-anywhere.herokuapp.com',
   showGraphic: true,
   autoPlay: false,
-};
+}

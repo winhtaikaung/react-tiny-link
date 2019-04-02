@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Media, Video } from "./Card";
-import { TYPE_VIDEO } from "../rules";
+import * as React from 'react'
+import { Media, Video } from './Card'
+import { TYPE_VIDEO } from '../rules'
 
 const CardMedia = ({ linkMeta, cardSize, autoPlay }) => {
   return (
@@ -23,10 +23,10 @@ const CardMedia = ({ linkMeta, cardSize, autoPlay }) => {
           <Video
             muted
             onCanPlayThrough={e => {
-              let video = e.target;
+              let video = e.target
               setTimeout(() => {
-                video.pause();
-              }, 1000);
+                video.pause()
+              }, 1000)
             }}
             autoPlay={autoPlay}
             src={linkMeta.data.video[0]}
@@ -34,7 +34,7 @@ const CardMedia = ({ linkMeta, cardSize, autoPlay }) => {
         </Media>
       )}
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default CardMedia;
+export default CardMedia
