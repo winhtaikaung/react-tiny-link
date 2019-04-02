@@ -38,6 +38,11 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    
+    
+
     <title>React Tiny Link(Link Preview)</title>
   </head>
 
@@ -100,5 +105,28 @@
         }
       </style>
     </a>
+    <script>
+      if(window.env ==="production"){
+        
+        var head = document.getElementsByTagName('head')[0];
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.onload = function() {
+      // callFunctionFromScript();
+      if(window.env ==="production"){
+        window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+
+      gtag('config', 'UA-137487015-1')
+      }
+      
+  }
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-137487015-1';
+  head.appendChild(script);
+}
+      </script>
   </body>
 </html>
