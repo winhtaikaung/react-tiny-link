@@ -1,5 +1,5 @@
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+
 # React-Tiny-Link
 
 > Convert your links into beautiful previews
@@ -13,7 +13,7 @@ Yet anotherReact link preview component with cards for web without a specific ba
 
 [![npm version](https://badge.fury.io/js/react-tiny-link.svg)](https://badge.fury.io/js/react-tiny-link) ![npm](https://img.shields.io/npm/v/react-tiny-link.svg) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/winhtaikaung/react-tiny-link.svg) ![NPM](https://img.shields.io/npm/l/react-tiny-link.svg)
 
-  
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
   
 
