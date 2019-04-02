@@ -1,4 +1,4 @@
-import { TYPE_VIDEO } from "../index";
+import { TYPE_VIDEO } from '../index';
 
 export const ScrapVideo = async url => {
   return {

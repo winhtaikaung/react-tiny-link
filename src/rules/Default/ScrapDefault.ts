@@ -9,9 +9,17 @@ export default async (url, htmlDoc) => {
 
   return {
     title: getTitleOfDoc(htmlDoc),
-    content: getAttrOfDocElement(htmlDoc, "meta[name='description']", 'content'),
+    content: getAttrOfDocElement(
+      htmlDoc,
+      "meta[name='description']",
+      'content',
+    ),
     url: getAttrOfDocElement(htmlDoc, "meta[property='og:url']", 'content'),
-    description: getAttrOfDocElement(htmlDoc, "meta[name='description']", 'content'),
+    description: getAttrOfDocElement(
+      htmlDoc,
+      "meta[name='description']",
+      'content',
+    ),
     video: [],
     image: [
       getAttrOfDocElement(htmlDoc, 'meta[property="og:logo"]', 'content'),
@@ -20,7 +28,11 @@ export default async (url, htmlDoc) => {
       getAttrOfDocElement(htmlDoc, "meta[property='og:image']", 'content'),
       getAttrOfDocElement(htmlDoc, 'img[class*="logo" i]', 'src'),
       getAttrOfDocElement(htmlDoc, 'img[src*="logo" i]', 'src'),
-      getAttrOfDocElement(htmlDoc, 'meta[property="og:image:secure_url"]', 'content'),
+      getAttrOfDocElement(
+        htmlDoc,
+        'meta[property="og:image:secure_url"]',
+        'content',
+      ),
       getAttrOfDocElement(htmlDoc, 'meta[property="og:image:url"]', 'content'),
       getAttrOfDocElement(htmlDoc, 'meta[property="og:image"]', 'content'),
       getAttrOfDocElement(htmlDoc, 'meta[name="twitter:image:src"]', 'content'),

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 // import React, { Fragment, useEffect, useState } from "react";
 
 import {
@@ -35,7 +35,8 @@ async function get(url, proxyUrl, setState) {
   const client = fetch(proxyUrl ? `${proxyUrl}/${url}` : url, {
     headers: {
       'x-requested-with': '',
-    }});
+    },
+  });
   let temp = Object.assign({}, initialState);
 
   try {
@@ -43,7 +44,6 @@ async function get(url, proxyUrl, setState) {
       data: await ScraperWraper(url, client),
       loading: false,
     };
-
     setState(temp);
   } catch (error) {
     temp = {
