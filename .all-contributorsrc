@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "vladimirmoushkov",
+      "name": "Vladimir Moushkov",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/21225376?v=4",
+      "profile": "https://github.com/vladimirmoushkov",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "react-tiny-link",
+  "projectOwner": "winhtaikaung",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
