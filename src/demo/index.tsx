@@ -5,7 +5,9 @@ import ReactTinyLink from '../../lib/index';
 class Demo extends React.Component {
   render() {
     return (
+      
       <React.Fragment>
+         
         <h1>React-Tiny-Link</h1>
         <p>
           React link preview component with cards for web without a specific
@@ -283,4 +285,5 @@ class Demo extends React.Component {
   }
 }
 
+(window as any).env = process.env.NODE_ENV
 render(<Demo />, document.getElementById('demo'));
