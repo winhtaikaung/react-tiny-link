@@ -145,7 +145,7 @@ ReactTinyLink.defaultProps = {
   maxLine: 2,
   minLine: 1,
   url: 'http://google.com',
-  width: '100vw',
+  width: '640px',
   proxyUrl: 'https://cors-anywhere.herokuapp.com',
   showGraphic: true,
   autoPlay: false,

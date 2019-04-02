@@ -11,7 +11,7 @@ class Demo extends React.Component {
 
           <li>
             Standard URL link:
-            <ReactTinyLink url="https://google.com" />
+            <ReactTinyLink url="https://www.google.com" />
           </li>
           <li>
             YouTube Link:

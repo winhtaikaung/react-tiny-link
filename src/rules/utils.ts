@@ -26,3 +26,21 @@ export const getAttrOfDocElement = (htmlDoc: any, query: string, attr: string) =
   if (!el) { return null; }
   return el.getAttribute(attr);
 }
+
+export const getYoutTubeVideoId = (url: string) => {
+  const parsed = url.match(/^.*((m\.)?youtu\.be\/|vi?\/|u\/\w\/|embed\/|\?vi?=|\&vi?=)([^#\&\?]*).*/);
+
+  if (parsed && parsed[3]) {
+    return parsed[3];
+  } else {
+    return null;
+  }
+}
+
+export const fixRelativeUrls = (baseUrl: string, itemUrl: string) => {
+  const normalizedUrl = itemUrl.toLocaleLowerCase();
+  if (normalizedUrl.startsWith("http://") || normalizedUrl.startsWith("https://")) {
+    return itemUrl;
+  }
+  return baseUrl + itemUrl;
+}

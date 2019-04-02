@@ -1,11 +1,10 @@
-import getVideoId from "get-video-id";
 import { TYPE_YOUTUBE } from "..";
-import { isEmpty } from "../utils";
+import { isEmpty, getYoutTubeVideoId } from "../utils";
 
 const titleRegex = /"videoPrimaryInfoRenderer":{"title":{"simpleText":"(.+?)"}}/g;
 
 export const ScrapYoutube = async (url, htmlDoc) => {
-  const { id } = getVideoId(url);
+  const id = getYoutTubeVideoId(url);
   try {
     const {
       videoPrimaryInfoRenderer: {
@@ -27,7 +26,7 @@ export const ScrapYoutube = async (url, htmlDoc) => {
     };
   } catch (error) {
     return {
-      title: htmlDoc.queryselector('title').textContent,
+      title: htmlDoc.querySelector('title').textContent,
       url: url,
       description: url,
       type: TYPE_YOUTUBE,
