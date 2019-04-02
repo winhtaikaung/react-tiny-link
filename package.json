@@ -30,7 +30,7 @@
   "typings": "src/lib/index.d.ts",
   "scripts": {
     "prettier": "prettier --single-quote --tab-width=2 --print-width=80 --semi --trailing-comma all",
-    "prettify": "yarn prettier --write 'src/**/*.{js,jsx,json,css}'",
+    "prettify": "yarn prettier --write 'src/**/*.{js,jsx,json,css,ts,tsx,html}'",
     "start": "set NODE_ENV=local && webpack-dev-server --config webpack/webpack.config.dev.js --content-base src/demo/dist --hot --inline --open --history-api-fallback",
     "build:clean": "rimraf lib/",
     "build:lib": "webpack --config ./webpack/webpack.config.js && webpack --config ./webpack/webpack.config.min.js",
