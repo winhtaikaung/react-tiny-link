@@ -1,6 +1,5 @@
 import { TYPE_YOUTUBE } from "..";
 import { isEmpty, getYoutTubeVideoId } from "../utils";
-import { getVideoId } from '../utils';
 
 const titleRegex = /"title":"(.+?)"/g;
 
