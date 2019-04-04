@@ -161,6 +161,32 @@ class Demo extends React.Component {
         />`}
           </code>
         </pre>
+
+        <h3>Preset header and description for CDN links</h3>
+        <ReactTinyLink
+          cardSize="small"
+          showGraphic={true}
+          header="Code"
+          description="A sample from the code"
+          maxLine={2}
+          minLine={1}
+          url="https://i.stack.imgur.com/eA4W3.jpg"
+        />
+        <h4>Default example Code</h4>
+        <pre className="language-markup">
+          <code>
+            {` 
+        <ReactTinyLink
+          cardSize="small"
+          showGraphic={true}
+          header="Code"
+          description="A sample from the code"
+          maxLine={2}
+          minLine={1}
+          url="https://i.stack.imgur.com/eA4W3.jpg"
+        />`}
+          </code>
+        </pre>
         <h1>Large Card examples</h1>
         <h3>Amazon url example</h3>
         <ReactTinyLink

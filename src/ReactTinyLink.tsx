@@ -104,7 +104,8 @@ const ReactTinyLink = props => {
               minLine={props.minLine}
               className="react_tinylink_card_content_header_description"
             >
-              {linkMeta.data.title ? linkMeta.data.title : props.url}
+              {props.header ? props.header :
+                  linkMeta.data.title ? linkMeta.data.title : props.url}
             </Description>
           </Header>
           <Content
@@ -118,9 +119,8 @@ const ReactTinyLink = props => {
               loadingWidth={1}
               className="react_tinylink_card_content_description"
             >
-              {linkMeta.data.description
-                ? linkMeta.data.description
-                : props.url}
+              {props.description ? props.description :
+                linkMeta.data.description ? linkMeta.data.description : props.url }
             </Description>
           </Content>
           <Footer className="react_tinylink_footer">
@@ -144,6 +144,8 @@ ReactTinyLink.defaultProps = {
   cardSize: 'small',
   maxLine: 2,
   minLine: 1,
+  header: null,
+  descript: null,
   url: 'http://google.com',
   width: '640px',
   proxyUrl: 'https://cors-anywhere.herokuapp.com',
