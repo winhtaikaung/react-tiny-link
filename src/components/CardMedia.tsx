@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Media, Video } from "./Card";
-import { TYPE_VIDEO } from "../rules";
+import * as React from 'react';
+import { Media, Video } from './Card';
+import { TYPE_VIDEO } from '../rules';
 
 const CardMedia = ({ linkMeta, cardSize, autoPlay }) => {
   return (

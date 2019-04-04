@@ -1,18 +1,22 @@
 import { TYPE_YOUTUBE } from "..";
 import { isEmpty, getYoutTubeVideoId } from "../utils";
+import { getVideoId } from '../utils';
 
-const titleRegex = /"videoPrimaryInfoRenderer":{"title":{"simpleText":"(.+?)"}}/g;
+const titleRegex = /"title":"(.+?)"/g;
 
 export const ScrapYoutube = async (url, htmlDoc) => {
   const id = getYoutTubeVideoId(url);
   try {
-    const {
-      videoPrimaryInfoRenderer: {
-        title: { simpleText },
-      },
-    } = JSON.parse(`{${htmlDoc.innerHTML.match(titleRegex)[0]}}}}`);
+    const { title } = JSON.parse(
+      `{${
+        htmlDoc
+          .querySelector('html')
+          .innerHTML.toString()
+          .match(titleRegex)[0]
+      }}`,
+    );
     return {
-      title: simpleText,
+      title: title,
       url: url,
       description: url,
       type: TYPE_YOUTUBE,
