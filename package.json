@@ -41,7 +41,9 @@
   "typings": "src/lib/index.d.ts",
   "scripts": {
     "start": "set NODE_ENV=local && webpack-dev-server --config webpack/webpack.config.dev.js --content-base src/demo/dist --hot --inline --open --history-api-fallback",
+    "build:clean": "rimraf lib/",
     "build:lib": "webpack --config ./webpack/webpack.config.js && webpack --config ./webpack/webpack.config.min.js",
+    "build:gh-pages": "rimraf docs/ && . .env && mkdir -p docs && cp -a src/demo/dist/* docs/ && webpack --config ./webpack/webpack.config.gh-pages.js",
     "version:patch": "npm version patch",
     "push:git": "git push --tags origin master --quiet",
     "commit:build": "git add . && git commit -m \"Deploy commit\" --quiet & npm run push:git",

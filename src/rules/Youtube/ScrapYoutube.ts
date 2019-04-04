@@ -26,7 +26,7 @@ export const ScrapYoutube = async (url, htmlDoc) => {
     };
   } catch (error) {
     return {
-      title: htmlDoc.querySelector('title').textContent,
+      title: htmlDoc.querySelector('title').innerText,
       url: url,
       description: url,
       type: TYPE_YOUTUBE,
