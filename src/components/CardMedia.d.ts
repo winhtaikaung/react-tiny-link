@@ -1,10 +1,6 @@
-declare const CardMedia: ({
-  linkMeta,
-  cardSize,
-  autoPlay,
-}: {
-  linkMeta: any;
-  cardSize: any;
-  autoPlay: any;
+declare const CardMedia: ({ data, cardSize, autoPlay }: {
+    data: any;
+    cardSize: any;
+    autoPlay: any;
 }) => JSX.Element;
 export default CardMedia;

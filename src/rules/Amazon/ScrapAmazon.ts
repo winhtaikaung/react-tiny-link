@@ -1,4 +1,4 @@
-import { TYPE_AMAZON } from "../index";
+import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
 import { isEmpty, getTitleOfDoc, getAttrOfDocElement, fixRelativeUrls } from "../utils";
 
 export const ScrapAmazon = async (url, htmlDoc) => {
@@ -21,7 +21,7 @@ export const ScrapAmazon = async (url, htmlDoc) => {
       'content',
     ),
     video: [],
-    type: TYPE_AMAZON, // MIME Type
+    type: ReactTinyLinkType.TYPE_AMAZON, // MIME Type
     publisher: ['Amazon'],
   }
 };

@@ -22,10 +22,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# ignore type definitions
-*.d.ts
-*.map
-
-# ignore produced files
-lib/*
-docs/*

@@ -1,24 +1,24 @@
 import * as React from 'react';
 import { Media, Video } from './Card';
-import { TYPE_VIDEO } from '../rules';
+import { ReactTinyLinkType } from '../ReactTinyLinkTypes';
 
-const CardMedia = ({ linkMeta, cardSize, autoPlay }) => {
+const CardMedia = ({ data, cardSize, autoPlay }) => {
   return (
     <React.Fragment>
-      {linkMeta.data.type !== TYPE_VIDEO && (
+      {data.type !== ReactTinyLinkType.TYPE_VIDEO && (
         <Media
           className="react_tinylink_card_media"
           cardSize={cardSize}
-          src={linkMeta.data.image && linkMeta.data.image[0]}
-          type={linkMeta.data.type}
+          src={data.image && data.image[0]}
+          type={data.type}
         />
       )}
-      {linkMeta.data.type && linkMeta.data.type === TYPE_VIDEO && (
+      {data.type && data.type === ReactTinyLinkType.TYPE_VIDEO && (
         <Media
           className="react_tinylink_card_media"
           cardSize={cardSize}
-          src={linkMeta.data.video && linkMeta.data.video[0]}
-          type={linkMeta.data.type}
+          src={data.video && data.video[0]}
+          type={data.type}
         >
           <Video
             muted
@@ -29,7 +29,7 @@ const CardMedia = ({ linkMeta, cardSize, autoPlay }) => {
               }, 1000);
             }}
             autoPlay={autoPlay}
-            src={linkMeta.data.video[0]}
+            src={data.video[0]}
           />
         </Media>
       )}

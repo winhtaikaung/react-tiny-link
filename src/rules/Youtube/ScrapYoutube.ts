@@ -1,4 +1,4 @@
-import { TYPE_YOUTUBE } from "..";
+import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
 import { isEmpty, getYoutTubeVideoId } from "../utils";
 
 const titleRegex = /"title":"(.+?)"/g;
@@ -18,7 +18,7 @@ export const ScrapYoutube = async (url, htmlDoc) => {
       title: title,
       url: url,
       description: url,
-      type: TYPE_YOUTUBE,
+      type: ReactTinyLinkType.TYPE_YOUTUBE,
       video: [],
       image: [
         `https://img.youtube.com/vi/${id}/0.jpg`,
@@ -32,7 +32,7 @@ export const ScrapYoutube = async (url, htmlDoc) => {
       title: htmlDoc.querySelector('title').innerText,
       url: url,
       description: url,
-      type: TYPE_YOUTUBE,
+      type: ReactTinyLinkType.TYPE_YOUTUBE,
       video: [],
       image: [
         `https://img.youtube.com/vi/${id}/0.jpg`,

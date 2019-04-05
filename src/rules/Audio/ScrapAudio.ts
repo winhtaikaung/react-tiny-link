@@ -1,4 +1,4 @@
-import { TYPE_AUDIO } from '../index';
+import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
 const MusicLogo = require('../../assets/music.svg');
 
 export const ScrapAudio = async url => {
@@ -8,6 +8,6 @@ export const ScrapAudio = async url => {
     url: url,
     image: [MusicLogo],
     video: [],
-    type: TYPE_AUDIO,
+    type: ReactTinyLinkType.TYPE_AUDIO,
   };
 };

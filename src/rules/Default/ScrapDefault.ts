@@ -1,4 +1,4 @@
-import { TYPE_DEFAULT } from "..";
+import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
 import { isEmpty, getTitleOfDoc, getAttrOfDocElement, fixRelativeUrls } from "../utils";
 
 export default async (url, htmlDoc) => {
@@ -39,6 +39,6 @@ export default async (url, htmlDoc) => {
       getAttrOfDocElement(htmlDoc, 'meta[name="twitter:image"]', 'content'),
       getAttrOfDocElement(htmlDoc, 'meta[itemprop="image"]', 'content'),
     ].filter(i => !isEmpty(i)).map((i => fixRelativeUrls(baseUrl, i))),
-    type: TYPE_DEFAULT, // MIME Type
+    type: ReactTinyLinkType.TYPE_DEFAULT, // MIME Type
   };
 };
