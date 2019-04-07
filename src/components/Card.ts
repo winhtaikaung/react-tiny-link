@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { isLarge, media } from '../utils';
-import { TYPE_AUDIO } from '../rules/index';
+import { ReactTinyLinkType } from '../ReactTinyLinkTypes';
+
 // Key Frames
 const shimmerKeyFrame = keyframes`
    0%{
@@ -79,7 +80,7 @@ export const Media = styled('div')`
     background: ${({ src, placeholderBg, type }) =>
       src
         ? `url(${src}) center center / ${
-            type === TYPE_AUDIO ? `contain` : `cover`
+            type === ReactTinyLinkType.TYPE_AUDIO ? `contain` : `cover`
           } no-repeat rgb(225, 232, 237)`
         : placeholderBg};
     

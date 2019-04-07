@@ -1,4 +1,4 @@
-import { TYPE_VIDEO } from '../index';
+import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
 
 export const ScrapVideo = async url => {
   return {
@@ -7,6 +7,6 @@ export const ScrapVideo = async url => {
     image: [],
     video: [url],
     url: url,
-    type: TYPE_VIDEO,
+    type: ReactTinyLinkType.TYPE_VIDEO,
   };
 };

@@ -13,13 +13,6 @@ import { ScrapYoutube } from './Youtube/ScrapYoutube';
 import { ScrapAmazon } from './Amazon/ScrapAmazon';
 import ScrapDefault from './Default/ScrapDefault';
 
-export const TYPE_AMAZON = 'TYPE_AMAZON';
-export const TYPE_YOUTUBE = 'TYPE_YOUTUBE';
-export const TYPE_AUDIO = 'TYPE_AUDIO';
-export const TYPE_VIDEO = 'TYPE_VIDEO';
-export const TYPE_IMAGE = 'TYPE_IMAGE';
-export const TYPE_DEFAULT = 'TYPE_DEFAULT';
-
 export const ScraperWraper = async (url, httpClient) => {
   if (!isEmpty(url)) {
     const response = await httpClient;
