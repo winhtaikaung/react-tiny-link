@@ -288,6 +288,31 @@ class Demo extends React.Component {
   url="https://www.iflix.com/" />`}
           </code>
         </pre>
+        <h3>Preset header and description for CDN links</h3>
+        <ReactTinyLink
+          cardSize="large"
+          showGraphic={true}
+          header="Code"
+          description="A sample from the code"
+          maxLine={2}
+          minLine={1}
+          url="https://i.stack.imgur.com/eA4W3.jpg"
+        />
+        <h4>Default example Code</h4>
+        <pre className="language-markup">
+          <code>
+            {` 
+        <ReactTinyLink
+          cardSize="large"
+          showGraphic={true}
+          header="Code"
+          description="A sample from the code"
+          maxLine={2}
+          minLine={1}
+          url="https://i.stack.imgur.com/eA4W3.jpg"
+        />`}
+          </code>
+        </pre>
         <footer>
           Made with <i className="fa fa-heart" style={{ color: `red` }} /> in
           Singapore
