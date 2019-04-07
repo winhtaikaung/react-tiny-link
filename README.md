@@ -71,8 +71,8 @@ url="https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_1
 |**maxLine** | Maximum number of line to ellipsis | number | 2 |`false`
 |**minLine** | Minimum number of line to ellipsis | number | 1 |`false`
 |**width** | Width of the link preview card | number| default(`100vw`)|`false`
-|**header** | Default Header content  | number| null |`false`
-|**description** | Default description content | number| null |`false`
+|**header** | Default Header content  | string | null |`false`
+|**description** | Default description content | string | null |`false`
 |**proxyUrl** | Proxy URL to pass that resolve CORS | string|default(`https://cors-anywhere.herokuapp.com`) |`false`
 |**showGraphic** | Boolean value to display graphics | boolean|default(`true`) |`false`
 |**autoPlay** | Boolean value to play the media if provided url is video | boolean|default(`false`) |`false`
