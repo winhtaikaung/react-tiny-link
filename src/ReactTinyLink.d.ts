@@ -1,14 +1,9 @@
-declare const ReactTinyLink: {
-  (props: any): JSX.Element;
-  defaultProps: {
-    cardSize: string;
-    maxLine: number;
-    minLine: number;
-    url: string;
-    width: string;
-    proxyUrl: string;
-    showGraphic: boolean;
-    autoPlay: boolean;
-  };
-};
+import * as React from 'react';
+import { IReactTinyLinkProps, IReactTinyLinkState } from './ReactTinyLinkTypes';
+export declare class ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTinyLinkState> {
+    static defaultProps: IReactTinyLinkProps;
+    constructor(props: any);
+    componentDidMount(): void;
+    render(): JSX.Element;
+}
 export default ReactTinyLink;

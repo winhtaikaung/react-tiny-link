@@ -1,4 +1,4 @@
-import { TYPE_IMAGE } from '../index';
+import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
 import { isEmpty } from '../utils';
 
 export const ScrapImage = async url => ({
@@ -7,5 +7,5 @@ export const ScrapImage = async url => ({
   url: url,
   video: [],
   image: [url].filter(i => !isEmpty(i)),
-  type: TYPE_IMAGE,
+  type: ReactTinyLinkType.TYPE_IMAGE,
 });

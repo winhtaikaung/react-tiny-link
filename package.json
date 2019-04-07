@@ -29,22 +29,14 @@
   },
   "typings": "src/lib/index.d.ts",
   "scripts": {
-    "prettier": "prettier --single-quote --tab-width=2 --print-width=80 --semi --trailing-comma all",
-    "prettify": "yarn prettier --write 'src/**/*.{js,jsx,json,css,ts,tsx,html}'",
     "start": "set NODE_ENV=local && webpack-dev-server --config webpack/webpack.config.dev.js --content-base src/demo/dist --hot --inline --open --history-api-fallback",
     "build:clean": "rimraf lib/",
     "build:lib": "webpack --config ./webpack/webpack.config.js && webpack --config ./webpack/webpack.config.min.js",
     "build:gh-pages": "rimraf docs/ && . .env && mkdir -p docs && cp -a src/demo/dist/* docs/ && webpack --config ./webpack/webpack.config.gh-pages.js",
-    "build": "npm run build:clean && npm run build:lib",
-    "build:prod": ". .env && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-deploy": "npm run build && npm run build:gh-pages",
     "version:patch": "npm version patch",
     "push:git": "git push --tags origin master --quiet",
-    "conventional-github-releaser": "conventional-github-releaser -p angular",
     "commit:build": "git add . && git commit -m \"Deploy commit\" --quiet & npm run push:git",
-    "create:patch": "npm run version:patch && npm run push:git",
-    "deploy": ". .env && npm run build:gh-pages && npm run build:prod && npm run commit:build && npm publish && npm run conventional-github-releaser -p angular && npm run create:patch"
+    "create:patch": "npm run version:patch && npm run push:git"
   },
   "eslintConfig": {
     "extends": "react-app"

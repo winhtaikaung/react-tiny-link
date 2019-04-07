@@ -27,15 +27,6 @@ export const isEmpty = (value: any) => {
   );
 };
 
-export const getVideoId = (url: string) => {
-  let video_id = url.split('v=')[1];
-  let ampersandPosition = video_id.indexOf('&');
-  if (ampersandPosition != -1) {
-    video_id = video_id.substring(0, ampersandPosition);
-  }
-  return video_id;
-};
-
 export const isAudio = (mimeType: string) => mimeType.startsWith('audio/');
 export const isVideo = (mimeType: string) => mimeType.startsWith('video/');
 export const isImage = (mimeType: string) => mimeType.startsWith('image/');
@@ -59,4 +50,22 @@ export const getAttrOfDocElement = (
     return null;
   }
   return el.getAttribute(attr);
-};
+}
+
+export const getYoutTubeVideoId = (url: string) => {
+  const parsed = url.match(/^.*((m\.)?youtu\.be\/|vi?\/|u\/\w\/|embed\/|\?vi?=|\&vi?=)([^#\&\?]*).*/);
+
+  if (parsed && parsed[3]) {
+    return parsed[3];
+  } else {
+    return null;
+  }
+}
+
+export const fixRelativeUrls = (baseUrl: string, itemUrl: string) => {
+  const normalizedUrl = itemUrl.toLocaleLowerCase();
+  if (normalizedUrl.startsWith("http://") || normalizedUrl.startsWith("https://")) {
+    return itemUrl;
+  }
+  return baseUrl + itemUrl;
+}
