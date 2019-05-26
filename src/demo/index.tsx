@@ -2,6 +2,7 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import ReactTinyLink from '../../lib/index';
 
+
 class Demo extends React.Component {
   render() {
     return (
@@ -147,7 +148,7 @@ class Demo extends React.Component {
           showGraphic={true}
           maxLine={2}
           minLine={1}
-          url="https://www.iflix.com/"
+          url="https://medium.com/"
         />
         <h4>Default example Code</h4>
         <pre className="language-markup">
@@ -157,7 +158,7 @@ class Demo extends React.Component {
   showGraphic={true}
   maxLine={2}
   minLine={1}
-  url="https://www.iflix.com/"
+  url="https://medium.com/"
         />`}
           </code>
         </pre>
@@ -275,7 +276,7 @@ class Demo extends React.Component {
           showGraphic={true}
           maxLine={2}
           minLine={1}
-          url="https://www.iflix.com/"
+          url="https://medium.com/"
         />
         <h4>Default example Code</h4>
         <pre className="language-markup">
@@ -285,7 +286,7 @@ class Demo extends React.Component {
   showGraphic={true}
   maxLine={2}
   minLine={1}
-  url="https://www.iflix.com/" />`}
+  url="https://medium.com/" />`}
           </code>
         </pre>
         <h3>Preset header and description for CDN links</h3>
