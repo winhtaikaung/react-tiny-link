@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { render } from 'react-dom'
-import ReactTinyLink from '../ReactTinyLink'
-// import ReactTinyLink from '../../lib/index'
+import ReactTinyLink from '../../lib/index'
 
 class Demo extends React.Component {
   render() {

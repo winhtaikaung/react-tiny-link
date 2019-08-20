@@ -1,5 +1,6 @@
 export declare const isAmazonUrl: (url: any) => boolean;
 export declare const isYoutubeUrl: (url: any) => boolean;
+export declare const isInstagramUrl: (url: any) => boolean;
 export declare const isEmpty: (value: any) => any;
 export declare const isAudio: (mimeType: string) => boolean;
 export declare const isVideo: (mimeType: string) => boolean;
@@ -7,4 +8,5 @@ export declare const isImage: (mimeType: string) => boolean;
 export declare const getTitleOfDoc: (htmlDoc: any) => any;
 export declare const getAttrOfDocElement: (htmlDoc: any, query: string, attr: string) => any;
 export declare const getYoutTubeVideoId: (url: string) => string;
+export declare const getInstagramVideo: (htmlDoc: any) => string;
 export declare const fixRelativeUrls: (baseUrl: string, itemUrl: string) => string;

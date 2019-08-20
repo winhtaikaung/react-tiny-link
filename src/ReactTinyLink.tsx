@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Card, ContentWrapper, Header, Content, Footer, Description } from './components/Card'
 import { getHostname } from './utils'
 import { ScraperWraper } from './rules'
-import { ReactTinyLinkType, IReactTinyLinkProps, IReactTinyLinkState } from './ReactTinyLinkTypes'
+import { ReactTinyLinkType, IReactTinyLinkProps, IReactTinyLinkState, IReactTinyLinkData } from './ReactTinyLinkTypes'
 import CardMedia from './components/CardMedia'
 
 export class ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTinyLinkState> {
@@ -44,11 +44,10 @@ export class ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTi
     })
 
     ScraperWraper(url, client, this.props.defaultMedia ? [this.props.defaultMedia] : [])
-      .then((data: any) => {
+      .then((data: IReactTinyLinkData) => {
         this.setState({ data, loading: false })
       })
       .catch((err: any) => {
-        console.error(err)
         this.setState({
           data: {
             title: url.substring(url.lastIndexOf('/') + 1),
