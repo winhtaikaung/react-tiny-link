@@ -1,4 +1,4 @@
-export declare const ScraperWraper: (url: any, httpClient: any) => Promise<{
+export declare const ScraperWraper: (url: any, httpClient: any, defaultMedia: any) => Promise<{
     title: any;
     description: any;
     image: any[];

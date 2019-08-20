@@ -1,39 +1,32 @@
-import {
-  isVideo,
-  isAudio,
-  isImage,
-  isYoutubeUrl,
-  isAmazonUrl,
-  isEmpty,
-} from './utils';
-import { ScrapVideo } from './Video/ScrapVideo';
-import { ScrapAudio } from './Audio/ScrapAudio';
-import { ScrapImage } from './Image/ScrapImage';
-import { ScrapYoutube } from './Youtube/ScrapYoutube';
-import { ScrapAmazon } from './Amazon/ScrapAmazon';
-import ScrapDefault from './Default/ScrapDefault';
+import { isVideo, isAudio, isImage, isYoutubeUrl, isAmazonUrl, isEmpty, isInstagramUrl } from './utils'
+import { ScrapVideo } from './Video/ScrapVideo'
+import { ScrapAudio } from './Audio/ScrapAudio'
+import { ScrapImage } from './Image/ScrapImage'
+import { ScrapYoutube } from './Youtube/ScrapYoutube'
+import { ScrapAmazon } from './Amazon/ScrapAmazon'
+import ScrapDefault from './Default/ScrapDefault'
+import ScrapInstagram from './Instagram/ScrapInstagram'
 
-export const ScraperWraper = async (url, httpClient) => {
+export const ScraperWraper = async (url, httpClient, defaultMedia) => {
   if (!isEmpty(url)) {
-    const response = await httpClient;
-    const mimeType = response.headers.get('content-type');
-    const data = await response.text();
+    const response = await httpClient
+    const mimeType = response.headers.get('content-type')
+    const data = await response.text()
+    const htmlDoc = new DOMParser().parseFromString(data, 'text/html')
     if (isVideo(mimeType)) {
-      return await ScrapVideo(url);
+      return await ScrapVideo(url, defaultMedia)
     } else if (isAudio(mimeType)) {
-      return await ScrapAudio(url);
+      return await ScrapAudio(url, defaultMedia)
     } else if (isImage(mimeType)) {
-      return await ScrapImage(url);
+      return await ScrapImage(url, defaultMedia)
+    } else if (isInstagramUrl(url)) {
+      return await ScrapInstagram(url, htmlDoc, data, defaultMedia)
     } else if (isYoutubeUrl(url)) {
-      let htmlDoc = new DOMParser().parseFromString(data, 'text/html');
-      return await ScrapYoutube(url, htmlDoc);
+      return await ScrapYoutube(url, htmlDoc, defaultMedia)
     } else if (isAmazonUrl(url)) {
-      let htmlDoc = new DOMParser().parseFromString(data, 'text/html');
-      return await ScrapAmazon(url, htmlDoc);
+      return await ScrapAmazon(url, htmlDoc, defaultMedia)
     } else {
-      let htmlDoc = new DOMParser().parseFromString(data, 'text/html');
-      const resp = await ScrapDefault(url, htmlDoc);
-      return resp;
+      return await ScrapDefault(url, htmlDoc, defaultMedia)
     }
   }
-};
+}

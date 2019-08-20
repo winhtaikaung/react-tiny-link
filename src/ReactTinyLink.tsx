@@ -1,18 +1,11 @@
-import * as React from 'react';
-import {
-  Card,
-  ContentWrapper,
-  Header,
-  Content,
-  Footer,
-  Description,
-} from './components/Card';
-import { getHostname } from './utils';
-import { ScraperWraper } from "./rules"
-import { ReactTinyLinkType, IReactTinyLinkProps, IReactTinyLinkState } from './ReactTinyLinkTypes';
-import CardMedia from './components/CardMedia';
+import * as React from 'react'
+import { Card, ContentWrapper, Header, Content, Footer, Description } from './components/Card'
+import { getHostname } from './utils'
+import { ScraperWraper } from './rules'
+import { ReactTinyLinkType, IReactTinyLinkProps, IReactTinyLinkState, IReactTinyLinkData } from './ReactTinyLinkTypes'
+import CardMedia from './components/CardMedia'
 
-export class  ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTinyLinkState> {
+export class ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTinyLinkState> {
   public static defaultProps: IReactTinyLinkProps = {
     cardSize: 'small',
     maxLine: 2,
@@ -24,11 +17,11 @@ export class  ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactT
     proxyUrl: 'https://cors-anywhere.herokuapp.com',
     showGraphic: true,
     autoPlay: false,
-  };
+  }
 
   constructor(props: any) {
-    super (props);
-    
+    super(props)
+
     this.state = {
       data: {
         title: null,
@@ -38,36 +31,40 @@ export class  ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactT
         video: [],
         url: null,
       },
-      loading: true
-    };
+      loading: true,
+    }
   }
 
   public componentDidMount() {
-    const url = this.props.url;
+    const url = this.props.url
     const client = fetch(this.props.proxyUrl ? `${this.props.proxyUrl}/${this.props.url}` : url, {
       headers: {
         'x-requested-with': '',
       },
-    });
-  
-    ScraperWraper(url, client).then((data: any) => {
-      this.setState({data, loading: false})
-    }).catch((err: any) => {
-      console.error(err);
-      this.setState({data: {
-        title: url.substring(url.lastIndexOf('/') + 1),
-        description: url.substring(url.lastIndexOf('/') + 1),
-        image: [],
-        url: url,
-        video: [],
-        type: ReactTinyLinkType.TYPE_DEFAULT,
-      }, loading: false})
-    });
+    })
+
+    ScraperWraper(url, client, this.props.defaultMedia ? [this.props.defaultMedia] : [])
+      .then((data: IReactTinyLinkData) => {
+        this.setState({ data, loading: false })
+      })
+      .catch((err: any) => {
+        this.setState({
+          data: {
+            title: url.substring(url.lastIndexOf('/') + 1),
+            description: url.substring(url.lastIndexOf('/') + 1),
+            image: this.props.defaultMedia ? [this.props.defaultMedia] : [],
+            url: url,
+            video: this.props.defaultMedia ? [this.props.defaultMedia] : [],
+            type: ReactTinyLinkType.TYPE_DEFAULT,
+          },
+          loading: false,
+        })
+      })
   }
 
   public render() {
     return (
-      <React.Fragment>
+      <>
         <Card
           className="react_tinylink_card"
           cardSize={this.props.cardSize}
@@ -76,16 +73,9 @@ export class  ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactT
           isShownGraphic={this.props.showGraphic}
         >
           {this.props.showGraphic && (
-            <CardMedia
-              autoPlay={this.props.autoPlay}
-              cardSize={this.props.cardSize}
-              data={this.state.data}
-            />
+            <CardMedia autoPlay={this.props.autoPlay} cardSize={this.props.cardSize} data={this.state.data} />
           )}
-          <ContentWrapper
-            className="react_tinylink_card_content_wrapper"
-            cardSize={this.props.cardSize}
-          >
+          <ContentWrapper className="react_tinylink_card_content_wrapper" cardSize={this.props.cardSize}>
             <Header
               maxLine={this.props.maxLine}
               minLine={this.props.minLine}
@@ -98,8 +88,7 @@ export class  ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactT
                 minLine={this.props.minLine}
                 className="react_tinylink_card_content_header_description"
               >
-                {this.props.header ? this.props.header :
-                    this.state.data.title ? this.state.data.title : this.props.url}
+                {this.props.header ? this.props.header : this.state.data.title ? this.state.data.title : this.props.url}
               </Description>
             </Header>
             <Content
@@ -113,8 +102,11 @@ export class  ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactT
                 loadingWidth={1}
                 className="react_tinylink_card_content_description"
               >
-                {this.props.description ? this.props.description :
-                  this.state.data.description ? this.state.data.description : this.props.url }
+                {this.props.description
+                  ? this.props.description
+                  : this.state.data.description
+                  ? this.state.data.description
+                  : this.props.url}
               </Description>
             </Content>
             <Footer className="react_tinylink_footer">
@@ -128,9 +120,8 @@ export class  ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactT
             </Footer>
           </ContentWrapper>
         </Card>
-      </React.Fragment>
-    );
-  };
-  
-} 
-export default ReactTinyLink;
+      </>
+    )
+  }
+}
+export default ReactTinyLink

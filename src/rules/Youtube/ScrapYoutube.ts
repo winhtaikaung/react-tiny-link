@@ -1,10 +1,16 @@
-import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
-import { isEmpty, getYoutTubeVideoId } from "../utils";
+import { ReactTinyLinkType } from '../../ReactTinyLinkTypes'
+import { isEmpty, getYoutTubeVideoId } from '../utils'
 
-const titleRegex = /"title":"(.+?)"/g;
+const titleRegex = /"title":"(.+?)"/g
 
-export const ScrapYoutube = async (url, htmlDoc) => {
-  const id = getYoutTubeVideoId(url);
+export const ScrapYoutube = async (url, htmlDoc, defaultMedia) => {
+  const id = getYoutTubeVideoId(url)
+  const image = [
+    `https://img.youtube.com/vi/${id}/0.jpg`,
+    `https://img.youtube.com/vi/${id}/1.jpg`,
+    `https://img.youtube.com/vi/${id}/2.jpg`,
+    `https://img.youtube.com/vi/${id}/3.jpg`,
+  ]
   try {
     const { title } = JSON.parse(
       `{${
@@ -13,20 +19,15 @@ export const ScrapYoutube = async (url, htmlDoc) => {
           .innerHTML.toString()
           .match(titleRegex)[0]
       }}`,
-    );
+    )
     return {
       title: title,
       url: url,
       description: url,
       type: ReactTinyLinkType.TYPE_YOUTUBE,
       video: [],
-      image: [
-        `https://img.youtube.com/vi/${id}/0.jpg`,
-        `https://img.youtube.com/vi/${id}/1.jpg`,
-        `https://img.youtube.com/vi/${id}/2.jpg`,
-        `https://img.youtube.com/vi/${id}/3.jpg`,
-      ].filter(i => !isEmpty(i)),
-    };
+      image: image.filter(i => !isEmpty(i)),
+    }
   } catch (error) {
     return {
       title: htmlDoc.querySelector('title').innerText,
@@ -34,12 +35,7 @@ export const ScrapYoutube = async (url, htmlDoc) => {
       description: url,
       type: ReactTinyLinkType.TYPE_YOUTUBE,
       video: [],
-      image: [
-        `https://img.youtube.com/vi/${id}/0.jpg`,
-        `https://img.youtube.com/vi/${id}/1.jpg`,
-        `https://img.youtube.com/vi/${id}/2.jpg`,
-        `https://img.youtube.com/vi/${id}/3.jpg`,
-      ].filter(i => !isEmpty(i)),
-    };
+      image: !defaultMedia ? image.filter(i => !isEmpty(i)) : [...image, defaultMedia].filter(i => !isEmpty(i)),
+    }
   }
-};
+}
