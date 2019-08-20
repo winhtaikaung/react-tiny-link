@@ -61,12 +61,15 @@ export const getYoutTubeVideoId = (url: string) => {
   }
 }
 
-export const getInstagramImage = (htmlDoc: any) => {
-  const imageLinkMatcher = /(?:"display_url":")(.*?)(?:")/g
-
-  if (imageLinkMatcher.test(htmlDoc)) {
-    return
+export const getInstagramVideo = (htmlDoc: any) => {
+  const videoLinkMatcher = /(?:"video_url":")(.*?)(?:")/g
+  if (videoLinkMatcher.test(htmlDoc)) {
+    const videoMatches = videoLinkMatcher.exec(htmlDoc)
+    if (videoMatches && videoMatches.length !== 0) {
+      return videoMatches[0].split('":"')[1].replace('"', '')
+    }
   }
+  return null
 }
 
 export const fixRelativeUrls = (baseUrl: string, itemUrl: string) => {

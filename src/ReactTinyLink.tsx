@@ -43,7 +43,7 @@ export class ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTi
       },
     })
 
-    ScraperWraper(url, client)
+    ScraperWraper(url, client, this.props.defaultMedia ? [this.props.defaultMedia] : [])
       .then((data: any) => {
         this.setState({ data, loading: false })
       })
