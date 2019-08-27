@@ -5,7 +5,7 @@ import { ScraperWraper } from './rules'
 import { ReactTinyLinkType, IReactTinyLinkProps, IReactTinyLinkState, IReactTinyLinkData } from './ReactTinyLinkTypes'
 import CardMedia from './components/CardMedia'
 
-export class ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTinyLinkState> {
+class ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTinyLinkState> {
   public static defaultProps: IReactTinyLinkProps = {
     cardSize: 'small',
     maxLine: 2,
@@ -124,4 +124,6 @@ export class ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTi
     )
   }
 }
+
+export { ReactTinyLink, ScraperWraper }
 export default ReactTinyLink
