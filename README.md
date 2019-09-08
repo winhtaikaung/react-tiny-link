@@ -25,9 +25,9 @@ npm install --save react-tiny-link
 ## Usage & Configuration
 
 ```javascript
-import ReactTinyLink from 'react-tiny-link'
+import { ReactTinyLink } from 'react-tiny-link'
 
-;<ReactTinyLink
+<ReactTinyLink
   cardSize="small"
   showGraphic={true}
   maxLine={2}
