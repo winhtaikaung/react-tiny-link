@@ -3,7 +3,7 @@ import { isEmpty, getYoutTubeVideoId } from '../utils'
 
 const titleRegex = /"title":"(.+?)"/g
 
-export const ScrapYoutube = async (url, htmlDoc, defaultMedia) => {
+export default async (url, htmlDoc, defaultMedia) => {
   const id = getYoutTubeVideoId(url)
   const image = [
     `https://img.youtube.com/vi/${id}/0.jpg`,
@@ -14,10 +14,10 @@ export const ScrapYoutube = async (url, htmlDoc, defaultMedia) => {
   try {
     const { title } = JSON.parse(
       `{${
-        htmlDoc
-          .querySelector('html')
-          .innerHTML.toString()
-          .match(titleRegex)[0]
+      htmlDoc
+        .querySelector('html')
+        .innerHTML.toString()
+        .match(titleRegex)[0]
       }}`,
     )
     return {

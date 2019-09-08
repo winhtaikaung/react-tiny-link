@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Card, ContentWrapper, Header, Content, Footer, Description } from './components/Card'
 import { getHostname } from './utils'
-import { ScraperWraper } from './rules'
+import ScraperWraper from './rules'
 import { ReactTinyLinkType, IReactTinyLinkProps, IReactTinyLinkState, IReactTinyLinkData } from './ReactTinyLinkTypes'
 import CardMedia from './components/CardMedia'
 
@@ -105,8 +105,8 @@ export class ReactTinyLink extends React.Component<IReactTinyLinkProps, IReactTi
                 {this.props.description
                   ? this.props.description
                   : this.state.data.description
-                  ? this.state.data.description
-                  : this.props.url}
+                    ? this.state.data.description
+                    : this.props.url}
               </Description>
             </Content>
             <Footer className="react_tinylink_footer">

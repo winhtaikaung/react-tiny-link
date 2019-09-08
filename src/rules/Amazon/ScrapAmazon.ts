@@ -1,7 +1,7 @@
 import { ReactTinyLinkType } from '../../ReactTinyLinkTypes'
 import { isEmpty, getTitleOfDoc, getAttrOfDocElement, fixRelativeUrls } from '../utils'
 
-export const ScrapAmazon = async (url, htmlDoc, defaultMedia) => {
+export default async (url, htmlDoc, defaultMedia) => {
   let baseUrl = getAttrOfDocElement(htmlDoc, 'base', 'href')
   if (!baseUrl) {
     baseUrl = url

@@ -1,5 +1,5 @@
 import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
-export declare const ScrapAmazon: (url: any, htmlDoc: any, defaultMedia: any) => Promise<{
+declare const _default: (url: any, htmlDoc: any, defaultMedia: any) => Promise<{
     title: any;
     content: any;
     url: any;
@@ -9,3 +9,4 @@ export declare const ScrapAmazon: (url: any, htmlDoc: any, defaultMedia: any) =>
     type: ReactTinyLinkType;
     publisher: string[];
 }>;
+export default _default;

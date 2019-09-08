@@ -7,7 +7,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
-    entry: { 'index': './src/ReactTinyLink.tsx' },
+    entry: { 'index': './src/index.tsx' },
 
     mode: process.env.NODE_ENV,
     module: {

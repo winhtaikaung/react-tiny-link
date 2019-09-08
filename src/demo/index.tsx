@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { render } from 'react-dom'
-import ReactTinyLink from '../../lib/index'
+import { ReactTinyLink } from '../../src/index'
 
 class Demo extends React.Component {
   render() {
@@ -351,5 +351,5 @@ class Demo extends React.Component {
   }
 }
 
-;(window as any).env = process.env.NODE_ENV
+; (window as any).env = process.env.NODE_ENV
 render(<Demo />, document.getElementById('demo'))
