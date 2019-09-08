@@ -27,7 +27,7 @@
     "react": "*",
     "react-dom": "*"
   },
-  "typings": "lib/index.js",
+  "typings": "src/lib/index.d.ts",
   "scripts": {
     "start": "set NODE_ENV=local && webpack-dev-server --config webpack/webpack.config.dev.js --content-base src/demo/dist --hot --inline --open --history-api-fallback",
     "build:clean": "rimraf lib/",
