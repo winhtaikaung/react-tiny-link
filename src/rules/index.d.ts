@@ -1,8 +1,9 @@
-export declare const ScraperWraper: (url: any, httpClient: any, defaultMedia: any) => Promise<{
+declare const _default: (url: string, httpClient: any, defaultMedia: string[]) => Promise<{
     title: any;
-    description: any;
-    image: any[];
-    video: any[];
     url: any;
+    description: any;
     type: import("../ReactTinyLinkTypes").ReactTinyLinkType;
+    video: any[];
+    image: any[];
 }>;
+export default _default;

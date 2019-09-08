@@ -1,13 +1,13 @@
 import { isVideo, isAudio, isImage, isYoutubeUrl, isAmazonUrl, isEmpty, isInstagramUrl } from './utils'
-import { ScrapVideo } from './Video/ScrapVideo'
-import { ScrapAudio } from './Audio/ScrapAudio'
-import { ScrapImage } from './Image/ScrapImage'
-import { ScrapYoutube } from './Youtube/ScrapYoutube'
-import { ScrapAmazon } from './Amazon/ScrapAmazon'
+import ScrapVideo from './Video/ScrapVideo'
+import ScrapAudio from './Audio/ScrapAudio'
+import ScrapImage from './Image/ScrapImage'
+import ScrapYoutube from './Youtube/ScrapYoutube'
+import ScrapAmazon from './Amazon/ScrapAmazon'
 import ScrapDefault from './Default/ScrapDefault'
 import ScrapInstagram from './Instagram/ScrapInstagram'
 
-export const ScraperWraper = async (url, httpClient, defaultMedia) => {
+export default async (url: string, httpClient, defaultMedia: string[]) => {
   if (!isEmpty(url)) {
     const response = await httpClient
     const mimeType = response.headers.get('content-type')

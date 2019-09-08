@@ -1,9 +1,10 @@
 import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
-export declare const ScrapImage: (url: any, defaultMedia: any) => Promise<{
-    title: any;
-    description: any;
-    url: any;
+declare const _default: (url: string, defaultMedia: string[]) => Promise<{
+    title: string;
+    description: string;
+    url: string;
     video: any[];
-    image: any[];
+    image: (string | string[])[];
     type: ReactTinyLinkType;
 }>;
+export default _default;

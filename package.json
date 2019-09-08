@@ -2,6 +2,7 @@
   "name": "react-tiny-link",
   "version": "1.1.0",
   "main": "lib/index.js",
+  
   "dependencies": {
     "@types/node": "^11.12.1",
     "@types/react": "^16.8.10",
@@ -27,12 +28,12 @@
     "react": "*",
     "react-dom": "*"
   },
-  "typings": "src/lib/index.d.ts",
+  "typings": "lib/index.js",
   "scripts": {
     "start": "set NODE_ENV=local && webpack-dev-server --config webpack/webpack.config.dev.js --content-base src/demo/dist --hot --inline --open --history-api-fallback",
     "build:clean": "rimraf lib/",
     "build:lib": "webpack --config ./webpack/webpack.config.js && webpack --config ./webpack/webpack.config.min.js",
-    "build:gh-pages": "rimraf docs/ && . .env && mkdir -p docs && cp -a src/demo/dist/* docs/ && webpack --config ./webpack/webpack.config.gh-pages.js",
+    "build:gh-pages": "rimraf docs/ && mkdir -p docs && cp -a src/demo/dist/* docs/ && NODE_ENV=production webpack --config ./webpack/webpack.config.gh-pages.js",
     "version:patch": "npm version patch",
     "push:git": "git push --tags origin master --quiet",
     "commit:build": "git add . && git commit -m \"Deploy commit\" --quiet & npm run push:git",

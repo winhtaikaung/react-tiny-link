@@ -1,5 +1,5 @@
 import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
-export declare const ScrapYoutube: (url: any, htmlDoc: any, defaultMedia: any) => Promise<{
+declare const _default: (url: any, htmlDoc: any, defaultMedia: any) => Promise<{
     title: any;
     url: any;
     description: any;
@@ -7,3 +7,4 @@ export declare const ScrapYoutube: (url: any, htmlDoc: any, defaultMedia: any) =
     video: any[];
     image: any[];
 }>;
+export default _default;
