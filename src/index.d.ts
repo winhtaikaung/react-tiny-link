@@ -1,2 +1,2 @@
-export { default as ReactTinyLink } from './ReactTinyLink';
-export { default as ScraperWrapper } from './rules';
+export { ReactTinyLink } from "./ReactTinyLink";
+export { ScrapperWraper } from "./ReactTinyLink";

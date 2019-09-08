@@ -1,9 +1,9 @@
 import { ReactTinyLinkType } from '../../ReactTinyLinkTypes';
-declare const _default: (url: any, defaultMedia: any) => Promise<{
-    title: any;
-    description: any;
-    url: any;
-    image: any[];
+declare const _default: (url: string, defaultMedia: string[]) => Promise<{
+    title: string;
+    description: string;
+    url: string;
+    image: string[][];
     video: any[];
     type: ReactTinyLinkType;
 }>;

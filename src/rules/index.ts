@@ -7,7 +7,7 @@ import ScrapAmazon from './Amazon/ScrapAmazon'
 import ScrapDefault from './Default/ScrapDefault'
 import ScrapInstagram from './Instagram/ScrapInstagram'
 
-export default async (url, httpClient, defaultMedia) => {
+export default async (url: string, httpClient, defaultMedia: string[]) => {
   if (!isEmpty(url)) {
     const response = await httpClient
     const mimeType = response.headers.get('content-type')

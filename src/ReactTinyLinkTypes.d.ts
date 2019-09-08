@@ -12,13 +12,21 @@ export interface IReactTinyLinkProps {
     cardSize: CardSizeType;
     maxLine: number;
     minLine: number;
-    header: string;
-    description: string;
     url: string;
-    width: string | number;
-    proxyUrl: string;
-    showGraphic: boolean;
-    autoPlay: boolean;
+    header?: string;
+    description?: string;
+    showGraphic?: boolean;
+    autoPlay?: boolean;
+    width?: string | number;
+    proxyUrl?: string;
+    scraper?: (url: string, httpClient: any, defaultMedia: any) => Promise<{
+        title: any;
+        description: any;
+        url: any;
+        video: any[];
+        image: any[];
+        type: ReactTinyLinkType;
+    }>;
     defaultMedia?: string;
 }
 export interface IReactTinyLinkData {
@@ -28,8 +36,4 @@ export interface IReactTinyLinkData {
     type: ReactTinyLinkType;
     video: string[];
     url: string;
-}
-export interface IReactTinyLinkState {
-    data: IReactTinyLinkData;
-    loading: boolean;
 }
