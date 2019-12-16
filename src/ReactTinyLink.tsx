@@ -5,7 +5,6 @@ import ScraperWraper from './rules'
 import { ReactTinyLinkType, IReactTinyLinkProps, IReactTinyLinkData } from './ReactTinyLinkTypes'
 import CardMedia from './components/CardMedia'
 
-
 const useEffectAsync = (effect: () => void, input) => {
   React.useEffect(() => {
     effect()
@@ -55,6 +54,7 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
   showGraphic = true,
   autoPlay = false,
   defaultMedia = '',
+  onClick,
 }: IReactTinyLinkProps) => {
   const [data, setData] = React.useState({
     title: null,
@@ -71,7 +71,14 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
 
   return (
     <>
-      <Card className="react_tinylink_card" cardSize={cardSize} href={url} width={width} isShownGraphic={showGraphic}>
+      <Card
+        onClick={onClick}
+        className="react_tinylink_card"
+        cardSize={cardSize}
+        href={url}
+        width={width}
+        isShownGraphic={showGraphic}
+      >
         {showGraphic && <CardMedia autoPlay={autoPlay} cardSize={cardSize} data={data} />}
         <ContentWrapper className="react_tinylink_card_content_wrapper" cardSize={cardSize}>
           <Header maxLine={maxLine} minLine={minLine} className="react_tinylink_card_content_header">
@@ -100,4 +107,3 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
     </>
   )
 }
-

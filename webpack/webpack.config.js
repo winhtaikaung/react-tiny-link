@@ -1,8 +1,10 @@
-const merge = require('webpack-merge');
+const merge = require('webpack-merge')
 
 module.exports = merge(require('./webpack.config.base'), {
-    externals: {
-        "react": "react",
-        "prop-types": "prop-types",
-    }
-});
+  externals: {
+    react: 'react',
+    'react-dom': 'react-dom',
+    'styled-components': 'styled-components',
+    'prop-types': 'prop-types',
+  },
+})
