@@ -5,7 +5,6 @@ import ScraperWraper from './rules'
 import { ReactTinyLinkType, IReactTinyLinkProps, IReactTinyLinkData } from './ReactTinyLinkTypes'
 import CardMedia from './components/CardMedia'
 
-
 const useEffectAsync = (effect: () => void, input) => {
   React.useEffect(() => {
     effect()
@@ -19,6 +18,8 @@ const fetchUrl = (
   setData: (data: IReactTinyLinkData) => void,
   setLoading: (loading: boolean) => void,
 ) => {
+  setLoading(true)
+
   const client = fetch(proxyUrl ? `${proxyUrl}/${url}` : url, {
     headers: {
       'x-requested-with': '',
@@ -64,10 +65,10 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
     video: [],
     url: null,
   })
-  const [loading, setLoading] = React.useState(true)
+  const [loading, setLoading] = React.useState(false)
   useEffectAsync(() => {
     fetchUrl(url, proxyUrl, defaultMedia, setData, setLoading)
-  }, [])
+  }, [url, proxyUrl, defaultMedia])
 
   return (
     <>
@@ -100,4 +101,3 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
     </>
   )
 }
-
