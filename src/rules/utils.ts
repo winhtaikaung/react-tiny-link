@@ -1,11 +1,11 @@
 const REGEX_AMAZON_URL = /https?:\/\/(.*amazon\..*\/.*|.*amzn\..*\/.*|.*a\.co\/.*)/i
 export const isAmazonUrl = url => REGEX_AMAZON_URL.test(url)
 
-const REGEX_YOUTUBE = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/g
-export const isYoutubeUrl = url => REGEX_YOUTUBE.test(url)
+const REGEX_YOUTUBE = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/gi
+export const isYoutubeUrl = url => !!url.toString().match(REGEX_YOUTUBE)
 
 const REGEX_INSTAGRAM = /(https?:\/\/www\.)?instagram\.com(\/p\/\w+\/?)/gi
-export const isInstagramUrl = url => REGEX_INSTAGRAM.test(url)
+export const isInstagramUrl = url => !!url.toString().match(REGEX_INSTAGRAM)
 
 export const isEmpty = (value: any) => {
   let isEmptyObject = function(a) {

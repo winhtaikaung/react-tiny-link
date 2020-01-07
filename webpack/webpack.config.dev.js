@@ -11,5 +11,6 @@ module.exports = merge(require('./webpack.config.base'), {
         publicPath: '/',
         filename: '[name].js'
     },
-    externals: {}
+    externals: {},
+    mode: 'development'
 });

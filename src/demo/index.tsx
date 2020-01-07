@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import { ReactTinyLink } from '../../lib/index'
+import YoutubeLinkIssue from './YoutubeLinkIssue'
+
 const Demo: React.FC = () => (
   <>
     <h1>React-Tiny-Link </h1>
@@ -325,7 +327,7 @@ const Demo: React.FC = () => (
       />`}
       </code>
     </pre>
-
+    <YoutubeLinkIssue />
     <footer>
       Made with <i className="fa fa-heart" style={{ color: `red` }} /> in Singapore
       <p>

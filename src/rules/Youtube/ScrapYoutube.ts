@@ -5,6 +5,7 @@ const titleRegex = /"title":"(.+?)"/g
 
 export default async (url, htmlDoc, defaultMedia) => {
   const id = getYoutTubeVideoId(url)
+  console.log('I am id id', id)
   const image = [
     `https://img.youtube.com/vi/${id}/0.jpg`,
     `https://img.youtube.com/vi/${id}/1.jpg`,
