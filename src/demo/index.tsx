@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import { ReactTinyLink } from '../../lib/index'
-import YoutubeLinkIssue from './YoutubeLinkIssue'
 
 const Demo: React.FC = () => (
   <>
@@ -327,7 +326,6 @@ const Demo: React.FC = () => (
       />`}
       </code>
     </pre>
-    <YoutubeLinkIssue />
     <footer>
       Made with <i className="fa fa-heart" style={{ color: `red` }} /> in Singapore
       <p>
@@ -347,5 +345,5 @@ const Demo: React.FC = () => (
     </footer>
   </>
 )
-;(window as any).env = process.env.NODE_ENV
+  ; (window as any).env = process.env.NODE_ENV
 render(<Demo />, document.getElementById('demo'))
