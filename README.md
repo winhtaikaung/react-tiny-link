@@ -79,9 +79,17 @@ import { ReactTinyLink } from 'react-tiny-link'
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://github.com/vladimirmoushkov"><img src="https://avatars1.githubusercontent.com/u/21225376?v=4" width="100px;" alt="Vladimir Moushkov"/><br /><sub><b>Vladimir Moushkov</b></sub></a><br /><a href="https://github.com/winhtaikaung/react-tiny-link/commits?author=vladimirmoushkov" title="Code">💻</a></td></tr></table>
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/vladimirmoushkov"><img src="https://avatars1.githubusercontent.com/u/21225376?v=4" width="100px;" alt=""/><br /><sub><b>Vladimir Moushkov</b></sub></a><br /><a href="https://github.com/winhtaikaung/react-tiny-link/commits?author=vladimirmoushkov" title="Code">💻</a></td>
+    <td align="center"><a href="https://bitbucket.org/srghma"><img src="https://avatars2.githubusercontent.com/u/7573215?v=4" width="100px;" alt=""/><br /><sub><b>Serhii Khoma</b></sub></a><br /><a href="https://github.com/winhtaikaung/react-tiny-link/commits?author=srghma" title="Code">💻</a> <a href="https://github.com/winhtaikaung/react-tiny-link/issues?q=author%3Asrghma" title="Bug reports">🐛</a></td>
+  </tr>
+</table>
 
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
