@@ -13,11 +13,22 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "hitesh399",
+      "name": "Hitesh Kumar",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15153925?v=4",
+      "profile": "http://hitesh399.github.io/",
+      "contributions": [
+        "code",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "react-tiny-link",
   "projectOwner": "winhtaikaung",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
