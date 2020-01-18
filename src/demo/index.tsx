@@ -345,5 +345,5 @@ const Demo: React.FC = () => (
     </footer>
   </>
 )
-  ; (window as any).env = process.env.NODE_ENV
+;(window as any).env = process.env.NODE_ENV
 render(<Demo />, document.getElementById('demo'))
