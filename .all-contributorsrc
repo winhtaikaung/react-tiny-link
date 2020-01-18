@@ -13,11 +13,22 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "srghma",
+      "name": "Serhii Khoma",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7573215?v=4",
+      "profile": "https://bitbucket.org/srghma",
+      "contributions": [
+        "code",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "react-tiny-link",
   "projectOwner": "winhtaikaung",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
