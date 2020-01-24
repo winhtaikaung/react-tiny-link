@@ -30,10 +30,6 @@ const fetchUrl = (
 
   ScraperWraper(url, client, defaultMedia ? [defaultMedia] : [])
     .then((data: IReactTinyLinkData) => {
-      console.log('__________')
-      console.log('data')
-      console.log(data)
-      console.log('__________')
       setData(data)
       onSuccess(data)
       setLoading(false)
