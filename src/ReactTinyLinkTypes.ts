@@ -16,6 +16,8 @@ export interface IReactTinyLinkProps {
   minLine: number
   url: string
   header?: string
+  onError: Function
+  onSuccess: Function
   description?: string
   showGraphic?: boolean
   autoPlay?: boolean

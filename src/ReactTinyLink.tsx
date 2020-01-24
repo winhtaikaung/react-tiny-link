@@ -17,6 +17,8 @@ const fetchUrl = (
   defaultMedia: string,
   setData: (data: IReactTinyLinkData) => void,
   setLoading: (loading: boolean) => void,
+  onError: Function,
+  onSuccess: Function,
 ) => {
   setLoading(true)
 
@@ -28,10 +30,16 @@ const fetchUrl = (
 
   ScraperWraper(url, client, defaultMedia ? [defaultMedia] : [])
     .then((data: IReactTinyLinkData) => {
+      console.log('__________')
+      console.log('data')
+      console.log(data)
+      console.log('__________')
       setData(data)
+      onSuccess(data)
       setLoading(false)
     })
     .catch((err: any) => {
+      onError(err)
       setData({
         title: url.substring(url.lastIndexOf('/') + 1),
         description: url.substring(url.lastIndexOf('/') + 1),
@@ -56,6 +64,8 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
   showGraphic = true,
   autoPlay = false,
   defaultMedia = '',
+  onError = () => {},
+  onSuccess = () => {},
 }: IReactTinyLinkProps) => {
   const [data, setData] = React.useState({
     title: null,
@@ -67,7 +77,7 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
   })
   const [loading, setLoading] = React.useState(false)
   useEffectAsync(() => {
-    fetchUrl(url, proxyUrl, defaultMedia, setData, setLoading)
+    fetchUrl(url, proxyUrl, defaultMedia, setData, setLoading, onError, onSuccess)
   }, [url, proxyUrl, defaultMedia])
 
   return (
