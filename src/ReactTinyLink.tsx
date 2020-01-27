@@ -17,8 +17,8 @@ const fetchUrl = (
   defaultMedia: string,
   setData: (data: IReactTinyLinkData) => void,
   setLoading: (loading: boolean) => void,
-  onError: Function,
-  onSuccess: Function,
+  onError: (error: Error) => void,
+  onSuccess: (response: IReactTinyLinkData) => void,
 ) => {
   setLoading(true)
 
