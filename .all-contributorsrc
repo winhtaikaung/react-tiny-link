@@ -1,45 +1,54 @@
 {
-    "files": [
-      "README.md"
-    ],
-    "imageSize": 100,
-    "commit": false,
-    "contributors": [
-      {
-        "login": "vladimirmoushkov",
-        "name": "Vladimir Moushkov",
-        "avatar_url": "https://avatars1.githubusercontent.com/u/21225376?v=4",
-        "profile": "https://github.com/vladimirmoushkov",
-        "contributions": [
-          "code"
-        ]
-      },
-      {
-  
-        "login": "srghma",
-        "name": "Serhii Khoma",
-        "avatar_url": "https://avatars2.githubusercontent.com/u/7573215?v=4",
-        "profile": "https://bitbucket.org/srghma",
-   "contributions": [
-          "code",
-          "bug"
-        ]},{
-        "login": "hitesh399",
-        "name": "Hitesh Kumar",
-        "avatar_url": "https://avatars3.githubusercontent.com/u/15153925?v=4",
-        "profile": "http://hitesh399.github.io/",
-  
-        "contributions": [
-          "code",
-          "bug"
-        ]
-      }
-    ],
-    "contributorsPerLine": 7,
-    "projectName": "react-tiny-link",
-    "projectOwner": "winhtaikaung",
-    "repoType": "github",
-    "repoHost": "https://github.com",
-    "skipCi": true
-  }
-  
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "vladimirmoushkov",
+      "name": "Vladimir Moushkov",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/21225376?v=4",
+      "profile": "https://github.com/vladimirmoushkov",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "srghma",
+      "name": "Serhii Khoma",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7573215?v=4",
+      "profile": "https://bitbucket.org/srghma",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "hitesh399",
+      "name": "Hitesh Kumar",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15153925?v=4",
+      "profile": "http://hitesh399.github.io/",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "VadymMoiseyenkoAgiliway",
+      "name": "VadymMoiseyenkoAgiliway",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/45002342?v=4",
+      "profile": "https://github.com/VadymMoiseyenkoAgiliway",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "react-tiny-link",
+  "projectOwner": "winhtaikaung",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
