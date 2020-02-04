@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
-import { isLarge, media } from '../utils';
-import { ReactTinyLinkType } from '../ReactTinyLinkTypes';
+import styled, { css, keyframes } from 'styled-components'
+import { isLarge, media } from '../utils'
+import { ReactTinyLinkType } from '../ReactTinyLinkTypes'
 
 // Key Frames
 const shimmerKeyFrame = keyframes`
@@ -10,7 +10,7 @@ const shimmerKeyFrame = keyframes`
     100%{
         background-position: 0 80%;
     }
-`;
+`
 const loadingStyle = css`
   animation-duration: 1.4s;
   animation-fill-mode: forwards;
@@ -23,21 +23,20 @@ const loadingStyle = css`
   color: transparent;
   -webkit-line-clamp: 1;
   border-radius: 10px;
-  width: ${({ loadingWidth }) =>
-    loadingWidth ? `${100 / loadingWidth}%` : `100%`};
-`;
+  width: ${({ loadingWidth }) => (loadingWidth ? `${100 / loadingWidth}%` : `100%`)};
+`
 // Media Style
 const smallMediaStyle = css`
   height: 127px;
-`;
+`
 const largeMediaStyle = css`
   height: ${({ isShownGraphic }) => (isShownGraphic ? '382px;' : 'auto')};
-`;
+`
 
 // Content Style
 const largeContentStyle = css`
   flex: 0 0 125px;
-`;
+`
 
 const smallDescriptionStyle = css`
   p {
@@ -55,7 +54,7 @@ const smallDescriptionStyle = css`
  
     }
   `};
-`;
+`
 
 const largeDescriptionStyle = css`
   p {
@@ -71,7 +70,7 @@ const largeDescriptionStyle = css`
       -webkit-line-clamp: ${({ minLine }) => (minLine ? minLine : 1)};
     }
   `};
-`;
+`
 // Styled Components for cards
 export const Media = styled('div')`
     display: block;
@@ -87,10 +86,10 @@ export const Media = styled('div')`
     flex: ${({ cardSize }) => (isLarge(cardSize) ? '1 1 0%;' : '0 0 125px;')}
     overflow: hidden;
     transition: flex-basis 0.25s ease-in-out 0s;
-`;
+`
 Media.defaultProps = {
   placeholderBg: `rgb(225, 232, 235)`,
-};
+}
 
 export const Video = styled('video')`
 width:100%;
@@ -100,7 +99,7 @@ height: 100%;
     flex: ${({ cardSize }) => (isLarge(cardSize) ? '1 1 0%;' : '0 0 125px;')}
     overflow: hidden;
 object-fit:cover
-`;
+`
 
 export const ContentWrapper = styled('div')`
   display: flex;
@@ -111,7 +110,7 @@ export const ContentWrapper = styled('div')`
   min-width: 0;
   box-sizing: border-box;
   ${({ cardSize }) => isLarge(cardSize) && largeContentStyle};
-`;
+`
 
 export const Header = styled('header')`
   text-align: left;
@@ -120,9 +119,8 @@ export const Header = styled('header')`
   margin: 0;
   flex-grow: 1.2;
 
-  ${({ cardSize }) =>
-    !isLarge(cardSize) ? smallDescriptionStyle : largeDescriptionStyle};
-`;
+  ${({ cardSize }) => (!isLarge(cardSize) ? smallDescriptionStyle : largeDescriptionStyle)};
+`
 export const Content = styled('div')`
   text-align: left;
   font-size: 14px;
@@ -130,11 +128,10 @@ export const Content = styled('div')`
   margin: auto 0;
   line-height: 18px;
 
-  ${({ cardSize }) =>
-    !isLarge(cardSize) ? smallDescriptionStyle : largeDescriptionStyle};
-`;
+  ${({ cardSize }) => (!isLarge(cardSize) ? smallDescriptionStyle : largeDescriptionStyle)};
+`
 
-export const Description = styled('p')`
+export const Description = styled('p')<{ loading: boolean }>`
   &&& {
     text-align: inherit;
     font-weight: inherit;
@@ -143,14 +140,14 @@ export const Description = styled('p')`
     margin: 0;
     ${({ loading }) => loading && loadingStyle}
   }
-`;
+`
 
 export const Footer = styled('footer')`
   text-align: left;
   font-size: 12px;
   margin: 0;
   flex-grow: 0;
-`;
+`
 
 export const Card = styled('a')`
   max-width: ${({ width }) => (width ? width : `100vw`)};
@@ -177,9 +174,9 @@ export const Card = styled('a')`
   &:hover {
     background: rgb(245, 248, 250);
   }
-`;
+`
 
 Card.defaultProps = {
   rel: 'noopener noreferrer',
   target: '_blank',
-};
+}

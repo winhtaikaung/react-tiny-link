@@ -60,8 +60,8 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
   showGraphic = true,
   autoPlay = false,
   defaultMedia = '',
-  onError = () => {},
-  onSuccess = () => {},
+  onError = () => { },
+  onSuccess = () => { },
 }: IReactTinyLinkProps) => {
   const [data, setData] = React.useState({
     title: null,

@@ -9,13 +9,13 @@ export declare enum ReactTinyLinkType {
 }
 export declare type CardSizeType = 'small' | 'large';
 export interface IReactTinyLinkProps {
-    cardSize: CardSizeType;
+    cardSize?: CardSizeType;
     maxLine: number;
     minLine: number;
     url: string;
     header?: string;
-    onError: (error: Error) => void;
-    onSuccess: (response: IReactTinyLinkData) => void;
+    onError?: (error: Error) => void;
+    onSuccess?: (response: IReactTinyLinkData) => void;
     description?: string;
     showGraphic?: boolean;
     autoPlay?: boolean;

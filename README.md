@@ -26,8 +26,7 @@ npm install --save react-tiny-link
 
 ```javascript
 import { ReactTinyLink } from 'react-tiny-link'
-
-<ReactTinyLink
+;<ReactTinyLink
   cardSize="small"
   showGraphic={true}
   maxLine={2}
@@ -38,19 +37,21 @@ import { ReactTinyLink } from 'react-tiny-link'
 
 ## Props & methods
 
-| PropName         | Description                                              | PropType | value                                          | required |
-| ---------------- | -------------------------------------------------------- | -------- | ---------------------------------------------- | -------- |
-| **url**          | URL to be display as preview                             | string   |                                                | `true`   |
-| **cardSize**     | Size of the card                                         | string   | default (`small`) `small`,`large`              | `false`  |
-| **maxLine**      | Maximum number of line to ellipsis                       | number   | 2                                              | `false`  |
-| **minLine**      | Minimum number of line to ellipsis                       | number   | 1                                              | `false`  |
-| **width**        | Width of the link preview card                           | number   | default(`100vw`)                               | `false`  |
-| **header**       | Default Header content                                   | string   | null                                           | `false`  |
-| **description**  | Default description content                              | string   | null                                           | `false`  |
-| **proxyUrl**     | Proxy URL to pass that resolve CORS                      | string   | default(`https://cors-anywhere.herokuapp.com`) | `false`  |
-| **showGraphic**  | Boolean value to display graphics                        | boolean  | default(`true`)                                | `false`  |
-| **autoPlay**     | Boolean value to play the media if provided url is video | boolean  | default(`false`)                               | `false`  |
-| **defaultMedia** | Default value to provide the media for failure cases     | string   | N.A                                            | `false`  |
+| PropName         | Description                                               | PropType                        | value                                          | required |
+| ---------------- | --------------------------------------------------------- | ------------------------------- | ---------------------------------------------- | -------- |
+| **url**          | URL to be display as preview                              | string                          |                                                | `true`   |
+| **cardSize**     | Size of the card                                          | string                          | default (`small`) `small`,`large`              | `false`  |
+| **maxLine**      | Maximum number of line to ellipsis                        | number                          | 2                                              | `false`  |
+| **minLine**      | Minimum number of line to ellipsis                        | number                          | 1                                              | `false`  |
+| **width**        | Width of the link preview card                            | number                          | default(`100vw`)                               | `false`  |
+| **header**       | Default Header content                                    | string                          | null                                           | `false`  |
+| **description**  | Default description content                               | string                          | null                                           | `false`  |
+| **proxyUrl**     | Proxy URL to pass that resolve CORS                       | string                          | default(`https://cors-anywhere.herokuapp.com`) | `false`  |
+| **showGraphic**  | Boolean value to display graphics                         | boolean                         | default(`true`)                                | `false`  |
+| **autoPlay**     | Boolean value to play the media if provided url is video  | boolean                         | default(`false`)                               | `false`  |
+| **defaultMedia** | Default value to provide the media for failure cases      | string                          | N.A                                            | `false`  |
+| **onError**      | Error callback on when the url failed to fetch            | onError(`error:Error`)          | N.A                                            | `false`  |
+| **onSuccess**    | Success callback on when the url was fetched successfully | onSuccess(`data:IResponseData`) | N.A                                            | `false`  |
 
 ## Demo App &
 
@@ -92,6 +93,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
