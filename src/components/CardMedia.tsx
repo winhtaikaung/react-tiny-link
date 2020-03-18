@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Media, Video } from './Card'
 import { ReactTinyLinkType } from '../ReactTinyLinkTypes'
 
-const CardMedia = ({ data, cardSize, autoPlay }) => {
+const CardMedia = ({ data, cardSize, autoPlay, isShowDescription }) => {
   return (
     <>
       {data.type !== ReactTinyLinkType.TYPE_VIDEO && (
@@ -12,6 +12,7 @@ const CardMedia = ({ data, cardSize, autoPlay }) => {
           src={data.image && data.image[0]}
           type={data.type}
           style={{ WebkitFilter: 'blur(10px)', filter: 'blur(10px)' }}
+          isShowDescription={isShowDescription}
         >
           <img
             style={{ display: `none` }}

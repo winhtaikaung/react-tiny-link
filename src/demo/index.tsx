@@ -4,7 +4,8 @@ import { ReactTinyLink } from '../../lib/index'
 
 const Demo: React.FC = () => (
   <>
-    <h1>React-Tiny-Link </h1>
+    <h1>React-Tiny-Link</h1>
+    
     <p>
       React link preview component with cards for web without a specific backend that provide meta information of your
       links to render rich previews. But it uses proxy to avoid browser CORS issue.
@@ -324,6 +325,29 @@ const Demo: React.FC = () => (
         minLine={1}
         url="https://www.instagram.com/p/B4saDr_A3yk/"
       />`}
+      </code>
+    </pre>
+    <h3>without description</h3>
+    <ReactTinyLink
+      cardSize="small"
+      showGraphic={true}
+      showDescription={false}
+      maxLine={2}
+      minLine={1}
+      url="https://i.stack.imgur.com/eA4W3.jpg"
+    />
+    <h4>without description code</h4>
+    <pre className="language-markup">
+      <code>
+        {`
+       <ReactTinyLink
+        cardSize="small"
+        showGraphic={true}
+        showDescription={false}
+        maxLine={2}
+        minLine={1}
+        url="https://i.stack.imgur.com/eA4W3.jpg"
+       />`}
       </code>
     </pre>
     <footer>
