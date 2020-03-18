@@ -20,6 +20,7 @@ export interface IReactTinyLinkProps {
   onSuccess?: (response: IReactTinyLinkData) => void
   description?: string
   showGraphic?: boolean
+  showDescription?: boolean
   autoPlay?: boolean
   width?: string | number
   proxyUrl?: string

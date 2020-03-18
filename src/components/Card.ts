@@ -76,14 +76,14 @@ export const Media = styled('div')`
     display: block;
     height: auto;
     position: relative;
-    background: ${({ src, placeholderBg, type }) =>
+    background: ${({ src, placeholderBg, type, isShowDescription }) =>
       src
         ? `url(${src}) center center / ${
-            type === ReactTinyLinkType.TYPE_AUDIO ? `contain` : `cover`
+            (type === ReactTinyLinkType.TYPE_AUDIO ? `contain` : (isShowDescription) ? `cover` :  `contain` )
           } no-repeat rgb(225, 232, 237)`
         : placeholderBg};
     
-    flex: ${({ cardSize }) => (isLarge(cardSize) ? '1 1 0%;' : '0 0 125px;')}
+    flex: ${({ cardSize, isShowDescription  }) => (isLarge(cardSize) ? '1 1 0%;' :  (isShowDescription) ? '0 0 125px;' :  '0 0 100%;' )}
     overflow: hidden;
     transition: flex-basis 0.25s ease-in-out 0s;
 `
