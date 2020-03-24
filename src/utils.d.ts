@@ -4,3 +4,6 @@ export declare const media: {
 };
 export declare const getHostname: (href: any) => string;
 export declare const isLarge: (cardSize: any) => boolean;
+export declare const isValidImageURL: (src: any) => boolean;
+export declare const isValidVideoURL: (src: any) => boolean;
+export declare const findFirstSecureUrl: (records: any, condition: any) => any;

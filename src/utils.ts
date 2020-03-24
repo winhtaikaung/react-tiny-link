@@ -20,3 +20,18 @@ export const getHostname = href => {
 };
 
 export const isLarge = cardSize => cardSize === 'large';
+
+export const isValidImageURL = src => {
+  if (typeof src !== 'string') return false;
+  return !!src.match(/\w+\.(apng|bmp|gif|ico|jpeg|png|svg|tiff|webp)$/gi);
+}
+
+export const isValidVideoURL = src => {
+  if (typeof src !== 'string') return false;
+  return !!src.match(/\w+\.(mp4|ogg|webm)$/gi);
+}
+
+export const findFirstSecureUrl = (records, condition) => {
+  const result = records.find(record => condition(record) && record.startsWith('https://'));
+  return result ? result : '';
+}
