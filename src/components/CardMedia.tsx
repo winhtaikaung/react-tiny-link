@@ -61,7 +61,7 @@ const CardMedia = ({ data, cardSize, autoPlay, onlySecure }) => {
           type={data.type}
           style={{ WebkitFilter: 'blur(10px)', filter: 'blur(10px)' }}
         >
-          <ImageWrapper data secureImageUrl onlySecure/>
+          <ImageWrapper data={data} secureImageUrl={secureImageUrl} onlySecure={onlySecure}/>
         </Media>
       )}
       {data.type && data.type === ReactTinyLinkType.TYPE_VIDEO && (
@@ -71,7 +71,7 @@ const CardMedia = ({ data, cardSize, autoPlay, onlySecure }) => {
           src={data.video && (secureVideoUrl.length ? secureVideoUrl : data.video[0])}
           type={data.type}
         >
-         <VideoWrapper data secureVideoUrl autoPlay onlySecure/>
+         <VideoWrapper data={data} secureVideoUrl={secureVideoUrl} autoPlay={autoPlay} onlySecure={onlySecure}/>
         </Media>
       )}
     </>
