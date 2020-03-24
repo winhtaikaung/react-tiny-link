@@ -4,8 +4,8 @@ import { ReactTinyLinkType } from '../ReactTinyLinkTypes'
 import { isValidImageURL, isValidVideoURL, findFirstSecureUrl } from '../utils'
 
 const ImageWrapper = ({data, secureImageUrl, onlySecure}) => {
-  if (onlySecure && !secureImageUrl.length) return null
-  const imageUrl = data.image && ((onlySecure && secureImageUrl.length) ? secureImageUrl : data.image[0])
+  if (onlySecure && !secureImageUrl) return null
+  const imageUrl = data.image && ((onlySecure && secureImageUrl) ? secureImageUrl : data.image[0])
 
   if (imageUrl) {
     return <img
@@ -25,8 +25,8 @@ const ImageWrapper = ({data, secureImageUrl, onlySecure}) => {
 }
 
 const VideoWrapper = ({data, secureVideoUrl, onlySecure, autoPlay}) => {
-  if (onlySecure && !secureVideoUrl.length) return null
-  const videoUrl = data.video && ((onlySecure && secureVideoUrl.length) ? secureVideoUrl : data.video[0])
+  if (onlySecure && !secureVideoUrl) return null
+  const videoUrl = data.video && ((onlySecure && secureVideoUrl) ? secureVideoUrl : data.video[0])
 
   if (videoUrl) {
     return <Video
@@ -57,7 +57,7 @@ const CardMedia = ({ data, cardSize, autoPlay, onlySecure }) => {
         <Media
           className="react_tinylink_card_media"
           cardSize={cardSize}
-          src={data.image && (secureImageUrl.length ? secureImageUrl : data.image[0])}
+          src={data.image && (secureImageUrl ? secureImageUrl : data.image[0])}
           type={data.type}
           style={{ WebkitFilter: 'blur(10px)', filter: 'blur(10px)' }}
         >
@@ -68,7 +68,7 @@ const CardMedia = ({ data, cardSize, autoPlay, onlySecure }) => {
         <Media
           className="react_tinylink_card_media"
           cardSize={cardSize}
-          src={data.video && (secureVideoUrl.length ? secureVideoUrl : data.video[0])}
+          src={data.video && (secureVideoUrl ? secureVideoUrl : data.video[0])}
           type={data.type}
         >
          <VideoWrapper data={data} secureVideoUrl={secureVideoUrl} autoPlay={autoPlay} onlySecure={onlySecure}/>

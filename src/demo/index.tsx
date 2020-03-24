@@ -122,6 +122,28 @@ const Demo: React.FC = () => (
         />`}
       </code>
     </pre>
+    <h3>Video url example with <code>onlySecure=true</code></h3>
+    <ReactTinyLink
+      cardSize="small"
+      showGraphic={true}
+      maxLine={2}
+      minLine={1}
+      onlySecure={true}
+      url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+    />
+    <h4>Video url example Code</h4>
+    <pre className="language-markup">
+      <code>
+        {` <ReactTinyLink
+            cardSize="small"
+            showGraphic={true}
+            maxLine={2}
+            minLine={1}
+            onlySecure={true}
+            url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+        />`}
+      </code>
+    </pre>
     <h3>Default url example</h3>
     <ReactTinyLink cardSize="small" showGraphic={true} maxLine={2} minLine={1} url="https://medium.com/" />
     <h4>Default example Code</h4>
