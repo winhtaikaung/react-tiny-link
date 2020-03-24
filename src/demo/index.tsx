@@ -123,13 +123,7 @@ const Demo: React.FC = () => (
       </code>
     </pre>
     <h3>Default url example</h3>
-    <ReactTinyLink
-      cardSize="small"
-      showGraphic={true}
-      maxLine={2}
-      minLine={1}
-      url="https://medium.com/"
-    />
+    <ReactTinyLink cardSize="small" showGraphic={true} maxLine={2} minLine={1} url="https://medium.com/" />
     <h4>Default example Code</h4>
     <pre className="language-markup">
       <code>
