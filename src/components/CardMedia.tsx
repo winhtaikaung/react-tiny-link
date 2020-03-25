@@ -7,20 +7,20 @@ const ImageWrapper = ({data, secureImageUrl, onlySecure}) => {
   if (onlySecure && !secureImageUrl) return null
   const imageUrl = data.image && ((onlySecure && secureImageUrl) ? secureImageUrl : data.image[0])
 
-  if (imageUrl) {
-    return <img
-      style={{ display: `none` }}
-      src={imageUrl}
-      onError={(e: any) => {
-        e.target.parentElement.style.filter = ''
-      }}
-      onLoad={(e: any) => {
-        e.target.parentElement.style.filter = ''
-      }}
-      />
+  if (!imageUrl) {
+    return null
   }
 
-  return null
+  return <img
+          style={{ display: `none` }}
+          src={imageUrl}
+          onError={(e: any) => {
+            e.target.parentElement.style.filter = ''
+          }}
+          onLoad={(e: any) => {
+            e.target.parentElement.style.filter = ''
+          }}
+          />
 
 }
 
@@ -28,21 +28,21 @@ const VideoWrapper = ({data, secureVideoUrl, onlySecure, autoPlay}) => {
   if (onlySecure && !secureVideoUrl) return null
   const videoUrl = data.video && ((onlySecure && secureVideoUrl) ? secureVideoUrl : data.video[0])
 
-  if (videoUrl) {
-    return <Video
-            muted
-            onCanPlayThrough={e => {
-              let video = e.target
-              setTimeout(() => {
-                video.pause()
-              }, 1000)
-            }}
-            autoPlay={autoPlay}
-            src={videoUrl}
-          />
+  if (!videoUrl) {
+    return null
   }
 
-  return null
+  return <Video
+          muted
+          onCanPlayThrough={e => {
+            let video = e.target
+            setTimeout(() => {
+              video.pause()
+            }, 1000)
+          }}
+          autoPlay={autoPlay}
+          src={videoUrl}
+          />
 
 }
 
