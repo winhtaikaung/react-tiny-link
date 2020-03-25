@@ -23,7 +23,7 @@ export interface IReactTinyLinkProps {
   autoPlay?: boolean
   width?: string | number
   proxyUrl?: string,
-  onlySecure?: boolean,
+  loadSecureUrls?: boolean,
   scraper?: (
     url: string,
     httpClient: any,

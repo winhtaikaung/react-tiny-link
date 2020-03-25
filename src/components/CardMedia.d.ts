@@ -1,7 +1,7 @@
-declare const CardMedia: ({ data, cardSize, autoPlay, onlySecure }: {
+declare const CardMedia: ({ data, cardSize, autoPlay, loadSecureUrls }: {
     data: any;
     cardSize: any;
     autoPlay: any;
-    onlySecure: any;
+    loadSecureUrls: any;
 }) => JSX.Element;
 export default CardMedia;

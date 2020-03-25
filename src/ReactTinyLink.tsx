@@ -60,7 +60,7 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
   showGraphic = true,
   autoPlay = false,
   defaultMedia = '',
-  onlySecure = false,
+  loadSecureUrls = false,
   onError = () => { },
   onSuccess = () => { },
 }: IReactTinyLinkProps) => {
@@ -80,7 +80,7 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
   return (
     <>
       <Card className="react_tinylink_card" cardSize={cardSize} href={url} width={width} isShownGraphic={showGraphic}>
-        {showGraphic && <CardMedia autoPlay={autoPlay} cardSize={cardSize} data={data} onlySecure={onlySecure} />}
+        {showGraphic && <CardMedia autoPlay={autoPlay} cardSize={cardSize} data={data} loadSecureUrls={loadSecureUrls} />}
         <ContentWrapper className="react_tinylink_card_content_wrapper" cardSize={cardSize}>
           <Header maxLine={maxLine} minLine={minLine} className="react_tinylink_card_content_header">
             <Description

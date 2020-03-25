@@ -122,13 +122,13 @@ const Demo: React.FC = () => (
         />`}
       </code>
     </pre>
-    <h3>Video url example with <code>onlySecure=true</code></h3>
+    <h3>Video url example with <code>loadSecureUrls=true</code></h3>
     <ReactTinyLink
       cardSize="small"
       showGraphic={true}
       maxLine={2}
       minLine={1}
-      onlySecure={true}
+      loadSecureUrls={true}
       url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
     />
     <h4>Video url example Code</h4>
@@ -139,7 +139,7 @@ const Demo: React.FC = () => (
             showGraphic={true}
             maxLine={2}
             minLine={1}
-            onlySecure={true}
+            loadSecureUrls={true}
             url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
         />`}
       </code>

@@ -3,9 +3,9 @@ import { Media, Video } from './Card'
 import { ReactTinyLinkType } from '../ReactTinyLinkTypes'
 import { isValidImageURL, isValidVideoURL, findFirstSecureUrl } from '../utils'
 
-const ImageWrapper = ({data, secureImageUrl, onlySecure}) => {
-  if (onlySecure && !secureImageUrl) return null
-  const imageUrl = data.image && ((onlySecure && secureImageUrl) ? secureImageUrl : data.image[0])
+const ImageWrapper = ({data, secureImageUrl, loadSecureUrls}) => {
+  if (loadSecureUrls && !secureImageUrl) return null
+  const imageUrl = data.image && ((loadSecureUrls && secureImageUrl) ? secureImageUrl : data.image[0])
 
   if (!imageUrl) {
     return null
@@ -24,9 +24,9 @@ const ImageWrapper = ({data, secureImageUrl, onlySecure}) => {
 
 }
 
-const VideoWrapper = ({data, secureVideoUrl, onlySecure, autoPlay}) => {
-  if (onlySecure && !secureVideoUrl) return null
-  const videoUrl = data.video && ((onlySecure && secureVideoUrl) ? secureVideoUrl : data.video[0])
+const VideoWrapper = ({data, secureVideoUrl, loadSecureUrls, autoPlay}) => {
+  if (loadSecureUrls && !secureVideoUrl) return null
+  const videoUrl = data.video && ((loadSecureUrls && secureVideoUrl) ? secureVideoUrl : data.video[0])
 
   if (!videoUrl) {
     return null
@@ -47,7 +47,7 @@ const VideoWrapper = ({data, secureVideoUrl, onlySecure, autoPlay}) => {
 }
 
 
-const CardMedia = ({ data, cardSize, autoPlay, onlySecure }) => {
+const CardMedia = ({ data, cardSize, autoPlay, loadSecureUrls }) => {
   const secureImageUrl = data.image && findFirstSecureUrl(data.image, isValidImageURL)
   const secureVideoUrl = data.video && findFirstSecureUrl(data.video, isValidVideoURL)
   
@@ -61,7 +61,7 @@ const CardMedia = ({ data, cardSize, autoPlay, onlySecure }) => {
           type={data.type}
           style={{ WebkitFilter: 'blur(10px)', filter: 'blur(10px)' }}
         >
-          <ImageWrapper data={data} secureImageUrl={secureImageUrl} onlySecure={onlySecure}/>
+          <ImageWrapper data={data} secureImageUrl={secureImageUrl} loadSecureUrls={loadSecureUrls}/>
         </Media>
       )}
       {data.type && data.type === ReactTinyLinkType.TYPE_VIDEO && (
@@ -71,7 +71,7 @@ const CardMedia = ({ data, cardSize, autoPlay, onlySecure }) => {
           src={data.video && (secureVideoUrl ? secureVideoUrl : data.video[0])}
           type={data.type}
         >
-         <VideoWrapper data={data} secureVideoUrl={secureVideoUrl} autoPlay={autoPlay} onlySecure={onlySecure}/>
+         <VideoWrapper data={data} secureVideoUrl={secureVideoUrl} autoPlay={autoPlay} loadSecureUrls={loadSecureUrls}/>
         </Media>
       )}
     </>
