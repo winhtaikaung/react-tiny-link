@@ -52,7 +52,7 @@ import { ReactTinyLink } from 'react-tiny-link'
 | **defaultMedia** | Default value to provide the media for failure cases      | string                          | N.A                                            | `false`  |
 | **onError**      | Error callback on when the url failed to fetch            | onError(`error:Error`)          | N.A                                            | `false`  |
 | **onSuccess**    | Success callback on when the url was fetched successfully | onSuccess(`data:IResponseData`) | N.A                                            | `false`  |
-| **onlySecure**    | Load only secure ( `https://` ) resources. If no secure resource was found, then don't render the `<img>` and `<video>` element  | boolean | default(`false`)                                            | `false`  |
+| **loadSecureUrls**    | Load only secure ( `https://` ) resources. If no secure resource was found, then don't render the `<img>` and `<video>` element  | boolean | default(`false`)                                            | `false`  |
 
 ## Demo App &
 
