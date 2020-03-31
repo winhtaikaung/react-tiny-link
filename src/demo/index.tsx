@@ -131,7 +131,7 @@ const Demo: React.FC = () => (
       loadSecureUrl={true}
       url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
     />
-    <h4>Video url example Code</h4>
+    <h4>Video url example Code with <code>loadSecureUrl=true</code></h4>
     <pre className="language-markup">
       <code>
         {` <ReactTinyLink
