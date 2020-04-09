@@ -83,7 +83,7 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
         <ContentWrapper className="react_tinylink_card_content_wrapper" cardSize={cardSize}>
           <Header maxLine={maxLine} minLine={minLine} className="react_tinylink_card_content_header">
             <Description
-              loading={loading}
+              loading={loading ? 1 : 0}
               loadingWidth={2}
               maxLine={maxLine}
               minLine={minLine}
@@ -93,12 +93,12 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
             </Description>
           </Header>
           <Content maxLine={maxLine} minLine={minLine} className="react_tinylink_card_content" cardSize={cardSize}>
-            <Description loading={loading} loadingWidth={1} className="react_tinylink_card_content_description">
+            <Description loading={loading ? 1 : 0} loadingWidth={1} className="react_tinylink_card_content_description">
               {description ? description : data.description ? data.description : url}
             </Description>
           </Content>
           <Footer className="react_tinylink_footer">
-            <Description loading={loading} loadingWidth={1} className="react_tinylink_card_footer_description">
+            <Description loading={loading ? 1 : 0} loadingWidth={1} className="react_tinylink_card_footer_description">
               {getHostname(url)}
             </Description>
           </Footer>
