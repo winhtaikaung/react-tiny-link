@@ -1,30 +1,7 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { isLarge, media } from '../utils'
 import { ReactTinyLinkType } from '../ReactTinyLinkTypes'
 
-// Key Frames
-const shimmerKeyFrame = keyframes`
-   0%{
-        background-position: 100% 80%;
-    }
-    100%{
-        background-position: 0 80%;
-    }
-`
-const loadingStyle = css`
-  animation-duration: 1.4s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-name: ${shimmerKeyFrame};
-  background: darkgray;
-  background: linear-gradient(90deg, #cacaca 25%, #e4e4e4 37%, #f7f6f6 63%);
-  background-size: 800px 100%;
-  color: transparent;
-  -webkit-line-clamp: 1;
-  border-radius: 10px;
-  width: ${({ loadingWidth }) => (loadingWidth ? `${100 / loadingWidth}%` : `100%`)};
-`
 // Media Style
 const smallMediaStyle = css`
   height: 127px;
@@ -129,17 +106,6 @@ export const Content = styled('div')`
   line-height: 18px;
 
   ${({ cardSize }) => (!isLarge(cardSize) ? smallDescriptionStyle : largeDescriptionStyle)};
-`
-
-export const Description = styled('p')<{ loading: boolean }>`
-  &&& {
-    text-align: inherit;
-    font-weight: inherit;
-    font-family: inherit;
-    color: inherit;
-    margin: 0;
-    ${({ loading }) => loading && loadingStyle}
-  }
 `
 
 export const Footer = styled('footer')`
