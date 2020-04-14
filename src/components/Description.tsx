@@ -41,6 +41,6 @@ export const Description = styled(UnstyledDescription)<{ loading: boolean }>`
     margin: 0;
     ${({ loading }) => loading && loadingStyle}
   }
-`;
+`
 
 export default Description;
