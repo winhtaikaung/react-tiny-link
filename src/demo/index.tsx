@@ -11,20 +11,20 @@ const Demo: React.FC = () => (
     </p>
     <p>
       It works with most of the active links as it scrapes the almost all possible open-graph tags from pages. Component
-      was made to use customized way of scraping (inspired by{' '}
+      was made to use customized way of scraping (inspired by&nbsp;
       <a href="https://github.com/microlinkhq/metascraper" rel="noopener noreferrer" target="_blank">
-        metascrapper{' '}
+        metascrapper&nbsp;
       </a>
-      by{' '}
+      by&nbsp;
       <a href="https://github.com/microlinkhq" rel="noopener noreferrer" target="_blank">
-        Microlink{' '}
-      </a>{' '}
+        Microlink&nbsp;
+      </a>&nbsp;
       ) for some of the popular urls like Amazon and Youtube links.
     </p>
     <p>If you may want to scrape or add customize scrapping rules, please feel free to send PR. </p>
     <h3>Docs</h3>
     <p>
-      For more documentation about react-tiny-link please proceed{' '}
+      For more documentation about react-tiny-link please proceed&nbsp;
       <a
         href="https://github.com/winhtaikaung/react-tiny-link/blob/master/README.md"
         rel="noopener noreferrer"
@@ -118,6 +118,28 @@ const Demo: React.FC = () => (
             showGraphic={true}
             maxLine={2}
             minLine={1}
+            url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+        />`}
+      </code>
+    </pre>
+    <h3>Video url example with <code>loadSecureUrl=true</code></h3>
+    <ReactTinyLink
+      cardSize="small"
+      showGraphic={true}
+      maxLine={2}
+      minLine={1}
+      loadSecureUrl={true}
+      url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+    />
+    <h4>Video url example Code with <code>loadSecureUrl=true</code></h4>
+    <pre className="language-markup">
+      <code>
+        {` <ReactTinyLink
+            cardSize="small"
+            showGraphic={true}
+            maxLine={2}
+            minLine={1}
+            loadSecureUrl={true}
             url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
         />`}
       </code>
@@ -329,21 +351,21 @@ const Demo: React.FC = () => (
     <footer>
       Made with <i className="fa fa-heart" style={{ color: `red` }} /> in Singapore
       <p>
-        {' '}
+
         <a href="http://twitter.com/winhtaikaung">
           Twitter
-          <i className="fab fa-twitter" style={{ color: `#00b4ff` }} />{' '}
+          <i className="fab fa-twitter" style={{ color: `#00b4ff` }} />&nbsp;
         </a>
       </p>
       <p>
-        {' '}
+
         <a href="http://github.com/winhtaikaung">
           Github
-          <i className="fab fa-github" />{' '}
+          <i className="fab fa-github" />&nbsp;
         </a>
       </p>
     </footer>
   </>
 )
-;(window as any).env = process.env.NODE_ENV
+  ; (window as any).env = process.env.NODE_ENV
 render(<Demo />, document.getElementById('demo'))
