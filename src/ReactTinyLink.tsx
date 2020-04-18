@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Card, ContentWrapper, Header, Content, Footer, Description } from './components/Card'
+import { Card, ContentWrapper, Header, Content, Footer } from './components/Card'
+import Description from './components/Description';
 import { getHostname } from './utils'
 import ScraperWraper from './rules'
 import { ReactTinyLinkType, IReactTinyLinkProps, IReactTinyLinkData } from './ReactTinyLinkTypes'

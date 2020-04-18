@@ -43,6 +43,35 @@
         "code",
         "bug"
       ]
+    },
+    {
+      "login": "nastikue",
+      "name": "nastikue",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/13137535?v=4",
+      "profile": "https://github.com/nastikue",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "sndsabin",
+      "name": "sndsabin",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9588306?v=4",
+      "profile": "https://github.com/sndsabin",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "aviskarkc10",
+      "name": "Aviskar KC",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13309631?v=4",
+      "profile": "https://github.com/aviskarkc10",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
