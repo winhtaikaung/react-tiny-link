@@ -62,6 +62,16 @@
         "code",
         "bug"
       ]
+    },
+    {
+      "login": "aviskarkc10",
+      "name": "Aviskar KC",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13309631?v=4",
+      "profile": "https://github.com/aviskarkc10",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
