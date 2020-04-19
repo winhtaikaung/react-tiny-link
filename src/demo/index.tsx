@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { render } from 'react-dom'
-import { ReactTinyLink } from '../../lib/index'
+import { Hover } from './Hover'
+import { ReactTinyLink } from '../../src/ReactTinyLink'
 
 const Demo: React.FC = () => (
   <>
@@ -40,6 +41,16 @@ const Demo: React.FC = () => (
         <img alt="Edit React Tiny Link" src="https://codesandbox.io/static/img/play-codesandbox.svg" />
       </a>
     </p>
+    <Hover constant={<h3>Resistant to premature unmounts</h3>}>
+        <ReactTinyLink
+            cardSize="small"
+            showGraphic={true}
+            maxLine={2}
+            minLine={1}
+            autoPlay={true}
+            url="https://ekee.io/"
+            />
+    </Hover>
     <h3>Amazon url example</h3>
     <ReactTinyLink
       cardSize="small"
@@ -348,6 +359,7 @@ const Demo: React.FC = () => (
       />`}
       </code>
     </pre>
+    */}
     <footer>
       Made with <i className="fa fa-heart" style={{ color: `red` }} /> in Singapore
       <p>
@@ -366,6 +378,7 @@ const Demo: React.FC = () => (
       </p>
     </footer>
   </>
-)
-  ; (window as any).env = process.env.NODE_ENV
+);
+
+(window as any).env = process.env.NODE_ENV
 render(<Demo />, document.getElementById('demo'))
