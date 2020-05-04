@@ -72,6 +72,16 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "Dot-H",
+      "name": "Alexandre Bernard",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17802364?v=4",
+      "profile": "http://ekee.io",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
