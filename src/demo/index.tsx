@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import { Hover } from './Hover'
-// import { ReactTinyLink } from '../../src/ReactTinyLink'
 import { ReactTinyLink } from '../../lib'
 
 const Demo: React.FC = () => (
