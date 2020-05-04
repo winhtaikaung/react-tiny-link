@@ -24,12 +24,12 @@ export const isLarge = cardSize => cardSize === 'large';
 
 export const isValidImageURL = src => {
   if (typeof src !== 'string') return false;
-  return !!src.match(/\w+\.(apng|bmp|gif|ico|jpeg|png|svg|tiff|webp)$/gi);
+  return !!src.match(/\w+\.(a?png|gif|jpe?g|svg|webp)/gi)
 }
 
 export const isValidVideoURL = src => {
   if (typeof src !== 'string') return false;
-  return !!src.match(/\w+\.(mp4|ogg|webm)$/gi);
+  return !!src.match(/\w+\.(mp4|ogg|webm)/gi);
 }
 
 export const findFirstSecureUrl = (records, condition) => {
