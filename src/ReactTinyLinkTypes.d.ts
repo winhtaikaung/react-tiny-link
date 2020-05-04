@@ -16,6 +16,7 @@ export interface IReactTinyLinkProps {
     header?: string;
     onError?: (error: Error) => void;
     onSuccess?: (response: IReactTinyLinkData) => void;
+    onClick?: (e: any, response?: IReactTinyLinkData) => void;
     description?: string;
     showGraphic?: boolean;
     autoPlay?: boolean;
