@@ -77,5 +77,7 @@ export const fixRelativeUrls = (baseUrl: string, itemUrl: string) => {
   if (normalizedUrl.startsWith('http://') || normalizedUrl.startsWith('https://')) {
     return itemUrl
   }
-  return baseUrl + itemUrl
+  return new URL(itemUrl, baseUrl).href
 }
+
+export const getBaseUrl = (htmlDoc: any, url: string) => getAttrOfDocElement(htmlDoc, 'base', 'href') || new URL(url).origin

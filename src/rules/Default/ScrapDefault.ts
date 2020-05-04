@@ -1,11 +1,8 @@
 import { ReactTinyLinkType } from '../../ReactTinyLinkTypes'
-import { isEmpty, getTitleOfDoc, getAttrOfDocElement, fixRelativeUrls } from '../utils'
+import { isEmpty, getTitleOfDoc, getAttrOfDocElement, fixRelativeUrls, getBaseUrl } from '../utils'
 
 export default async (url, htmlDoc, defaultMedia) => {
-  let baseUrl = getAttrOfDocElement(htmlDoc, 'base', 'href')
-  if (!baseUrl) {
-    baseUrl = url
-  }
+  let baseUrl = getBaseUrl(htmlDoc, url)
 
   const image = [
     getAttrOfDocElement(htmlDoc, 'meta[property="og:logo"]', 'content'),
