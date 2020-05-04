@@ -142,6 +142,33 @@ export const Card = styled('a')`
   }
 `
 
+export const UserClickableCard = styled('div')`
+  max-width: ${({ width }) => (width ? width : `100vw`)};
+  background-color: rgb(255, 255, 255);
+  color: rgb(24, 25, 25);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: flex;
+  opacity: 1;
+  position: relative;
+  transition-duration: 0.35s;
+  transition-timing-function: ease-in-out;
+  flex-direction: ${({ cardSize }) => (isLarge(cardSize) ? 'column' : 'row')}
+    ${({ cardSize }) => (isLarge(cardSize) ? largeMediaStyle : smallMediaStyle)};
+
+  transition-property: background, border-color, height;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(225, 232, 237);
+  overflow: hidden;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgb(245, 248, 250);
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+  &:hover {
+    background: rgb(245, 248, 250);
+  }
+`
+
 Card.defaultProps = {
   rel: 'noopener noreferrer',
   target: '_blank',

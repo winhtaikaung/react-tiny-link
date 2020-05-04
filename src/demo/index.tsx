@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import { Hover } from './Hover'
-import { ReactTinyLink } from '../../src/ReactTinyLink'
+// import { ReactTinyLink } from '../../src/ReactTinyLink'
+import { ReactTinyLink } from '../../lib'
 
 const Demo: React.FC = () => (
   <>
@@ -41,15 +42,17 @@ const Demo: React.FC = () => (
         <img alt="Edit React Tiny Link" src="https://codesandbox.io/static/img/play-codesandbox.svg" />
       </a>
     </p>
+
+    {/* Small Card Examples */}
     <Hover constant={<h3>Resistant to premature unmounts</h3>}>
-        <ReactTinyLink
-            cardSize="small"
-            showGraphic={true}
-            maxLine={2}
-            minLine={1}
-            autoPlay={true}
-            url="https://ekee.io/"
-            />
+      <ReactTinyLink
+        cardSize="small"
+        showGraphic={true}
+        maxLine={2}
+        minLine={1}
+        autoPlay={true}
+        url="https://ekee.io/"
+      />
     </Hover>
     <h3>Amazon url example</h3>
     <ReactTinyLink
@@ -113,7 +116,7 @@ const Demo: React.FC = () => (
         />`}
       </code>
     </pre>
-    <h3>Video url example</h3>
+    <h3>Video url click example</h3>
     <ReactTinyLink
       cardSize="small"
       showGraphic={true}
@@ -201,7 +204,7 @@ const Demo: React.FC = () => (
       showGraphic={true}
       maxLine={2}
       minLine={1}
-      url="https://www.instagram.com/p/B4saDr_A3yk/"
+      url="https://www.instagram.com/p/B2znvScBD8R/"
     />
     <h4>Instagram Link example</h4>
     <pre className="language-markup">
@@ -212,11 +215,45 @@ const Demo: React.FC = () => (
         showGraphic={true}
         maxLine={2}
         minLine={1}
-        url="https://www.instagram.com/p/B4saDr_A3yk/"
+        url="https://www.instagram.com/p/B2znvScBD8R/"
       />`}
       </code>
     </pre>
 
+    <h3>Instagram Clickable Link</h3>
+    <ReactTinyLink
+      cardSize="small"
+      showGraphic={true}
+      maxLine={2}
+      minLine={1}
+      onClick={(_, response) => alert(JSON.stringify(response))}
+      url="https://www.instagram.com/p/B2znvScBD8R/"
+    />
+    <h4>Instagram Link Clickable example</h4>
+    <pre className="language-markup">
+      <code>
+        {`<ReactTinyLink
+        cardSize="small"
+        showGraphic={true}
+        maxLine={2}
+        minLine={1}
+        onClick={(e, response) => alert(JSON.stringify(response))}
+        url="https://www.instagram.com/p/B2znvScBD8R/"
+      />`}
+      </code>
+    </pre>
+    {/* Small Card Examples ends here */}
+    {/* Large Card Examples starts here */}
+    <Hover constant={<h3>Resistant to premature unmounts</h3>}>
+      <ReactTinyLink
+        cardSize="large"
+        showGraphic={true}
+        maxLine={2}
+        minLine={1}
+        autoPlay={true}
+        url="https://ekee.io/"
+      />
+    </Hover>
     <h1>Large Card examples</h1>
     <h3>Amazon url example</h3>
     <ReactTinyLink
@@ -344,7 +381,7 @@ const Demo: React.FC = () => (
       showGraphic={true}
       maxLine={2}
       minLine={1}
-      url="https://www.instagram.com/p/B4saDr_A3yk/"
+      url="https://www.instagram.com/p/B2znvScBD8R/"
     />
     <h4>Instagram Link example</h4>
     <pre className="language-markup">
@@ -355,11 +392,33 @@ const Demo: React.FC = () => (
         showGraphic={true}
         maxLine={2}
         minLine={1}
-        url="https://www.instagram.com/p/B4saDr_A3yk/"
+        url="https://www.instagram.com/p/B2znvScBD8R/"
       />`}
       </code>
     </pre>
-    */}
+    <h3>Instagram Clickable Link</h3>
+    <ReactTinyLink
+      cardSize="large"
+      showGraphic={true}
+      maxLine={2}
+      minLine={1}
+      onClick={(_, response) => alert(JSON.stringify(response))}
+      url="https://www.instagram.com/p/B2znvScBD8R/"
+    />
+    <h4>Instagram Link Clickable example</h4>
+    <pre className="language-markup">
+      <code>
+        {`<ReactTinyLink
+        cardSize="large"
+        showGraphic={true}
+        maxLine={2}
+        minLine={1}
+        onClick={(e, response) => alert(JSON.stringify(response))}
+        url="https://www.instagram.com/p/B2znvScBD8R/"
+      />`}
+      </code>
+    </pre>
+    {/* Large Card Examples ends Here */}
     <footer>
       Made with <i className="fa fa-heart" style={{ color: `red` }} /> in Singapore
       <p>
