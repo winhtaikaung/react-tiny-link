@@ -5,7 +5,8 @@ export enum ReactTinyLinkType {
   TYPE_VIDEO = 'TYPE_VIDEO',
   TYPE_IMAGE = 'TYPE_IMAGE',
   TYPE_DEFAULT = 'TYPE_DEFAULT',
-  TYPE_INSTAGRAM = 'TYPE_INSTAGTAM',
+  TYPE_INSTAGRAM = 'TYPE_INSTAGRAM',
+  TYPE_BOARDGAMEGEEK = 'TYPE_BOARDGAMEGEEK',
 }
 
 export type CardSizeType = 'small' | 'large'
