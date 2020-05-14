@@ -10,3 +10,4 @@ export declare const getAttrOfDocElement: (htmlDoc: any, query: string, attr: st
 export declare const getYoutTubeVideoId: (url: string) => string;
 export declare const getInstagramVideo: (htmlDoc: any) => string;
 export declare const fixRelativeUrls: (baseUrl: string, itemUrl: string) => string;
+export declare const getBaseUrl: (htmlDoc: any, url: string) => any;

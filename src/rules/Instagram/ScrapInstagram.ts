@@ -2,11 +2,6 @@ import { ReactTinyLinkType } from '../../ReactTinyLinkTypes'
 import { getTitleOfDoc, getAttrOfDocElement, getInstagramVideo, isEmpty } from '../utils'
 
 export default async (url: string, htmlDoc, data, defaultMedia) => {
-  let baseUrl = getAttrOfDocElement(htmlDoc, 'base', 'href')
-  if (!baseUrl) {
-    baseUrl = url
-  }
-
   return {
     title: getTitleOfDoc(htmlDoc),
     content: getAttrOfDocElement(htmlDoc, "meta[name='description']", 'content'),
