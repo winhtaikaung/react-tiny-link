@@ -6,7 +6,8 @@ export declare enum ReactTinyLinkType {
     TYPE_IMAGE = "TYPE_IMAGE",
     TYPE_DEFAULT = "TYPE_DEFAULT",
     TYPE_INSTAGRAM = "TYPE_INSTAGRAM",
-    TYPE_BOARDGAMEGEEK = "TYPE_BOARDGAMEGEEK"
+    TYPE_BOARDGAMEGEEK = "TYPE_BOARDGAMEGEEK",
+    TYPE_TWITTER = "TYPE_TWITTER"
 }
 export declare type CardSizeType = 'small' | 'large';
 export interface IReactTinyLinkProps {
