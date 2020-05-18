@@ -5,4 +5,3 @@ export declare const Header: any;
 export declare const Content: any;
 export declare const Footer: any;
 export declare const Card: any;
-export declare const UserClickableCard: any;
