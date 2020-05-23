@@ -95,6 +95,26 @@ const Demo: React.FC = () => (
         />`}
       </code>
     </pre>
+    <h3>BoardGameGeek url example</h3>
+        <ReactTinyLink
+          cardSize="small"
+          showGraphic={true}
+          maxLine={2}
+          minLine={1}
+          url="https://boardgamegeek.com/boardgame/262211/cloudspire"
+        />  
+    <h4>BoardGameGeek example Code</h4>
+       <pre className="language-markup">
+         <code>
+           {` <ReactTinyLink
+               cardSize="small"
+               showGraphic={true}
+               maxLine={2}
+               minLine={1}
+               url="https://boardgamegeek.com/boardgame/262211/cloudspire"
+            />`}
+         </code>
+       </pre>
     <h3>Youtube url example</h3>
     <ReactTinyLink
       cardSize="small"
