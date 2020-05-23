@@ -96,6 +96,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="http://ekee.io"><img src="https://avatars1.githubusercontent.com/u/17802364?v=4" width="100px;" alt=""/><br /><sub><b>Alexandre Bernard</b></sub></a><br /><a href="https://github.com/winhtaikaung/react-tiny-link/issues?q=author%3ADot-H" title="Bug reports">🐛</a> <a href="https://github.com/winhtaikaung/react-tiny-link/commits?author=Dot-H" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/lizlam"><img src="https://avatars2.githubusercontent.com/u/661514?v=4" width="100px;" alt=""/><br /><sub><b>Liz</b></sub></a><br /><a href="https://github.com/winhtaikaung/react-tiny-link/commits?author=lizlam" title="Code">💻</a> <a href="#example-lizlam" title="Examples">💡</a></td>
   </tr>
 </table>
 
