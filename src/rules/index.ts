@@ -1,4 +1,4 @@
-import { isVideo, isAudio, isImage, isYoutubeUrl, isAmazonUrl, isEmpty, isInstagramUrl } from './utils'
+import { isVideo, isAudio, isImage, isYoutubeUrl, isAmazonUrl, isEmpty, isInstagramUrl, isBoardGameGeekUrl } from './utils'
 import ScrapVideo from './Video/ScrapVideo'
 import ScrapAudio from './Audio/ScrapAudio'
 import ScrapImage from './Image/ScrapImage'
@@ -6,6 +6,7 @@ import ScrapYoutube from './Youtube/ScrapYoutube'
 import ScrapAmazon from './Amazon/ScrapAmazon'
 import ScrapDefault from './Default/ScrapDefault'
 import ScrapInstagram from './Instagram/ScrapInstagram'
+import ScrapBoardGameGeek from './BoardGameGeek/ScrapBoardGameGeek'
 
 export default async (url: string, httpClient, defaultMedia: string[]) => {
   if (!isEmpty(url)) {
@@ -25,6 +26,8 @@ export default async (url: string, httpClient, defaultMedia: string[]) => {
       return await ScrapYoutube(url, htmlDoc, defaultMedia)
     } else if (isAmazonUrl(url)) {
       return await ScrapAmazon(url, htmlDoc, defaultMedia)
+    } else if (isBoardGameGeekUrl(url)) {
+      return await ScrapBoardGameGeek(url, htmlDoc, defaultMedia)
     } else {
       return await ScrapDefault(url, htmlDoc, defaultMedia)
     }
