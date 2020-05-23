@@ -7,6 +7,9 @@ export const isYoutubeUrl = url => !!url.toString().match(REGEX_YOUTUBE)
 const REGEX_INSTAGRAM = /(https?:\/\/www\.)?instagram\.com(\/p\/\w+\/?)/gi
 export const isInstagramUrl = url => !!url.toString().match(REGEX_INSTAGRAM)
 
+const REGEX_BOARDGAMEGEEK = /(https?:\/\/www\.)?boardgamegeek\.com(\/boardgame\/\w+\/\w+\/?)/gi
+export const isBoardGameGeekUrl = url => !!url.toString().match(REGEX_BOARDGAMEGEEK)
+
 export const isEmpty = (value: any) => {
   let isEmptyObject = function(a) {
     if (typeof a.length === 'undefined') {

@@ -19,8 +19,8 @@ const Demo: React.FC = () => (
       by&nbsp;
       <a href="https://github.com/microlinkhq" rel="noopener noreferrer" target="_blank">
         Microlink&nbsp;
-      </a>&nbsp;
-      ) for some of the popular urls like Amazon and Youtube links.
+      </a>
+      &nbsp; ) for some of the popular urls like Amazon and Youtube links.
     </p>
     <p>If you may want to scrape or add customize scrapping rules, please feel free to send PR. </p>
     <h3>Docs</h3>
@@ -95,6 +95,26 @@ const Demo: React.FC = () => (
         />`}
       </code>
     </pre>
+    <h3>BoardGameGeek url example</h3>
+    <ReactTinyLink
+      cardSize="small"
+      showGraphic={true}
+      maxLine={2}
+      minLine={1}
+      url="https://boardgamegeek.com/boardgame/262211/cloudspire"
+    />
+    <h4>BoardGameGeek example Code</h4>
+    <pre className="language-markup">
+      <code>
+        {` <ReactTinyLink
+               cardSize="small"
+               showGraphic={true}
+               maxLine={2}
+               minLine={1}
+               url="https://boardgamegeek.com/boardgame/262211/cloudspire"
+            />`}
+      </code>
+    </pre>
     <h3>Youtube url example</h3>
     <ReactTinyLink
       cardSize="small"
@@ -135,7 +155,9 @@ const Demo: React.FC = () => (
         />`}
       </code>
     </pre>
-    <h3>Video url example with <code>loadSecureUrl=true</code></h3>
+    <h3>
+      Video url example with <code>loadSecureUrl=true</code>
+    </h3>
     <ReactTinyLink
       cardSize="small"
       showGraphic={true}
@@ -144,7 +166,9 @@ const Demo: React.FC = () => (
       loadSecureUrl={true}
       url="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
     />
-    <h4>Video url example Code with <code>loadSecureUrl=true</code></h4>
+    <h4>
+      Video url example Code with <code>loadSecureUrl=true</code>
+    </h4>
     <pre className="language-markup">
       <code>
         {` <ReactTinyLink
@@ -295,6 +319,26 @@ const Demo: React.FC = () => (
         />`}
       </code>
     </pre>
+    <h3>BoardGameGeek url example</h3>
+    <ReactTinyLink
+      cardSize="large"
+      showGraphic={true}
+      maxLine={2}
+      minLine={1}
+      url="https://boardgamegeek.com/boardgame/262211/cloudspire"
+    />
+    <h4>BoardGameGeek example Code</h4>
+    <pre className="language-markup">
+      <code>
+        {` <ReactTinyLink
+               cardSize="large"
+               showGraphic={true}
+               maxLine={2}
+               minLine={1}
+               url="https://boardgamegeek.com/boardgame/262211/cloudspire"
+            />`}
+      </code>
+    </pre>
     <h3>Youtube url example</h3>
     <ReactTinyLink
       cardSize="large"
@@ -421,22 +465,21 @@ const Demo: React.FC = () => (
     <footer>
       Made with <i className="fa fa-heart" style={{ color: `red` }} /> in Singapore
       <p>
-
         <a href="http://twitter.com/winhtaikaung">
           Twitter
-          <i className="fab fa-twitter" style={{ color: `#00b4ff` }} />&nbsp;
+          <i className="fab fa-twitter" style={{ color: `#00b4ff` }} />
+          &nbsp;
         </a>
       </p>
       <p>
-
         <a href="http://github.com/winhtaikaung">
           Github
-          <i className="fab fa-github" />&nbsp;
+          <i className="fab fa-github" />
+          &nbsp;
         </a>
       </p>
     </footer>
   </>
-);
-
-(window as any).env = process.env.NODE_ENV
+)
+;(window as any).env = process.env.NODE_ENV
 render(<Demo />, document.getElementById('demo'))
