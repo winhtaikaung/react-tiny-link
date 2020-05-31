@@ -2,6 +2,7 @@ export declare const isAmazonUrl: (url: any) => boolean;
 export declare const isYoutubeUrl: (url: any) => boolean;
 export declare const isInstagramUrl: (url: any) => boolean;
 export declare const isBoardGameGeekUrl: (url: any) => boolean;
+export declare const isTwitterUrl: (url: any) => boolean;
 export declare const isEmpty: (value: any) => any;
 export declare const isAudio: (mimeType: string) => boolean;
 export declare const isVideo: (mimeType: string) => boolean;

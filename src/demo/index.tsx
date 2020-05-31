@@ -265,6 +265,28 @@ const Demo: React.FC = () => (
       />`}
       </code>
     </pre>
+
+    <h3>Twitter url example</h3>
+    <ReactTinyLink
+      cardSize="small"
+      showGraphic={true}
+      maxLine={2}
+      minLine={1}
+      url="https://twitter.com/linuxfoundation/status/1257347380728512513"
+    />
+    <h4>Twitter Link</h4>
+    <pre className="language-markup">
+      <code>
+        {`<ReactTinyLink
+        cardSize="small"
+        showGraphic={true}
+        maxLine={2}
+        minLine={1}
+        url="https://twitter.com/linuxfoundation/status/1257347380728512513"
+    />`}
+      </code>
+    </pre>
+
     {/* Small Card Examples ends here */}
     {/* Large Card Examples starts here */}
     <Hover constant={<h3>Resistant to premature unmounts</h3>}>
@@ -385,11 +407,12 @@ const Demo: React.FC = () => (
     <pre className="language-markup">
       <code>
         {` <ReactTinyLink
-  cardSize="large"
-  showGraphic={true}
-  maxLine={2}
-  minLine={1}
-  url="https://medium.com/" />`}
+            cardSize="large"
+            showGraphic={true}
+            maxLine={2}
+            minLine={1}
+            url="https://medium.com/" 
+        />`}
       </code>
     </pre>
     <h3>Preset header and description for CDN links</h3>
@@ -459,6 +482,27 @@ const Demo: React.FC = () => (
         onClick={(e, response) => alert(JSON.stringify(response))}
         url="https://www.instagram.com/p/B2znvScBD8R/"
       />`}
+      </code>
+    </pre>
+
+    <h3>Twitter url example</h3>
+    <ReactTinyLink
+      cardSize="large"
+      showGraphic={true}
+      maxLine={2}
+      minLine={1}
+      url="https://twitter.com/linuxfoundation/status/1257347380728512513"
+    />
+    <h4>Twitter Link</h4>
+    <pre className="language-markup">
+      <code>
+        {`<ReactTinyLink
+        cardSize="large"
+        showGraphic={true}
+        maxLine={2}
+        minLine={1}
+        url="https://twitter.com/linuxfoundation/status/1257347380728512513"
+    />`}
       </code>
     </pre>
     {/* Large Card Examples ends Here */}

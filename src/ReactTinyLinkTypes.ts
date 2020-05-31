@@ -7,6 +7,7 @@ export enum ReactTinyLinkType {
   TYPE_DEFAULT = 'TYPE_DEFAULT',
   TYPE_INSTAGRAM = 'TYPE_INSTAGRAM',
   TYPE_BOARDGAMEGEEK = 'TYPE_BOARDGAMEGEEK',
+  TYPE_TWITTER = "TYPE_TWITTER",
 }
 
 export type CardSizeType = 'small' | 'large'
