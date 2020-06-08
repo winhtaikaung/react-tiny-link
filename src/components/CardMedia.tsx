@@ -41,8 +41,10 @@ const VideoWrapper = ({ data, secureVideoUrl, loadSecureUrl, autoPlay }) => {
       }, 1000)
     }}
     autoPlay={autoPlay}
-    src={videoUrl}
-  />
+    controls
+  >
+    <source src={`${videoUrl}#t=0.1`}></source>
+  </Video>
 
 }
 
