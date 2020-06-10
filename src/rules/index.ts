@@ -1,4 +1,14 @@
-import { isVideo, isAudio, isImage, isYoutubeUrl, isAmazonUrl, isEmpty, isInstagramUrl, isBoardGameGeekUrl, isTwitterUrl } from './utils'
+import {
+  isVideo,
+  isAudio,
+  isImage,
+  isYoutubeUrl,
+  isAmazonUrl,
+  isEmpty,
+  isInstagramUrl,
+  isBoardGameGeekUrl,
+  isTwitterUrl,
+} from './utils'
 import ScrapVideo from './Video/ScrapVideo'
 import ScrapAudio from './Audio/ScrapAudio'
 import ScrapImage from './Image/ScrapImage'
@@ -22,7 +32,7 @@ export default async (url: string, httpClient, defaultMedia: string[]) => {
     } else if (isImage(mimeType)) {
       return await ScrapImage(url, defaultMedia)
     } else if (isInstagramUrl(url)) {
-      return await ScrapInstagram(url, htmlDoc, data, defaultMedia)
+      return await ScrapInstagram(url, data)
     } else if (isYoutubeUrl(url)) {
       return await ScrapYoutube(url, htmlDoc, defaultMedia)
     } else if (isAmazonUrl(url)) {
