@@ -6,7 +6,7 @@ import { makeCancelable } from './utils'
 
 // Types
 import { IReactTinyLinkData } from './ReactTinyLinkTypes'
-import { isInstagramUrl } from './rules/utils'
+import { isInstagramUrl, isTwitterUrl } from './rules/utils'
 
 /** current state of the fetch */
 export interface IState<T, E> {
@@ -75,6 +75,9 @@ export function useMountFetch(
         let client
         if (isInstagramUrl(url)) {
           const modifiedInstaUrl = `https://api.instagram.com/oembed/?url=${url}`
+          client = fetch(proxyUrl ? `${proxyUrl}/${modifiedInstaUrl}` : modifiedInstaUrl, { headers })
+        } else if (isTwitterUrl(url)) {
+          const modifiedInstaUrl = `https://publish.twitter.com/oembed?url=${url}`
           client = fetch(proxyUrl ? `${proxyUrl}/${modifiedInstaUrl}` : modifiedInstaUrl, { headers })
         } else {
           client = fetch(proxyUrl ? `${proxyUrl}/${url}` : url, { headers })

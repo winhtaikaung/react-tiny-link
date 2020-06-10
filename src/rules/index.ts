@@ -32,7 +32,7 @@ export default async (url: string, httpClient, defaultMedia: string[]) => {
     } else if (isImage(mimeType)) {
       return await ScrapImage(url, defaultMedia)
     } else if (isInstagramUrl(url)) {
-      return await ScrapInstagram(url, data)
+      return await ScrapInstagram(url, data, defaultMedia)
     } else if (isYoutubeUrl(url)) {
       return await ScrapYoutube(url, htmlDoc, defaultMedia)
     } else if (isAmazonUrl(url)) {
@@ -40,7 +40,7 @@ export default async (url: string, httpClient, defaultMedia: string[]) => {
     } else if (isBoardGameGeekUrl(url)) {
       return await ScrapBoardGameGeek(url, htmlDoc, defaultMedia)
     } else if (isTwitterUrl(url)) {
-      return await ScrapTwitter(url, htmlDoc, defaultMedia)
+      return await ScrapTwitter(url, data, htmlDoc, defaultMedia)
     } else {
       return await ScrapDefault(url, htmlDoc, defaultMedia)
     }

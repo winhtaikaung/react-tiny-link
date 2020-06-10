@@ -1,6 +1,7 @@
 import { ReactTinyLinkType } from '../../ReactTinyLinkTypes'
+import { isEmpty } from '../utils'
 
-export default async (url: string, data) => {
+export default async (url: string, data, defaultMedia) => {
   const scrappedData = JSON.parse(data)
   return {
     title: scrappedData.title,
@@ -8,7 +9,9 @@ export default async (url: string, data) => {
     url: url,
     description: scrappedData.title,
     video: null,
-    image: [scrappedData.thumbnail_url],
+    image: !defaultMedia
+      ? [scrappedData.thumbnail_url]
+      : [scrappedData.thumbnail_url, defaultMedia].filter(i => !isEmpty(i)),
     type: ReactTinyLinkType.TYPE_IMAGE, // MIME Type
   }
 }
