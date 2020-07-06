@@ -108,7 +108,7 @@ export function useMountFetch(
       isMounted = false // Avoid all the state management
       cancelable.cancel() // Cancel the request
     }
-  }, []) // Put no dependecy, does the fetch only once on mount
+  }, [url, proxyUrl]) // Put no dependecy, does the fetch only once on mount
 
   return [state.response, state.loading, state.error]
 }
