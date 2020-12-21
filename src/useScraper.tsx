@@ -35,11 +35,11 @@ export interface IState<T, E> {
  */
 export type ResponseState<T, E> = [T | undefined, boolean, E | undefined]
 
-export function useMountFetch(
+export type UseScraperConfig = {
   url: string,
   proxyUrl: string,
   /** default medias passed to the `ScraperWraper` */
-  defaultMedias: string[],
+  defaultMedias?: string[],
   /**
    * Permits to pass a default value. This will be the response's value
    * during the loading and in case of error.
@@ -50,7 +50,16 @@ export function useMountFetch(
   onError?: (error: Error) => void,
   /** Called when the fetch succeeded with the resulting data */
   onSuccess?: (response: IReactTinyLinkData) => void,
-): ResponseState<IReactTinyLinkData, Error> {
+};
+
+export function useScraper({
+  url,
+  proxyUrl,
+  defaultMedias = [],
+  defaultValue,
+  onError,
+  onSuccess,
+}: UseScraperConfig): ResponseState<IReactTinyLinkData, Error> {
   // Alias to IState
   type State = IState<IReactTinyLinkData, Error>
 
