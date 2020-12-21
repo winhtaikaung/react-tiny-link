@@ -37,7 +37,7 @@ export type ResponseState<T, E> = [T | undefined, boolean, E | undefined]
 
 export type UseScraperConfig = {
   url: string,
-  proxyUrl: string,
+  proxyUrl?: string,
   /** default medias passed to the `ScraperWraper` */
   defaultMedias?: string[],
   /**
@@ -54,7 +54,7 @@ export type UseScraperConfig = {
 
 export function useScraper({
   url,
-  proxyUrl,
+  proxyUrl = 'https://cors-anywhere.herokuapp.com',
   defaultMedias = [],
   defaultValue,
   onError,

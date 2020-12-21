@@ -25,7 +25,7 @@ export declare type ResponseState<T, E> = [T | undefined, boolean, E | undefined
 
 export declare type UseScraperConfig = {
     url: string,
-    proxyUrl: string,
+    proxyUrl?: string,
     /** default medias passed to the `ScraperWraper` */
     defaultMedias?: string[],
     /**
