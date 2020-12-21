@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { IReactTinyLinkProps, IReactTinyLinkData } from './ReactTinyLinkTypes';
-import { UseScraperConfig, ResponseState } from './useScraper';
+import { IReactTinyLinkProps } from './ReactTinyLinkTypes';
+import { useScraper } from './useScraper';
+export declare const useScrapper: typeof useScraper;
 export declare const ScrapperWraper: (url: string, httpClient: any, defaultMedia: string[]) => Promise<{
     title: any;
     content: string;
@@ -17,5 +18,4 @@ export declare const ScrapperWraper: (url: string, httpClient: any, defaultMedia
     video: any[];
     image: any[];
 }>;
-export declare const useScrapper: (config: UseScraperConfig) => ResponseState<IReactTinyLinkData, Error>;
 export declare const ReactTinyLink: React.FC<IReactTinyLinkProps>;
