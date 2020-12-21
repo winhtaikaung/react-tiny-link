@@ -227,7 +227,7 @@ const Demo: React.FC = () => (
       showGraphic={true}
       maxLine={2}
       minLine={1}
-      url="https://www.instagram.com/p/B2znvScBD8R/"
+      url="https://www.instagram.com/p/CJCrsdPj4i-/"
     />
     <h4>Instagram Link example</h4>
     <pre className="language-markup">
@@ -238,7 +238,7 @@ const Demo: React.FC = () => (
         showGraphic={true}
         maxLine={2}
         minLine={1}
-        url="https://www.instagram.com/p/B2znvScBD8R/"
+        url="https://www.instagram.com/p/CJCrsdPj4i-/"
       />`}
       </code>
     </pre>
@@ -250,7 +250,7 @@ const Demo: React.FC = () => (
       maxLine={2}
       minLine={1}
       onClick={(_, response) => alert(JSON.stringify(response))}
-      url="https://www.instagram.com/p/B2znvScBD8R/"
+      url="https://www.instagram.com/p/CJCrsdPj4i-/"
     />
     <h4>Instagram Link Clickable example</h4>
     <pre className="language-markup">
@@ -261,7 +261,7 @@ const Demo: React.FC = () => (
         maxLine={2}
         minLine={1}
         onClick={(e, response) => alert(JSON.stringify(response))}
-        url="https://www.instagram.com/p/B2znvScBD8R/"
+        url="https://www.instagram.com/p/CJCrsdPj4i-/"
       />`}
       </code>
     </pre>
