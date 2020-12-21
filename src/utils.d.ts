@@ -25,6 +25,6 @@ export declare function noop(): void;
  * https://github.com/facebook/react/issues/5465#issuecomment-157888325
  */
 export declare const makeCancelable: (promise: any) => {
-    promise: Promise<unknown>;
+    promise: Promise<{}>;
     cancel(): void;
 };

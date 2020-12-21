@@ -5,8 +5,9 @@ import { getHostname, noop, defaultData } from './utils'
 import { IReactTinyLinkProps } from './ReactTinyLinkTypes'
 import ScraperWraper from './rules'
 import CardMedia from './components/CardMedia'
-import { useMountFetch } from './useMountFetch';
+import { useScraper } from './useScraper';
 
+export const useScrapper = useScraper
 export const ScrapperWraper = ScraperWraper
 export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
   cardSize = 'small',
@@ -26,9 +27,15 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
   onClick = null,
 }: IReactTinyLinkProps) => {
 
-  const defaultMediaArr = defaultMedia ? [defaultMedia] : []
-  const [data, loading] = useMountFetch(
-    url, proxyUrl, defaultMediaArr, defaultData(url, defaultMediaArr), onError, onSuccess)
+  const defaultMedias = defaultMedia ? [defaultMedia] : []
+  const [data, loading] = useScraper({
+    url,
+    proxyUrl,
+    defaultMedias,
+    defaultValue: defaultData(url, defaultMedias),
+    onError,
+    onSuccess,
+  });
 
   return (
     <>

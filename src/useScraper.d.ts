@@ -22,15 +22,19 @@ export interface IState<T, E> {
  *    loading.
  */
 export declare type ResponseState<T, E> = [T | undefined, boolean, E | undefined];
-export declare function useMountFetch(url: string, proxyUrl: string, 
-/** default medias passed to the `ScraperWraper` */
-defaultMedias: string[], 
-/**
- * Permits to pass a default value. This will be the response's value
- * during the loading and in case of error.
- */
-defaultValue?: IReactTinyLinkData, 
-/** Called when the fetch failed with the reason of the failure */
-onError?: (error: Error) => void, 
-/** Called when the fetch succeeded with the resulting data */
-onSuccess?: (response: IReactTinyLinkData) => void): ResponseState<IReactTinyLinkData, Error>;
+export declare type UseScraperConfig = {
+    url: string;
+    proxyUrl?: string;
+    /** default medias passed to the `ScraperWraper` */
+    defaultMedias?: string[];
+    /**
+     * Permits to pass a default value. This will be the response's value
+     * during the loading and in case of error.
+     */
+    defaultValue?: IReactTinyLinkData;
+    /** Called when the fetch failed with the reason of the failure */
+    onError?: (error: Error) => void;
+    /** Called when the fetch succeeded with the resulting data */
+    onSuccess?: (response: IReactTinyLinkData) => void;
+};
+export declare function useScraper({ url, proxyUrl, defaultMedias, defaultValue, onError, onSuccess, }: UseScraperConfig): ResponseState<IReactTinyLinkData, Error>;
