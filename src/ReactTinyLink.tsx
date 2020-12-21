@@ -17,6 +17,7 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
   description = null,
   url = '',
   width = '640px',
+  noCache = false,
   proxyUrl = 'https://cors-anywhere.herokuapp.com',
   showGraphic = true,
   autoPlay = false,
@@ -33,6 +34,7 @@ export const ReactTinyLink: React.FC<IReactTinyLinkProps> = ({
     proxyUrl,
     defaultMedias,
     defaultValue: defaultData(url, defaultMedias),
+    noCache,
     onError,
     onSuccess,
   });

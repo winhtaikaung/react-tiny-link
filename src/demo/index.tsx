@@ -53,6 +53,15 @@ const Demo: React.FC = () => (
         url="https://ekee.io/"
       />
     </Hover>
+    <Hover constant={<h3>Cache responses</h3>}>
+      <ReactTinyLink
+        cardSize="small"
+        showGraphic={true}
+        maxLine={2}
+        minLine={1}
+        url="https://www.youtube.com/watch?v=xn2A_dXoIAA"
+      />
+    </Hover>
     <h3>Amazon url example</h3>
     <ReactTinyLink
       cardSize="small"

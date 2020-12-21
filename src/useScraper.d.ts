@@ -32,9 +32,11 @@ export declare type UseScraperConfig = {
      * during the loading and in case of error.
      */
     defaultValue?: IReactTinyLinkData;
+    /** disables cache */
+    noCache?: boolean;
     /** Called when the fetch failed with the reason of the failure */
     onError?: (error: Error) => void;
     /** Called when the fetch succeeded with the resulting data */
     onSuccess?: (response: IReactTinyLinkData) => void;
 };
-export declare function useScraper({ url, proxyUrl, defaultMedias, defaultValue, onError, onSuccess, }: UseScraperConfig): ResponseState<IReactTinyLinkData, Error>;
+export declare function useScraper({ url, proxyUrl, defaultMedias, defaultValue, noCache, onError, onSuccess, }: UseScraperConfig): ResponseState<IReactTinyLinkData, Error>;
