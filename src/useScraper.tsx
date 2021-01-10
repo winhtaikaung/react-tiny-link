@@ -45,6 +45,8 @@ export type UseScraperConfig = {
    * during the loading and in case of error.
    */
   defaultValue?: IReactTinyLinkData,
+  /** disables cache */
+  noCache?: boolean,
   // Hooks for the caller
   /** Called when the fetch failed with the reason of the failure */
   onError?: (error: Error) => void,
@@ -52,11 +54,16 @@ export type UseScraperConfig = {
   onSuccess?: (response: IReactTinyLinkData) => void,
 };
 
+type CacheMap = Map<string, IReactTinyLinkData>;
+
+const cache: CacheMap = new Map();
+
 export function useScraper({
   url,
   proxyUrl = 'https://cors-anywhere.herokuapp.com',
   defaultMedias = [],
   defaultValue,
+  noCache,
   onError,
   onSuccess,
 }: UseScraperConfig): ResponseState<IReactTinyLinkData, Error> {
@@ -81,18 +88,23 @@ export function useScraper({
 
       try {
         // actual request to preview the link
-        let client
+        let urlToCall = proxyUrl ? `${proxyUrl}/${url}` : url
         if (isInstagramUrl(url)) {
           const modifiedInstaUrl = `https://api.instagram.com/oembed/?url=${url}`
-          client = fetch(proxyUrl ? `${proxyUrl}/${modifiedInstaUrl}` : modifiedInstaUrl, { headers })
+          urlToCall = proxyUrl ? `${proxyUrl}/${modifiedInstaUrl}` : modifiedInstaUrl
         } else if (isTwitterUrl(url)) {
           const modifiedInstaUrl = `https://publish.twitter.com/oembed?url=${url}`
-          client = fetch(proxyUrl ? `${proxyUrl}/${modifiedInstaUrl}` : modifiedInstaUrl, { headers })
-        } else {
-          client = fetch(proxyUrl ? `${proxyUrl}/${url}` : url, { headers })
+          urlToCall = proxyUrl ? `${proxyUrl}/${modifiedInstaUrl}` : modifiedInstaUrl
         }
 
-        const data = await ScraperWraper(url, client, defaultMedias)
+        let data
+        if (!noCache && cache.has(urlToCall)) {
+          data = cache.get(urlToCall)
+        } else {
+          const client = fetch(urlToCall, { headers });
+          data = await ScraperWraper(url, client, defaultMedias)
+          cache.set(urlToCall, data)
+        }
         finalStateUpdate.response = data
 
         onSuccess && isMounted && onSuccess(data)
@@ -117,7 +129,7 @@ export function useScraper({
       isMounted = false // Avoid all the state management
       cancelable.cancel() // Cancel the request
     }
-  }, [url, proxyUrl]) // Put no dependecy, does the fetch only once on mount
+  }, [url, proxyUrl, noCache]) // Put no dependecy, does the fetch only once on mount
 
   return [state.response, state.loading, state.error]
 }

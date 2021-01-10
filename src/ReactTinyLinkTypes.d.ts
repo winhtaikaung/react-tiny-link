@@ -23,6 +23,7 @@ export interface IReactTinyLinkProps {
     showGraphic?: boolean;
     autoPlay?: boolean;
     width?: string | number;
+    noCache?: boolean;
     proxyUrl?: string;
     loadSecureUrl?: boolean;
     scraper?: (url: string, httpClient: any, defaultMedia: any) => Promise<{
