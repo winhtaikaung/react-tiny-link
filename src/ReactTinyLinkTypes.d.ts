@@ -15,6 +15,7 @@ export interface IReactTinyLinkProps {
     maxLine: number;
     minLine: number;
     url: string;
+    requestHeaders?: Headers | string[][] | Record<string, string>;
     header?: string;
     onError?: (error: Error) => void;
     onSuccess?: (response: IReactTinyLinkData) => void;

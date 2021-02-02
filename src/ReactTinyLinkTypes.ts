@@ -7,7 +7,7 @@ export enum ReactTinyLinkType {
   TYPE_DEFAULT = 'TYPE_DEFAULT',
   TYPE_INSTAGRAM = 'TYPE_INSTAGRAM',
   TYPE_BOARDGAMEGEEK = 'TYPE_BOARDGAMEGEEK',
-  TYPE_TWITTER = "TYPE_TWITTER",
+  TYPE_TWITTER = 'TYPE_TWITTER',
 }
 
 export type CardSizeType = 'small' | 'large'
@@ -17,6 +17,7 @@ export interface IReactTinyLinkProps {
   maxLine: number
   minLine: number
   url: string
+  requestHeaders?: Headers | string[][] | Record<string, string>
   header?: string
   onError?: (error: Error) => void
   onSuccess?: (response: IReactTinyLinkData) => void

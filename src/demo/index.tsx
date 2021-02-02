@@ -237,6 +237,7 @@ const Demo: React.FC = () => (
       maxLine={2}
       minLine={1}
       url="https://www.instagram.com/p/CJCrsdPj4i-/"
+      requestHeaders={{}}
     />
     <h4>Instagram Link example</h4>
     <pre className="language-markup">
@@ -248,6 +249,7 @@ const Demo: React.FC = () => (
         maxLine={2}
         minLine={1}
         url="https://www.instagram.com/p/CJCrsdPj4i-/"
+        requestHeaders={{}}
       />`}
       </code>
     </pre>
@@ -260,6 +262,7 @@ const Demo: React.FC = () => (
       minLine={1}
       onClick={(_, response) => alert(JSON.stringify(response))}
       url="https://www.instagram.com/p/CJCrsdPj4i-/"
+      requestHeaders={{}}
     />
     <h4>Instagram Link Clickable example</h4>
     <pre className="language-markup">
@@ -271,6 +274,7 @@ const Demo: React.FC = () => (
         minLine={1}
         onClick={(e, response) => alert(JSON.stringify(response))}
         url="https://www.instagram.com/p/CJCrsdPj4i-/"
+        requestHeaders={{}}
       />`}
       </code>
     </pre>
@@ -457,6 +461,7 @@ const Demo: React.FC = () => (
       maxLine={2}
       minLine={1}
       url="https://www.instagram.com/p/B2znvScBD8R/"
+      requestHeaders={{}}
     />
     <h4>Instagram Link example</h4>
     <pre className="language-markup">
@@ -468,6 +473,7 @@ const Demo: React.FC = () => (
         maxLine={2}
         minLine={1}
         url="https://www.instagram.com/p/B2znvScBD8R/"
+        requestHeaders={{}}
       />`}
       </code>
     </pre>
@@ -479,6 +485,7 @@ const Demo: React.FC = () => (
       minLine={1}
       onClick={(_, response) => alert(JSON.stringify(response))}
       url="https://www.instagram.com/p/B2znvScBD8R/"
+      requestHeaders={{}}
     />
     <h4>Instagram Link Clickable example</h4>
     <pre className="language-markup">
@@ -490,6 +497,7 @@ const Demo: React.FC = () => (
         minLine={1}
         onClick={(e, response) => alert(JSON.stringify(response))}
         url="https://www.instagram.com/p/B2znvScBD8R/"
+        requestHeaders={{}}
       />`}
       </code>
     </pre>

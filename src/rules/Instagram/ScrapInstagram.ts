@@ -3,15 +3,16 @@ import { isEmpty } from '../utils'
 
 export default async (url: string, data, defaultMedia) => {
   const scrappedData = JSON.parse(data)
+
   return {
-    title: scrappedData.title,
+    title: scrappedData.graphql.shortcode_media.accessibility_caption,
     content: url,
     url: url,
     description: scrappedData.title,
     video: null,
     image: !defaultMedia
-      ? [scrappedData.thumbnail_url]
-      : [scrappedData.thumbnail_url, defaultMedia].filter(i => !isEmpty(i)),
+      ? [scrappedData.graphql.shortcode_media.display_url]
+      : [scrappedData.graphql.shortcode_media.display_url, defaultMedia].filter(i => !isEmpty(i)),
     type: ReactTinyLinkType.TYPE_IMAGE, // MIME Type
   }
 }

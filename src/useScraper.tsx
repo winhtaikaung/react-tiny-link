@@ -36,27 +36,28 @@ export interface IState<T, E> {
 export type ResponseState<T, E> = [T | undefined, boolean, E | undefined]
 
 export type UseScraperConfig = {
-  url: string,
-  proxyUrl?: string,
+  url: string
+  proxyUrl?: string
+  requestHeaders?: Headers | string[][] | Record<string, string>
   /** default medias passed to the `ScraperWraper` */
-  defaultMedias?: string[],
+  defaultMedias?: string[]
   /**
    * Permits to pass a default value. This will be the response's value
    * during the loading and in case of error.
    */
-  defaultValue?: IReactTinyLinkData,
+  defaultValue?: IReactTinyLinkData
   /** disables cache */
-  noCache?: boolean,
+  noCache?: boolean
   // Hooks for the caller
   /** Called when the fetch failed with the reason of the failure */
-  onError?: (error: Error) => void,
+  onError?: (error: Error) => void
   /** Called when the fetch succeeded with the resulting data */
-  onSuccess?: (response: IReactTinyLinkData) => void,
-};
+  onSuccess?: (response: IReactTinyLinkData) => void
+}
 
-type CacheMap = Map<string, IReactTinyLinkData>;
+type CacheMap = Map<string, IReactTinyLinkData>
 
-const cache: CacheMap = new Map();
+const cache: CacheMap = new Map()
 
 export function useScraper({
   url,
@@ -66,6 +67,7 @@ export function useScraper({
   noCache,
   onError,
   onSuccess,
+  requestHeaders,
 }: UseScraperConfig): ResponseState<IReactTinyLinkData, Error> {
   // Alias to IState
   type State = IState<IReactTinyLinkData, Error>
@@ -85,13 +87,14 @@ export function useScraper({
     // Wraps the `ScraperWraper` to manage the hook's state
     const doFetch = async (): Promise<IReactTinyLinkData> => {
       const finalStateUpdate: Partial<State> = { loading: false, error: undefined }
+      let headers = requestHeaders
 
       try {
         // actual request to preview the link
         let urlToCall = proxyUrl ? `${proxyUrl}/${url}` : url
         if (isInstagramUrl(url)) {
-          const modifiedInstaUrl = `https://api.instagram.com/oembed/?url=${url}`
-          urlToCall = proxyUrl ? `${proxyUrl}/${modifiedInstaUrl}` : modifiedInstaUrl
+          const modifiedInstaUrl = `${url}?__a=1&max_id=endcursor`
+          urlToCall = modifiedInstaUrl
         } else if (isTwitterUrl(url)) {
           const modifiedInstaUrl = `https://publish.twitter.com/oembed?url=${url}`
           urlToCall = proxyUrl ? `${proxyUrl}/${modifiedInstaUrl}` : modifiedInstaUrl
@@ -101,7 +104,7 @@ export function useScraper({
         if (!noCache && cache.has(urlToCall)) {
           data = cache.get(urlToCall)
         } else {
-          const client = fetch(urlToCall, { headers });
+          const client = fetch(urlToCall, { headers })
           data = await ScraperWraper(url, client, defaultMedias)
           cache.set(urlToCall, data)
         }
@@ -135,4 +138,3 @@ export function useScraper({
 }
 
 /** headers passed to the fetch request */
-const headers = { 'x-requested-with': '' }
