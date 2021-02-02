@@ -37,48 +37,48 @@ import { ReactTinyLink } from 'react-tiny-link'
 
 ## Props & methods
 
-| PropName          | Description                                                                                                                                     | PropType                              | value                                          | required |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ---------------------------------------------- | -------- |
-| **url**           | URL to be display as preview                                                                                                                    | string                                |                                                | `true`   |
-| **cardSize**      | Size of the card                                                                                                                                | string                                | default (`small`) `small`,`large`              | `false`  |
-| **maxLine**       | Maximum number of line to ellipsis                                                                                                              | number                                | 2                                              | `false`  |
-| **minLine**       | Minimum number of line to ellipsis                                                                                                              | number                                | 1                                              | `false`  |
-| **width**         | Width of the link preview card                                                                                                                  | number                                | default(`100vw`)                               | `false`  |
-| **header**        | Default Header content                                                                                                                          | string                                | null                                           | `false`  |
-| **description**   | Default description content                                                                                                                     | string                                | null                                           | `false`  |
-| **proxyUrl**      | Proxy URL to pass that resolve CORS                                                                                                             | string                                | default(`https://cors-anywhere.herokuapp.com`) | `false`  |
-| **showGraphic**   | Boolean value to display graphics                                                                                                               | boolean                               | default(`true`)                                | `false`  |
-| **autoPlay**      | Boolean value to play the media if provided url is video                                                                                        | boolean                               | default(`false`)                               | `false`  |
-| **defaultMedia**  | Default value to provide the media for failure cases                                                                                            | string                                | N.A                                            | `false`  |
-| **noCache**       | Disables cache of link result                                                                                                                   | boolean                               | default(`false`)                               | `false`  |
-| **onError**       | Error callback on when the url failed to fetch                                                                                                  | onError(`error:Error`)                | N.A                                            | `false`  |
-| **onSuccess**     | Success callback on when the url was fetched successfully                                                                                       | onSuccess(`data:IResponseData`)       | N.A                                            | `false`  |
-| **onClick**       | Click event which will allow to add custom implementation `onClick` event if it was not provided the component itself will render as `<a></a>`. | onClick(`e:Event,data:IResponseData`) | default(`null`)                                | `false`  |
-| **loadSecureUrl** | Load only secure ( `https://` ) resources. If no secure resource was found, then don't render the `<img>` and `<video>` element                 | boolean                               | default(`false`)                               | `false`  |
-
+| PropName           | Description                                                                                                                                     | PropType                              | value                                          | required |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ---------------------------------------------- | -------- |
+| **url**            | URL to be display as preview                                                                                                                    | string                                |                                                | `true`   |
+| **cardSize**       | Size of the card                                                                                                                                | string                                | default (`small`) `small`,`large`              | `false`  |
+| **maxLine**        | Maximum number of line to ellipsis                                                                                                              | number                                | 2                                              | `false`  |
+| **minLine**        | Minimum number of line to ellipsis                                                                                                              | number                                | 1                                              | `false`  |
+| **width**          | Width of the link preview card                                                                                                                  | number                                | default(`100vw`)                               | `false`  |
+| **header**         | Default Header content                                                                                                                          | string                                | null                                           | `false`  |
+| **description**    | Default description content                                                                                                                     | string                                | null                                           | `false`  |
+| **proxyUrl**       | Proxy URL to pass that resolve CORS                                                                                                             | string                                | default(`https://cors-anywhere.herokuapp.com`) | `false`  |
+| **showGraphic**    | Boolean value to display graphics                                                                                                               | boolean                               | default(`true`)                                | `false`  |
+| **autoPlay**       | Boolean value to play the media if provided url is video                                                                                        | boolean                               | default(`false`)                               | `false`  |
+| **defaultMedia**   | Default value to provide the media for failure cases                                                                                            | string                                | N.A                                            | `false`  |
+| **noCache**        | Disables cache of link result                                                                                                                   | boolean                               | default(`false`)                               | `false`  |
+| **onError**        | Error callback on when the url failed to fetch                                                                                                  | onError(`error:Error`)                | N.A                                            | `false`  |
+| **onSuccess**      | Success callback on when the url was fetched successfully                                                                                       | onSuccess(`data:IResponseData`)       | N.A                                            | `false`  |
+| **onClick**        | Click event which will allow to add custom implementation `onClick` event if it was not provided the component itself will render as `<a></a>`. | onClick(`e:Event,data:IResponseData`) | default(`null`)                                | `false`  |
+| **loadSecureUrl**  | Load only secure ( `https://` ) resources. If no secure resource was found, then don't render the `<img>` and `<video>` element                 | boolean                               | default(`false`)                               | `false`  |
+| **requestHeaders** | Request headers that will override the fetch headers                                                                                            | Record<string, string>;               | default(`false`)                               | `false`  |
 
 ## Hook usage
 
 ```javascript
-import { useScrapper } from 'react-tiny-link';
+import { useScrapper } from 'react-tiny-link'
 
 const [result, loading, error] = useScrapper({
-  url: 'https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_18637582011_1_1?srs=18637582011&ie=UTF8&qid=1550721409&sr=8-1'
-});
+  url:
+    'https://www.amazon.com/Steve-Madden-Mens-Jagwar-10-5/dp/B016X44MKA/ref=lp_18637582011_1_1?srs=18637582011&ie=UTF8&qid=1550721409&sr=8-1',
+})
 ```
 
 ## Params
 
-| PropName          | Description                                                                                                                                     | PropType                              | value                                          | required |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ---------------------------------------------- | -------- |
-| **url**           | URL to be display as preview                                                                                                                    | string                                |                                                | `true`   |
-| **proxyUrl**      | Proxy URL to pass that resolve CORS                                                                                                             | string                                | default(`https://cors-anywhere.herokuapp.com`) | `false`  |
-| **defaultMedias** | Default value to provide the media for failure cases                                                                                            | string[]                              | N.A                                            | `false`  |
-| **defaultValue**  | Default response to provide for failure cases                                                                                                   | IReactTinyLinkData                    | N.A                                            | `false`  |
-| **noCache**       | Disables cache of link result                                                                                                                   | boolean                               | default(`false`)                               | `false`  |
-| **onError**       | Error callback on when the url failed to fetch                                                                                                  | onError(`error:Error`)                | N.A                                            | `false`  |
-| **onSuccess**     | Success callback on when the url was fetched successfully                                                                                       | onSuccess(`data:IResponseData`)       | N.A                                            | `false`  |
-
+| PropName          | Description                                               | PropType                        | value                                          | required |
+| ----------------- | --------------------------------------------------------- | ------------------------------- | ---------------------------------------------- | -------- |
+| **url**           | URL to be display as preview                              | string                          |                                                | `true`   |
+| **proxyUrl**      | Proxy URL to pass that resolve CORS                       | string                          | default(`https://cors-anywhere.herokuapp.com`) | `false`  |
+| **defaultMedias** | Default value to provide the media for failure cases      | string[]                        | N.A                                            | `false`  |
+| **defaultValue**  | Default response to provide for failure cases             | IReactTinyLinkData              | N.A                                            | `false`  |
+| **noCache**       | Disables cache of link result                             | boolean                         | default(`false`)                               | `false`  |
+| **onError**       | Error callback on when the url failed to fetch            | onError(`error:Error`)          | N.A                                            | `false`  |
+| **onSuccess**     | Success callback on when the url was fetched successfully | onSuccess(`data:IResponseData`) | N.A                                            | `false`  |
 
 ## Demo App &
 
@@ -127,6 +127,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
