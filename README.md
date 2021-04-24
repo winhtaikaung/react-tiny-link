@@ -68,6 +68,21 @@ const [result, loading, error] = useScrapper({
 })
 ```
 
+## Next.JS
+For Next.Js you will have to turn off `ssr` false and use dynamic import.
+ Because `react-tiny-link` uses `styled-components` as styling library which uses browser API `window` to attach `scCGSHMRCache` and stuffs after build.
+
+```javascript
+import dynamic from "next/dynamic";
+const ReactTinyLink = dynamic(
+  () => {
+    return import("react-tiny-link").then((mod) => mod.ReactTinyLink);
+  },
+  { ssr: false }
+);
+
+```
+
 ## Params
 
 | PropName          | Description                                               | PropType                        | value                                          | required |
